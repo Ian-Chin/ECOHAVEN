@@ -1,7 +1,8 @@
 @media (max-width: 600px) {
+    /* Header */
     .logo {
         height: 2em; 
-        width: auto; 
+        width: auto;                    
         position: absolute;
         left: 1em;
     }
@@ -14,7 +15,7 @@
         top: 1em;
         right: 4%;    
     }
-
+/* ----------------------------------------------------------------- */
     .nav-links {
         display: none;
         flex-direction: column;
@@ -33,6 +34,7 @@
         font-size: 13px;
     }
 
+    /* Phone navigation button */
     .nav-toggle {
         display: block; 
     }
@@ -40,7 +42,7 @@
     .nav.open .nav-links {
         display: flex; 
     }
-
+/* --------------------------------------------------------------- */
     .banner {
         padding: 4em 2%;
     }
@@ -73,7 +75,7 @@
     .popular-now .group .details {
         margin-left: 0;
     }
-
+    /* Footer */
     footer {
         font-size: 0.8em;
     }

@@ -1,0 +1,83 @@
+@media (max-width: 600px) {
+    .logo {
+        height: 2em; 
+        width: auto; 
+        position: absolute;
+        left: 1em;
+    }
+
+    .login a {
+        text-decoration: none;
+        color: black;
+        font-weight: bold;
+        position: absolute;
+        top: 1em;
+        right: 4%;    
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background-color: rgb(110, 209, 110);
+        width: 50%;
+        padding: 20px 0;
+        z-index: 98;
+    }
+
+    .nav-links a {
+        padding: 0px 20px;
+        text-align: left;
+        font-size: 13px;
+    }
+
+    .nav-toggle {
+        display: block; 
+    }
+
+    .nav.open .nav-links {
+        display: flex; 
+    }
+
+    .banner {
+        padding: 4em 2%;
+    }
+
+    .banner h1 {
+        font-size: 1.8em;
+        padding: 0.4em 0.6em;
+    }
+
+    .banner p {
+        font-size: 0.9em;
+        padding: 0.4em;
+    }
+
+    .banner button {
+        font-size: 0.9em;
+        padding: 0.6em 1.2em;
+    }
+
+    .popular-now .group {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .popular-now .group img {
+        margin-bottom: 1em;
+        max-width: 100%;
+    }
+
+    .popular-now .group .details {
+        margin-left: 0;
+    }
+
+    footer {
+        font-size: 0.8em;
+    }
+
+    
+}
+

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Swap</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="PW-images/document_iconPW.png">
+</head>
+<body>
+    <div class="header-bar">
+        <img class="header-image" src="PW-images/EcoHavenLogo.png" alt="EcoHaven Logo">
+    </div>
+    <div class="header-bar2">
+        <nav class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#product-swap">Product Swap</a>
+            <a href="#recycling-programs">Recycling Programs</a>
+            <a href="#energy-tips">Energy Tips</a>
+            <a href="#community">Community</a>
+        </nav>
+    </div>
+    <section class="product-exchange-main" id="product-exchange-main">
+        <div class="content">
+            <h3>Product Swap</h3>
+            <span>This platform connects community members to exchange eco friendly items.</span>
+            <span>Exchange your eco-friendly products here!</span>
+            <div class="search">
+                <form action="" class="search-bar"> <!--The action should link to database to search for product-->
+                    <input type="text" placeholder="search..." name="search">
+                    <button type="submit"><img src="PW-images/search.png"></button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <nav class="secondary-navbar">
+        <ul class="nav-options">
+            <li><a href="index.html">Product Swap</a></li>
+            <li><a href="list-item.html">List an Item</a></li>
+            <li><a href="exchange-hub.html">Exchange Hub</a></li>
+        </ul>
+    </nav>
+
+    <header class="exchange-header">
+        <h1>Product Swap</h1>
+    </header>
+
+    <section id="lowerbg" class="lowerbg">
+        <div>
+            <h2 class="Top-3-product">Top 3 Hot Exchange Product</h2>
+            <table class="product-table">
+                <tr class="block">
+                    <td><img src="PW-images/canvabag.png" alt="Product 1 Image" class="product-image"></td>
+                    <td>
+                        <h3>Canvas Bag</h3>
+                        <p>A sturdy and eco-friendly canvas bag, perfect for your daily grocery runs or carrying essentials. Lightweight, reusable, and designed to reduce plastic waste—a step toward a greener Malaysia.</p>
+                    </td>
+                </tr>
+                <tr class="block">
+                    <td>
+                        <h3>Empty Glass Bottle</h3>
+                        <p>Versatile and reusable glass bottles, ideal for storing beverages, sauces, or crafts. Embrace sustainability by repurposing these bottles while adding a rustic charm to your home.</p>
+                    </td>
+                    <td><img src="PW-images/glassbottle.jpg" alt="Product 2 Image" class="product-image"></td>
+                </tr>
+                <tr class="block">
+                    <td><img src="PW-images/recyclepot.jpg" alt="Product 3 Image" class="product-image"></td>
+                    <td>
+                        <h3>Handmade Recycle</h3>
+                        <p>Beautifully crafted handmade flower pots, perfect for growing herbs or showcasing your favorite plants. Each pot reflects the artistry of local Malaysian craftsmanship, adding a touch of elegance to any space.</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </section>
+</body>
+</html>

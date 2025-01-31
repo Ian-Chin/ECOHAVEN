@@ -1,3 +1,10 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -5,8 +12,179 @@ body {
     box-sizing: border-box;
     background-color: #f5f5f5;
 }
+/* ----------------------------------------------------------- */
+                /* login/signup/admin section */
+#myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+}
 
-/* Header */
+.content-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 100px auto;
+    max-width: 1200px;
+    padding: 0 150px;
+}
+
+.welcome-section {
+    flex: 2;
+    color: white;
+    padding: 0px;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+    text-align: left;
+    margin-right: 80px;
+}
+
+.welcome-section h1 {
+    font-size: 46px;
+    margin-bottom: 10px;
+    color: #32CD32;
+}
+
+.welcome-section h1:hover {
+    font-size: 46px;
+    margin-bottom: 10px;
+    color: darkgreen;
+}
+
+
+.welcome-section p {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.divider {
+    width: 2px; /* Width of the vertical line */
+    height: 500px; /* Adjust height as needed */
+    background-color: rgba(255, 255, 255, 0.3); /* Semi-transparent white line */
+    margin: 0 110px; /* Space on both sides of the divider */
+    transition: transform 0.5s ease-in-out;
+}
+
+/* login/signup box */
+.wrapper {
+    width: 320px;
+    gap: 100px; /* Adds space between flex items */
+    align-items: center;
+    justify-content: center;
+    color: white;
+    margin-left: 20px;
+}
+
+.wrapper h1 {
+    font-size: 36px;
+    text-align: center;
+}
+
+.wrapper .input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+}
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid rgba(255, 255, 255, .2);
+    backdrop-filter: blur(50px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.582);
+    border-radius: 10px;
+    font-size: 16px;
+    color: white;
+    padding: 20px 45px 20px 20px;
+}
+
+.input-box input::placeholder {
+    color: white;
+}
+
+
+.input-box i {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+}
+
+.wrapper .remember-forgot {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14.5px;
+    margin: -15px 0 15px;
+}
+
+.remember-forgot label input {
+    accent-color: white;
+    margin-right: 3px;
+}
+
+.remember-forgot a {
+    color: white;
+    text-decoration: none;
+}
+
+.remember.forgot a:hover {
+    text-decoration: underline;
+}
+
+.wrapper .btn {
+    width: 100%;
+    height: 45px;
+    background: rgb(110, 209, 110);
+    backdrop-filter: blur(100px);
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.473);
+    cursor: pointer;
+    font-size: 16px;
+    color: black;
+    font-weight: 600;
+}
+
+.wrapper .btn:hover {
+    background: darkgreen;
+    color:white;
+}
+
+.wrapper .register-link {
+    font-size: 14.5px;
+    text-align: center;
+    margin-top: 20px;
+    margin: 20px 0 15px;
+}
+
+.register-link p a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.register-link p a:hover {
+    text-decoration: underline;
+    color: rgb(110, 209, 110);
+}
+
+/* OFFICIAL HEADER */
+.header-image {
+    height: 50px; 
+    width: auto; 
+    cursor: pointer;
+    align-content: left;
+    margin-right: 20px;
+}
 
 .header-bar {               /* fixed not moving with the scroll */
     top: 0; 
@@ -20,15 +198,6 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.582);
     align-items: center; 
     z-index: 100; 
-}
-
-.login a {
-    text-decoration: none;
-    color: black;
-    font-weight: bold;
-    position: absolute;
-    top: 1em;
-    right: 2%;    
 }
 
 .logo {
@@ -47,23 +216,6 @@ body {
     position: absolute;
     top: 2.4em;
     left: 2%;   
-}
-
-.nav-links {
-    display: flex;
-    gap: 20px;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: black;
-    font-weight: bold;
-    font-family: Arial, sans-serif;
-    transition: color 0.3s;
-}
-
-.nav-links a:hover {
-    color: #006400;
 }
 
 .header-bar2 {               /* fixed not moving with the scroll */
@@ -101,7 +253,23 @@ body {
     color: #006400; 
 }
 
-/* Banner */
+.login a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    position: absolute;
+    top: 1em;
+    right: 2%;    
+}
+
+.logo {
+    height: 40px; 
+    width: auto; 
+    position: absolute;
+    left: 1em;
+}
+
+/* COMMUNITY GARDEN PAGE */
 .banner {
     position: relative;
     text-align: center;
@@ -117,7 +285,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('img_0378.jpg') no-repeat center/cover;
+    background: url('https://img.freepik.com/premium-photo/outdoor-wooden-patio-with-serene-nature-design-enhancing-house-architecture-ambiance-concept-outdoor-patio-design-serene-nature-elements-wooden-decking-house-architecture_864588-63751.jpg') no-repeat center/cover;
     filter: blur(4px); 
     z-index: -1;                            /* Places the blurred image behind the text */
 }
@@ -150,27 +318,32 @@ body {
 .popular-now {
     padding: 20px;
     text-align: center;
-    background-color: #fff;
+    background-image: url(https://e0.pxfuel.com/wallpapers/502/508/desktop-wallpaper-lock-screen-plant-minimalist-minimalist-laptop-minimalist-botanical-laptop.jpg);
+    z-index: 20;
 }
 
 .popular-now h2 {
     color: #2a5d32;
-    margin-bottom: 20px;
+    margin-top: 30px;
 }
 
 .card {
     display: flex;
     align-items: center;
-    margin: 20px 0;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    height: 17em;
+    margin: 4em 5em;
+    border: 2px solid darkgreen;
+    border-radius: 15px;
     overflow: hidden;
-    background-color: #fff;
+    background-color: #f3eed8;
 }
 
 .card img {
-    width: 150px;
-    height: 150px;
+    position: relative;
+    right: 1em;
+    width: 220px;
+    height: 220px;
+    border-radius: 20px;
     object-fit: cover;
 }
 
@@ -187,34 +360,40 @@ body {
 
 .card .content .stats {
     display: flex;
-    gap: 15px;
+    position: relative;
+    left: 60em;
+    top: 5em;
+    gap: 5em;
     margin: 10px 0;
 }
 
 .card button {
+    margin-left: 95em;
+    margin-top: 3em;
     background-color: #2a5d32;
     color: white;
     border: none;
-    padding: 8px 15px;
-    border-radius: 5px;
+    padding: 15px 60px;
+    border-radius: 20px;
     cursor: pointer;
 }
 
 .see-more {
-    background-color: #a4d065;
+    background-color: #2a5d32;
     border: none;
-    padding: 10px 20px;
+    padding: 15px 70px;
     color: white;
-    border-radius: 5px;
+    border-radius: 25px;
     cursor: pointer;
+    font-size: 15px;
 }
 
 /* Footer */
 footer {
     background-color: #2a5d32;
     color: white;
-    padding: 20px;
-    text-align: center;
+    padding: 3em;
+    z-index: -1;
 }
 
 footer .footer-content {
@@ -224,10 +403,38 @@ footer .footer-content {
     margin-bottom: 10px;
 }
 
-footer .links a,
-footer .socials a {
+footer .links a{
     text-decoration: none;
     color: white;
-    margin: 0 10px;
+    text-align: left;
+    font-size: 1.1em;
 }
 
+footer .socials {
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    font-size: 1.1em;
+}
+
+footer .socials i {
+    text-decoration: none;
+    color: black;
+    text-align: center;
+    font-size: 3em;
+    padding: 1vw;
+}
+
+footer .Copyright {
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    font-size: 0.6em;
+}
+
+footer .services p{
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    font-size: 1.1em;
+}

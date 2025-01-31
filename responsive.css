@@ -75,11 +75,56 @@
     .popular-now .group .details {
         margin-left: 0;
     }
-    /* Footer */
-    footer {
-        font-size: 0.8em;
+
+/* Community Garden Cards */
+    .card {
+        text-align: left;
+        display: flex;
+        height: 17em;
+        margin: 2em 0em;
     }
 
+    .card img {
+        margin: 0;
+        width: 150px;
+        height: 250px;
+    }
+
+    .card .content h3 {
+        color: #2a5d32;
+        margin-bottom: 10px;
+        font-size: 1.8em;
+    }
+
+    .card .content {
+        padding-left: 1em;
+        font-size: 0.6em;
+        margin: 1px auto;
+    }
     
-}
+    .card .content .stats {
+        display: flex;
+        position: relative;
+        left: 18em;
+        top: 6em;
+        gap: 5em;
+    }
+
+    .card button {
+        margin: -20px 20px;
+        margin-left: 0em;
+        margin-top: 2em;
+        padding: 10px 40px;
+    }
+
+    .see-more {
+        max-width: 100%;
+    }
+
+ /* Footer */
+    footer {
+        font-size: 0.5em;
+    }
+    
+}  
 

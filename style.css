@@ -2,9 +2,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
-}
-
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -26,6 +25,9 @@ body {
 
 .content-container {
     display: flex;
+    position: fixed;
+    top: 7em;
+    left: 20em;
     justify-content: space-between;
     align-items: center;
     margin: 100px auto;
@@ -53,7 +55,6 @@ body {
     margin-bottom: 10px;
     color: darkgreen;
 }
-
 
 .welcome-section p {
     font-size: 18px;
@@ -157,6 +158,8 @@ body {
 .wrapper .btn:hover {
     background: darkgreen;
     color:white;
+    transition: .5s ease;
+    
 }
 
 .wrapper .register-link {
@@ -186,25 +189,66 @@ body {
     margin-right: 20px;
 }
 
-.header-bar {               /* fixed not moving with the scroll */
-    top: 0; 
-    width: 100%; 
-    height: 50px; 
+.header-bar {
+    top: 0;
+    width: 100%;
+    height: 50px;
     opacity: 100%;
-    border: none;               
-    outline: none;
-    display: flex; 
-    background-color: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.582);
-    align-items: center; 
-    z-index: 100; 
+    display: flex;
+    background-color: transparent; /* Initially transparent */
+    transition: background-color 0.1s ease-in-out, box-shadow 0.1s ease;
+    align-items: center;
+    position: fixed;
+    z-index: 10;
+}
+
+.header-bar.scrolled {
+    background-color: white; /* Change this color if needed */
+}
+
+.header-bar2 {
+    pointer-events: none;
+    transform: translateY();
+    left: 0;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    background-color: transparent; /* Initially transparent */
+    transition: background-color 0.1s ease-in-out, box-shadow 0.s ease;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    z-index: 10;
+}
+
+.header-bar2.scrolled {
+    top: 50px;
+    left: 0;
+    width: 100%;
+    background-color: rgb(110, 209, 110); /* Change this color if needed */
 }
 
 .logo {
-    height: 40px; 
+    height: 100px; 
     width: auto; 
     position: absolute;
     left: 1em;
+}
+
+.logo2{
+    display: none;
+    height: 40px;
+    width: auto; 
+    position: absolute;
+    left: 1em;
+}
+
+.header-bar.scrolled .logo2 {
+    display: flex;
+    height: 35px;
+    width: auto; 
+    position: absolute;
+    left: 2em;
 }
 
 .nav-toggle {
@@ -218,55 +262,47 @@ body {
     left: 2%;   
 }
 
-.header-bar2 {               /* fixed not moving with the scroll */
-    top: 50px; 
-    left: 0;
-    width: 100%; 
-    height: 50px; 
-    opacity: 100%;
-    border: none;
-    outline: none;
-    display: flex; 
-    background-color: rgb(110, 209, 110);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.582);
-    align-items: center; 
-    justify-content: center; 
-    z-index: 99; 
-}
-
-  
 .nav-links {
     display: flex; 
-    gap: 80px; 
+    gap: 70px; 
 }
 
-.nav-links a {
+.nav-links a, .header-bar2.scrolled .nav-links a:hover  {
+    pointer-events: auto;
     text-decoration: none; 
-    color: #000; 
+    color: #ffffff; 
     font-size: 16px; 
     font-family: Arial, sans-serif; 
-    font-weight: bold; 
-    transition: color 0.3s; 
+    font-weight: bold;
+    transition: color 0.1s;
+}
+
+.header-bar2.scrolled .nav-links a {
+    color: black;
 }
 
 .nav-links a:hover {
-    color: #006400; 
+    color: #47d347; 
 }
 
 .login a {
     text-decoration: none;
-    color: black;
+    color: white;
     font-weight: bold;
     position: absolute;
     top: 1em;
-    right: 2%;    
+    right: 2%;
+    z-index: 1;
 }
 
-.logo {
-    height: 40px; 
-    width: auto; 
-    position: absolute;
-    left: 1em;
+.login a:hover, .header-bar.scrolled .login a:hover {
+    text-decoration: none;
+    color: #47d347;
+    font-weight: bold;
+}
+
+.header-bar.scrolled .login a {
+    color: black;
 }
 
 /* COMMUNITY GARDEN PAGE */
@@ -275,46 +311,66 @@ body {
     text-align: center;
     color: white;
     padding: 6em 5%;
-    overflow: hidden; 
-}
-
-.banner::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('https://img.freepik.com/premium-photo/outdoor-wooden-patio-with-serene-nature-design-enhancing-house-architecture-ambiance-concept-outdoor-patio-design-serene-nature-elements-wooden-decking-house-architecture_864588-63751.jpg') no-repeat center/cover;
-    filter: blur(4px); 
-    z-index: -1;                            /* Places the blurred image behind the text */
+    height: 100vh;
+    object-fit: cover;
+    background: url('1.png') no-repeat center/cover;   
 }
 
 .banner h1 {
+    position: relative;
+    top: 5em;
     font-size: 50px;
-    margin-bottom: 10px;
-    color:#c1f080;
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+    margin-bottom: 20px;
+    color:#2aa745;
+    text-shadow: 1px 4px 4px rgba(0, 0, 0, 0.7);
 }
 
 .banner p {
+    position: relative;
+    top: 14em;
     font-size: 18px;
     margin-bottom: 20px;
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+    text-shadow: 5px 5px 4px rgba(0, 0, 0, 0.7);
 }
 
 .banner button {
-    background-color: #375c04;
+    position: relative;
+    top: 16em;
+    background: linear-gradient(to right, rgb(92, 189, 92), rgb(57, 204, 57));
     border: none;
-    padding: 10px 20px;
-    color: white;
+    padding: 15px 40px;
+    color: rgb(0, 0, 0);
     font-size: 16px;
     cursor: pointer;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.473);
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.473);
+    z-index: 0;
+    cursor: pointer;
 }
 
-/* Popular Now Section */
+/* EXPLORE BUTTON SHORT ANIMATION (WHEN HOVERED) */
+.banner button::after {
+    content:"";
+    height: 100%;
+    width: 0px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    background: linear-gradient(to right, rgb(23, 131, 23), rgb(0, 116, 0));
+    transition: 150ms ease-in-out;
+}
+
+.banner button:hover::after {
+    width: 100%;
+}
+
+.banner button:hover {
+    color: white;
+}
+
+
+/* --------------------------------------------------------------------------------------------- */
+/* Community Garden Cards */
 .popular-now {
     padding: 20px;
     text-align: center;
@@ -323,6 +379,7 @@ body {
 }
 
 .popular-now h2 {
+    font-size: 20pt;
     color: #2a5d32;
     margin-top: 30px;
 }
@@ -330,7 +387,7 @@ body {
 .card {
     display: flex;
     align-items: center;
-    height: 17em;
+    height: 20em;
     margin: 4em 5em;
     border: 2px solid darkgreen;
     border-radius: 15px;
@@ -350,32 +407,48 @@ body {
 .card .content {
     flex: 1;
     padding: 10px 20px;
+    margin-top: 1em;
     text-align: left;
 }
 
 .card .content h3 {
     color: #2a5d32;
-    margin-bottom: 10px;
 }
 
 .card .content .stats {
     display: flex;
     position: relative;
     left: 60em;
-    top: 5em;
+    top: 3.5em;
     gap: 5em;
     margin: 10px 0;
 }
 
 .card button {
-    margin-left: 95em;
-    margin-top: 3em;
+    position: relative;
+    left: 95em;
+    top: 1em;
     background-color: #2a5d32;
     color: white;
     border: none;
     padding: 15px 60px;
     border-radius: 20px;
     cursor: pointer;
+}
+
+.owner {
+    display: flex;
+    position: relative;
+    left: 2em;
+    top: 7em;
+}
+
+.owner img{
+    position: relative;
+    width: 40px;
+    height: 40px;
+    bottom: 0.6em;
+    border-radius: 20px;
 }
 
 .see-more {
@@ -437,4 +510,5 @@ footer .services p{
     color: white;
     text-align: center;
     font-size: 1.1em;
+}
 }

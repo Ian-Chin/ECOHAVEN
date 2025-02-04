@@ -237,7 +237,7 @@ body {
 
 .logo2{
     display: none;
-    height: 40px;
+    height: 10px;
     width: auto; 
     position: absolute;
     left: 1em;
@@ -245,10 +245,10 @@ body {
 
 .header-bar.scrolled .logo2 {
     display: flex;
-    height: 35px;
+    height: 100px;
     width: auto; 
     position: absolute;
-    left: 2em;
+    left: 1em;
 }
 
 .nav-toggle {

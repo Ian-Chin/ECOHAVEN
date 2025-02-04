@@ -1,0 +1,399 @@
+/* -------Product Exchange CSS ----------- Bowie*/
+html, body{
+    height: 100%;
+}
+
+section .content{
+    padding: 1rem 10%;
+    margin-top: 0;
+}
+
+.content {
+    display: flex;
+    flex-direction: column; /* Stacks `<h3>` and `<span>` vertically */
+    align-items: center; /* Centers them horizontally */
+}
+
+.content h3 {
+    font-size: 6rem;
+    color: #006400;
+    align-items: center;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-bar{
+    position: relative;
+    top: 250px;
+    width: 100%;
+    max-width: 700px;
+    background: rgba(36, 103, 15, 0.2);
+    display: flex;
+    border-radius: 60px;
+    padding: 1px 10px;
+    backdrop-filter: blur(4px) saturate(180%);
+}
+
+.search-bar input{
+    background: transparent;
+    flex: 1;
+    border: 0;
+    outline: none;
+    padding: 1px 50px;
+    font-size: 20px;
+    color: #14250a;
+}
+
+::placeholder {
+    color: #255e08;
+}
+
+.search button img {
+    width: 40px;
+}
+
+.search button {
+    border: 2pt solid #155215;
+    border-color: #66a918;
+    border-radius: 100%;
+    width: 50px;
+    height: 50px;
+    background: #69a22b;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    -ms-border-radius: 100%;
+    -o-border-radius: 100%;
+}
+
+.search button:hover {
+    background: #4b8415;
+    border-color: #006400;
+}
+
+.lowerbg {
+    background: url(PW-images/lowerbg.png) no-repeat center center;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: 50px 20px;
+}
+.lowerbg h2 {
+    text-align: center;
+}
+
+.product-table {
+    width:100%;
+    max-width: 1000pt;
+    margin: 0 auto;
+    border-spacing: 20pt;
+
+}
+.product-table p {
+    font-size: 15pt;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: left;
+}
+.product-table h2 {
+    color: #14250a;
+    text-align: center;
+}
+.product-table h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #2b6514;
+    text-decoration: underline;
+}
+
+.product-image{
+    width: 150pt;
+    height: auto;
+    border-radius: 100%;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    -ms-border-radius: 100%;
+    -o-border-radius: 100%;
+}
+
+/* Scroll animation testing */
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateX(-100px);
+        -webkit-transform: translateX(-100px);
+        -moz-transform: translateX(-100px);
+        -ms-transform: translateX(-100px);
+        -o-transform: translateX(-100px);
+}
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+        -webkit-transform: translateX(0px);
+        -moz-transform: translateX(0px);
+        -ms-transform: translateX(0px);
+        -o-transform: translateX(0px);
+}
+}
+.block {
+    animation: appear linear;
+    animation-timeline: view(); /*animation happens only when the particular element is visible on screen*/
+    animation-range: entry 30% cover 40%;
+}
+
+@media (max-width: 600px) {
+    .content h3{
+        font-size: 25px;
+    }
+    
+    .product-table {
+        border-spacing: 0;
+    }
+
+    .product-table tr {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .product-table td {
+        display: block;
+        text-align: center;
+    }
+
+    .product-image {
+        width: 200px;
+        margin: 0 auto;
+    }
+
+    .product-table p {
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .product-table h3 {
+        font-size: 15px;
+    }
+}
+
+.secondary-navbar {
+    height: auto;
+    padding: 10px 0;
+    background-color: rgb(132, 190, 33) ;
+    color: white;
+    top: 0;
+    position: sticky;
+    text-align: center;
+}
+.nav-options {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+}
+.nav-options li {
+    display: inline;
+    font-weight: bold;
+}
+
+.nav-options a {
+    text-decoration: none;
+    font-size: 18px;
+    color: #155215;
+    padding: 10px 20px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    -webkit-transition: background-color 0.3s ease, color 0.3s ease;
+    -moz-transition: background-color 0.3s ease, color 0.3s ease;
+    -ms-transition: background-color 0.3s ease, color 0.3s ease;
+    -o-transition: background-color 0.3s ease, color 0.3s ease;
+}
+.nav-options a:hover {
+    color: #49a524;
+    font-weight: bold;
+}
+
+.flowerbg {
+    background: url(PW-images/flowerbg.jpg) no-repeat center center;
+    background-size: cover; /* Make bg responsive */
+    background-position: center;
+    width: 100%;
+    min-height: 100vh; /* covers full viewport height */
+    display: flex;
+    flex-direction: column; /*stack content vertical*/
+    justify-content: flex-start; /*align title to top*/
+    align-items: center;
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.flowerbg h2{
+    font-weight: bold;
+    color: #14250a;
+    text-align: center;
+    padding: 20px 0;
+    margin-bottom: 20px;
+}
+
+.form-container {
+    background: rgba(246, 226, 208, 0.764);
+    padding: 30px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 500px;
+}
+
+.form-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    flex: 1;
+    text-align: left;
+}
+
+input select {
+    flex: 2;
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    background-color: #f0f5e4;
+}
+
+input[type="file"] {
+    border: none;
+    background: none;
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 20px;
+}
+
+.submit-button, .reset-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10%;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
+    -webkit-border-radius: 10%;
+    -moz-border-radius: 10%;
+    -ms-border-radius: 10%;
+    -o-border-radius: 10%;
+}
+
+.submit-button:hover, .reset-button:hover {
+    background-color: #edbc85;
+}
+
+@media (max-width: 600px) {
+    .form-group {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    label {
+        margin-bottom: 5px;
+    }
+
+    input, select {
+        width: 100%;
+    }
+}
+
+.exchange-header {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 20px;
+}
+
+.product-container {
+    background: url(PW-images/lowerbg.png) no-repeat center center;
+    background-size: cover; /* Make bg responsive */
+    background-position: center;
+    width: 100%;
+    min-height: 100vh; /* covers full viewport height */
+    display: flex;
+    flex-direction: column; /*stack content vertical*/
+    justify-content: flex-start; /*align title to top*/
+    align-items: center;
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1000px;
+    width: 100%;
+}
+
+.product-card {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.product-card img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.more-btn {
+    margin-top: 10px;
+    padding: 10px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.more-btn:hover {
+    background-color: #45a049;
+}

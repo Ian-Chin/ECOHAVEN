@@ -1,4 +1,16 @@
-/* -------Product Exchange CSS ----------- Bowie*/
+
+/* -------Product Exchange CSS ----------- Bowie */
+.banner {
+    position: relative;
+    text-align: center;
+    color: white;
+    padding: 6em 5%;
+    height: 100vh;
+    object-fit: cover;
+    background: url(PW-images/pemainbg.jpg) no-repeat center/cover;
+}
+
+
 html, body{
     height: 100%;
 }
@@ -14,9 +26,10 @@ section .content{
     align-items: center; /* Centers them horizontally */
 }
 
+/* heading */
 .content h3 {
     font-size: 6rem;
-    color: #006400;
+    color: #173517;
     align-items: center;
 }
 
@@ -25,17 +38,24 @@ section .content{
     align-items: center;
     justify-content: center;
 }
+.search input:-webkit-autofill,
+.search input:-webkit-autofill:hover,
+.search input:-webkit-autofill:focus,
+.search input:-webkit-autofill:active{
+    -webkit-background-clip: Text;
+    -webkit-text-fill-color: rgb(16, 68, 32);
+}
 
 .search-bar{
     position: relative;
-    top: 250px;
+    top: 250pt;
     width: 100%;
-    max-width: 700px;
-    background: rgba(36, 103, 15, 0.2);
+    max-width: 500pt;
+    background: rgba(227, 239, 223, 0.693);
     display: flex;
-    border-radius: 60px;
-    padding: 1px 10px;
-    backdrop-filter: blur(4px) saturate(180%);
+    border-radius: 60pt;
+    padding: 1pt 1pt;
+    backdrop-filter: blur(6pt) saturate(180%);
 }
 
 .search-bar input{
@@ -53,15 +73,15 @@ section .content{
 }
 
 .search button img {
-    width: 40px;
+    width: 35pt;
 }
 
 .search button {
-    border: 2pt solid #155215;
+    border: 1.5pt solid #155215;
     border-color: #66a918;
     border-radius: 100%;
-    width: 50px;
-    height: 50px;
+    width: 40pt;
+    height: auto;
     background: #69a22b;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -87,10 +107,7 @@ section .content{
     display: flex;
     justify-content: center;
     text-align: center;
-    padding: 50px 20px;
-}
-.lowerbg h2 {
-    text-align: center;
+    padding: 50pt 20pt;
 }
 
 .product-table {
@@ -100,15 +117,18 @@ section .content{
     border-spacing: 20pt;
 
 }
+
 .product-table p {
     font-size: 15pt;
     font-family: Georgia, 'Times New Roman', Times, serif;
     text-align: left;
 }
+
 .product-table h2 {
     color: #14250a;
     text-align: center;
 }
+
 .product-table h3 {
     font-size: 24px;
     margin-bottom: 10px;
@@ -126,84 +146,30 @@ section .content{
     -o-border-radius: 100%;
 }
 
-/* Scroll animation testing */
-@keyframes appear {
-    from {
-        opacity: 0;
-        transform: translateX(-100px);
-        -webkit-transform: translateX(-100px);
-        -moz-transform: translateX(-100px);
-        -ms-transform: translateX(-100px);
-        -o-transform: translateX(-100px);
-}
-    to {
-        opacity: 1;
-        transform: translateX(0px);
-        -webkit-transform: translateX(0px);
-        -moz-transform: translateX(0px);
-        -ms-transform: translateX(0px);
-        -o-transform: translateX(0px);
-}
-}
 .block {
     animation: appear linear;
     animation-timeline: view(); /*animation happens only when the particular element is visible on screen*/
     animation-range: entry 30% cover 40%;
 }
 
-@media (max-width: 600px) {
-    .content h3{
-        font-size: 25px;
-    }
-    
-    .product-table {
-        border-spacing: 0;
-    }
-
-    .product-table tr {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-    }
-
-    .product-table td {
-        display: block;
-        text-align: center;
-    }
-
-    .product-image {
-        width: 200px;
-        margin: 0 auto;
-    }
-
-    .product-table p {
-        font-size: 14px;
-        text-align: center;
-    }
-
-    .product-table h3 {
-        font-size: 15px;
-    }
-}
-
 .secondary-navbar {
     height: auto;
-    padding: 10px 0;
+    padding: 10pt 0;
     background-color: rgb(132, 190, 33) ;
     color: white;
     top: 0;
     position: sticky;
     text-align: center;
 }
+
 .nav-options {
     list-style: none;
     display: flex;
     justify-content: center;
-    gap: 100px;
+    gap: 100pt;
 }
+
 .nav-options li {
-    display: inline;
     font-weight: bold;
 }
 
@@ -223,6 +189,7 @@ section .content{
     -ms-transition: background-color 0.3s ease, color 0.3s ease;
     -o-transition: background-color 0.3s ease, color 0.3s ease;
 }
+
 .nav-options a:hover {
     color: #49a524;
     font-weight: bold;
@@ -239,7 +206,7 @@ section .content{
     justify-content: flex-start; /*align title to top*/
     align-items: center;
     text-align: center;
-    padding: 50px 20px;
+    padding: 50pt 20pt;
 }
 
 .flowerbg h2{
@@ -254,20 +221,56 @@ section .content{
     background: rgba(246, 226, 208, 0.764);
     padding: 30px;
     border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
     width: 90%;
     max-width: 500px;
+    margin: auto;
 }
 
 .form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.button-group {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    margin-bottom: 15px;
+}
+
+.button-group button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.reset-button {
+    background-color: #f44336;
+    color: white;
+}
+
+.submit-button {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.reset-button:hover,
+.submit-button:hover {
+    opacity: 0.8;
 }
 
 label {
@@ -323,21 +326,6 @@ input[type="file"] {
     background-color: #edbc85;
 }
 
-@media (max-width: 600px) {
-    .form-group {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    label {
-        margin-bottom: 5px;
-    }
-
-    input, select {
-        width: 100%;
-    }
-}
-
 .exchange-header {
     background-color: #4CAF50;
     color: white;
@@ -357,41 +345,53 @@ input[type="file"] {
     justify-content: flex-start; /*align title to top*/
     align-items: center;
     text-align: center;
-    padding: 50px 20px;
+    padding: 35pt 15pt;
 }
 
 .product-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
-    max-width: 1000px;
+    max-width: 750pt;
     width: 100%;
 }
 
 .product-card {
     background: white;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15pt;
+    border-radius: 10pt;
+    box-shadow: 0 4pt 8pt rgba(0, 0, 0, 0.1);
     text-align: center;
+    -webkit-border-radius: 10pt;
+    -moz-border-radius: 10pt;
+    -ms-border-radius: 10pt;
+    -o-border-radius: 10pt;
 }
 
 .product-card img {
     width: 100%;
-    max-height: 200px;
+    max-height: 200pt;
     object-fit: cover;
-    border-radius: 5px;
+    border-radius: 5pt;
+    -webkit-border-radius: 5pt;
+    -moz-border-radius: 5pt;
+    -ms-border-radius: 5pt;
+    -o-border-radius: 5pt;
 }
 
 .more-btn {
-    margin-top: 10px;
-    padding: 10px;
+    margin-top: 10pt;
+    padding: 10pt;
     border: none;
     background-color: #4CAF50;
     color: white;
-    border-radius: 5px;
+    border-radius: 5pt;
     cursor: pointer;
     transition: background 0.3s;
+    -webkit-border-radius: 5pt;
+    -moz-border-radius: 5pt;
+    -ms-border-radius: 5pt;
+    -o-border-radius: 5pt;
 }
 
 .more-btn:hover {

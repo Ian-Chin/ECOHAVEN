@@ -1,0 +1,230 @@
+@media (max-width: 768px) {
+    /* Header */
+    .logo {
+        height: 6em; 
+        width: auto;                   
+        position: absolute;
+        left: 0em;
+    }
+
+    .header-bar.scrolled .logo2 {
+        position: absolute;
+        left: 0em; /*original put 1rem then the position cannot align*/
+    }
+
+    .login a {
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+        position: absolute;
+        top: 1em;
+        right: 4%;    
+    }
+/* ----------------------------------------------------------------- */
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 50px;
+        left: 0;
+        background-color: rgb(110, 209, 110);
+        width: 50%;
+        padding: 20px 0;
+        z-index: 98;
+    }
+
+    .nav-links a {
+        padding: 0px 20px;
+        text-align: left;
+        font-size: 13px;
+    }
+
+    /* Phone navigation button */
+    .header-bar2.scrolled .nav .nav-toggle {
+        display: block;
+        top: 0.3em;
+        z-index: 100;
+        color: black;
+    }
+    
+    .nav.open .nav-links {
+        display: flex; 
+    }
+/* --------------------------------------------------------------- */
+    .banner {
+        padding: 1em 2%;
+    }
+
+    .banner h1 {
+        font-size: 24pt;
+        padding: 5pt;
+        top: 9em;
+    }
+
+    .banner p {
+        font-size: 11pt;
+        padding: 5pt 60pt;
+        top: 18em;
+    }
+
+    .banner button {
+        font-size: 0.9em;
+        top: 18em;
+    }
+
+    .popular-now .group {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .popular-now .group img {
+        margin-bottom: 1em;
+        max-width: 100%;
+    }
+
+    .popular-now .group .details {
+        margin-left: 0;
+    }
+
+/* Community Garden Cards */
+    .card {
+        text-align: left;
+        display: flex;
+        height: 17em;
+        margin: 2em 0em;
+    }
+
+    .card .G-img {
+        position: relative;
+        left: 1em;
+        margin: 0;
+        width: 150px;
+        height: 350px;
+        opacity: 100%;
+        box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 2px 0 rgba(0, 0, 0, 0.19);
+    }
+    
+    .card .content h3 {
+        position: relative;
+        color: #2a5d32;
+        font-size: 1.8em;
+    }
+
+    .card .content {
+        position: relative;
+        padding-left: 1em;
+        font-size: 0.6em;
+    }
+    
+    .card .content .stats {
+        position: relative;
+        left: 14em;
+        top: 4em;
+        gap: 2em;
+    }
+
+    .card button {
+        position: relative;
+        top: 0em;
+        left: 0em;
+        padding: 10px 40px;
+    }
+
+    .owner {
+        display: flex;
+        position: relative;
+        left: 14em;
+        top: 4em;
+    }
+    
+    .owner img{
+        position: relative;
+        width: 30px;
+        height: 30px;
+        bottom: 0.8em;
+        border-radius: 20px;
+        opacity: 100%;
+    }
+    
+    .see-more {
+        max-width: 100%;
+    }
+
+ /* Footer */
+    footer {
+        font-size: 0.5em;
+    }
+    
+}
+
+/* Product Swap Responsive -- Bowie*/
+
+/* Scroll animation testing */
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateX(-100px);
+        -webkit-transform: translateX(-100px);
+        -moz-transform: translateX(-100px);
+        -ms-transform: translateX(-100px);
+        -o-transform: translateX(-100px);
+}
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+        -webkit-transform: translateX(0px);
+        -moz-transform: translateX(0px);
+        -ms-transform: translateX(0px);
+        -o-transform: translateX(0px);
+}
+}
+
+@media (max-width: 600px) {
+    .content h3{
+        font-size: 25px;
+    }
+    
+    .product-table {
+        border-spacing: 0;
+    }
+
+    .product-table tr {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .product-table td {
+        display: block;
+        text-align: center;
+    }
+
+    .product-image {
+        width: 200px;
+        margin: 0 auto;
+    }
+
+    .product-table p {
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .product-table h3 {
+        font-size: 15px;
+    }
+
+    .form-group {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    label {
+        margin-bottom: 5px;
+    }
+
+    input, select {
+        width: 100%;
+    }
+    
+}

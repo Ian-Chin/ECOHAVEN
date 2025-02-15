@@ -5,37 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>List An Item</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="icon" href="PW-images/document_iconPW.ico">
 </head>
+
 <body>
-    <div class="header-bar">
-        <img class="header-image" src="PW-images/EcoHavenLogo.png" alt="EcoHaven Logo">
-    </div>
-    <div class="header-bar2">
-        <nav class="nav-links">
-            <a href="#home">Home</a>
-            <a href="#product-swap">Product Swap</a>
-            <a href="#recycling-programs">Recycling Programs</a>
-            <a href="#energy-tips">Energy Tips</a>
-            <a href="#community">Community</a>
-        </nav>
-    </div>
-    <section class="product-exchange-main" id="product-exchange-main">
-        <div class="content">
-            <h3>Product Swap</h3>
-            <span>This platform connects community members to exchange eco friendly items.</span>
-            <span>Exchange your eco-friendly products here!</span>
-            <div class="search">
-                <form action="" class="search-bar"> <!--The action should link to database to search for product-->
-                    <input type="text" placeholder="search..." name="search">
-                    <button type="submit"><img src="PW-images/search.png"></button>
-                </form>
-            </div>
+    <header>
+        <div class="header-bar">
+            <img src="PW-images/Whiteicon.ico" alt="Eco Haven Logo" class="logo">
+            <img src="PW-images/Blackicon.ico" alt="Eco Haven Logo" class="logo2">
+            <div class="login"><a href="index.html">Login</a></div>
+
+        </div>
+        <div class="header-bar2">
+            <nav class="nav">
+                <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+                <div class="nav-links">
+                    <a href="#home">Home</a>
+                    <a href="#product-swap">Product Swap</a>
+                    <a href="#recycling-programs">Recycling Programs</a>
+                    <a href="#energy-tips">Energy Tips</a>
+                    <a href="Community Garden.html">Community</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="banner" id="PSbanner">
+        <h1>Product Swap</h1>
+        <p>This platform connects community members to exchange eco friendly items.<br>Exchange your eco-friendly products here!
+        </p>
+
+        <div class="search">
+            <form action="" class="search-bar"> <!--The action should link to database to search for product-->
+                <input type="text" placeholder="search..." name="search">
+                <button type="submit"><img src="PW-images/search.png"></button>
+            </form>
         </div>
     </section>
 
     <nav class="secondary-navbar">
         <ul class="nav-options">
-            <li><a href="index.html">Product Swap</a></li>
+            <li><a href="product-swap.html">Product Swap</a></li>
             <li><a href="list-item.html">List an Item</a></li>
             <li><a href="exchange-hub.html">Exchange Hub</a></li>
         </ul>
@@ -45,60 +56,88 @@
         <h1>List An Item</h1>
     </header>
 
-    <section class="flowerbg" id="flowerbg">
-        <div class="form-container">
-            <h2>Item Form</h2>
-            <form action="#" method="post" enctype="multipart/form-data">
-                <div class="form-group">
-                    <label for="name">Full Name</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
+    <main>
+        <section class="flowerbg" id="flowerbg">
+            <div class="form-container">
+                <h2>Item Form</h2>
+                <form id="listItemForm" action="list_item.php" method="POST" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                
+                    <div class="form-group">
+                        <label for="product">Product Name</label>
+                        <input type="text" id="product" name="product" required>
+                    </div>
+                
+                    <div class="form-group">
+                        <label for="category">Category</label>
+                        <select id="category" name="category">
+                            <option value="bags">Bags</option>
+                            <option value="bottles">Bottles</option>
+                            <option value="pots">Pots</option>
+                            <option value="others">Others</option>
+                        </select>
+                    </div>
+                
+                    <div class="form-group">
+                        <label for="condition">Product Condition</label>
+                        <select id="condition" name="product_condition">
+                            <option value="new">New</option>
+                            <option value="used">Used</option>
+                            <option value="like-new">Like New</option>
+                        </select>
+                    </div>
+                
+                    <div class="form-group">
+                        <label for="location">Location</label>
+                        <input type="text" id="location" name="location" required>
+                    </div>
+                
+                    <div class="form-group">
+                        <label for="image">Upload Image</label>
+                        <input type="file" id="image" name="image" accept="image/*" required>
+                    </div>
+                
+                    <div class="button-group">
+                        <button type="reset" class="reset-button">Reset</button>
+                        <button type="submit" class="submit-button" name="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
 
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
+    <footer>
+        <div class="footer-content">
+            <div class="links">
+                <a href="#">Home</a>
+                <br><br><br>
+                <a href="#">Terms & Conditions</a>
+            </div>
+            <div class="socials">
+                <p>Social Medias</p>
+                <i class='bx bxl-facebook-circle'></i>
+                <i class='bx bxl-instagram-alt'></i>
+                <i class='bx bxs-envelope'></i>
+                <br><br>
+                <p class="Copyright">Copyright 2025</p>
+            </div>
 
-                <div class="form-group">
-                    <label for="product">Product Name</label>
-                    <input type="text" id="product" name="product" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="category">Category</label>
-                    <select id="category" name="category">
-                        <option value="bags">Bags</option>
-                        <option value="bottles">Bottles</option>
-                        <option value="pots">Pots</option>
-                        <option value="others">Others</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="condition">Condition</label>
-                    <select id="condition" name="condition">
-                        <option value="new">New</option>
-                        <option value="used">Used</option>
-                        <option value="like-new">Like New</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="location">Location</label>
-                    <input type="text" id="location" name="location" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="image">Upload Image</label>
-                    <input type="file" id="image" name="image" accept="image/*" required>
-                </div>
-
-                <div class="button-group">
-                    <button type="submit" class="submit-button">Submit</button>
-                    <button type="reset" class="reset-button">Reset</button>
-                </div>
-            </form>
+            <div class="services">
+                <p>Services</p>
+                <br>
+                <p>+000-00000-000</p>
+                <p>+03-33333-333</p>
+            </div>
         </div>
-    </section>
+    </footer>
+    <script src="popup.js"></script>
 </body>
 </html>

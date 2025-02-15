@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recycle</title>
+    <link rel="stylesheet" href="r.css">
+    <link rel="stylesheet" href="responsive.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <header>
+        <div class="header-bar">
+            <img src="Whiteicon.ico" alt="Eco Haven Logo" class="logo">
+            <img src="Blackicon.ico" alt="Eco Haven Logo" class="logo2">
+            <div class="login"><a href="index.html">Login</a></div>
+
+        </div>
+        <div class="header-bar2">
+            <nav class="nav">
+                <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+                <div class="nav-links">
+                    <a href="#home">Home</a>
+                    <a href="#product-swap">Product Swap</a>
+                    <a href="#recycling-programs">Recycling Programs</a>
+                    <a href="#energy-tips">Energy Tips</a>
+                    <a href="Community Garden.html">Community</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="banner">
+            <h1>Recycling Program</h1>
+            <p>Let's make our planet green!</p>
+        </section>
+        
+        <div class="main_background">
+
+            <nav class="menu">
+                <a href="cs.html" id="P" class="menu-button">Schedules & Participate</a>
+            </nav>
+    
+            <div class="global_class">
+                <div>
+                    <h1 id="global_title">The Earth Nowadays</h1>
+                    <div class="global_and_content">
+                        <img id="global_warming_image" src="RecyclingImages/global-warming.jpg">
+                        <div class="global_buttons">
+                            <button id="global_why_button" onclick="show_content('why_content')">Why?</button>
+                            <ul id="why_content" class="global_content">
+                                <li>Rising global temperatures</li>
+                                <li>Increasing carbon footprint</li>
+                                <li>Threats to environment</li>
+                            </ul>
+
+                            <button id="global_cause_button" onclick="show_content('cause_content')">Cause?</button>
+                            <ul id="cause_content" class="global_content">
+                                <li>Greenhouse gas emissions</li>
+                                <li>Waste & improper disposal</li>
+                                <li>Deforestation & pollution</li>
+                            </ul>
+
+                            <button id="global_effect_button" onclick="show_content('effect_content')">Effect?</button>
+                            <ul id="effect_content" class="global_content">
+                                <li>Unpredictable weather</li>
+                                <li>Air & water pollution</li>
+                                <li>Loss of biodiversity</li>
+                            </ul>
+
+                            <button id="global_solution_button" onclick="show_content('solution_content')">Solution?</button>
+                            <ul id="solution_content" class="global_content">
+                                <li>Recycle!</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+    
+            <div class="three_R_class">
+                <h1 id="three_R_title">3R</h1>
+                <img id="three_R" src="RecyclingImages/3R.png">
+            </div>
+    
+            <div class="reduce_class">
+                <img id="reduce_icon_image" src="RecyclingImages/reduce-icon.png">
+                <p id="reduce_p">Reducing focuses on minimizing waste by making thoughtful choices in consumption. This includes selecting products with minimal packaging, avoiding single-use items, and prioritizing essentials over excess. By reducing waste at its source, natural resources are conserved, energy usage is lowered, and the strain on landfills is significantly reduced.</p>
+            </div>
+    
+            <div class="reuse_class">
+                <img id="reuse_icon_image" src="RecyclingImages/reuse-icon.png">
+                <p id="reuse_p">Reusing emphasizes giving items a second life through repurposing or extended use. Old jars can become storage containers, clothing and furniture can be donated, and reusable bags, bottles, or utensils can replace disposable ones. This practice reduces the demand for new products, preserves resources, and contributes to sustainability by maximizing the value of materials.</p>
+            </div>
+    
+            <div class="recycle_class">
+                <img id="recycle_icon_image" src="RecyclingImages/recycle-icon.png">
+                <p id="recycle_p">Recycling transforms waste materials into new products, reducing the need for raw resources and preventing landfill overflow. Materials such as paper, plastic, metal, and glass are processed into new items, conserving energy and lowering greenhouse gas emissions. Recycling promotes environmental protection and supports the creation of a circular economy.</p>
+            </div>
+    
+            <!--Local Recycle Program-->
+    
+            <div class="LRP_class">
+                <h1 id="LRP_title">Local Recycle Program
+                    <img id=recycle_bin_image src="RecyclingImages/garbage.png">
+                </h1>
+            </div>
+    
+            <div class="types_class">
+                <h1 id="types_title">Types of Recycle Bin</h1>
+                <div class="three_recycle_bin">
+                    <div class="recycle_bin_item">
+                        <img id=blue_recycle_bin_image src="RecyclingImages/blue-recycle-bin.png">
+                        <ul>
+                            <li id="paper_des">Collects items like newspapers, magazines, cardboard, and office paper. It prevents contamination and supports the recycling of paper into new products like notebooks and packaging materials.</li>
+                        </ul>
+                        <img id=brown_recycle_bin_image src="RecyclingImages/brown-recycle-bin.png">
+                        <ul>
+                            <li id="glass_des">Used for disposing of glass bottles, jars, and other glass items. Ensures safe handling and allows the glass to be melted down and reshaped into new containers or construction materials.</li>
+                        </ul>
+                        <img id=orange_recycle_bin_image src="RecyclingImages/orange-recycle-bin.png">
+                        <ul>
+                            <li id="metal_des">Accepts aluminum cans, tin containers, and other metal scraps. Recycled metals are melted and repurposed into new products, reducing the need for mining raw materials.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+    
+            <br>
+    
+            <div class="dd_class">
+                <h1 id="dd_title">Do and Don'ts</h1>
+                <img id=do_image src="RecyclingImages/do.png">
+                <ol class="do_things">
+                    <li><b>Do Sort Properly</b></li>
+                    <p>Ensure items are placed in the correct bin (e.g., paper in the blue bin, glass in the brown bin, and plastics/metals in the orange bin).</p>
+                    <li><b>Do Rinse Containers</b></li>
+                    <p>Clean food residue from containers like jars, cans, and bottles before recycling.</p>
+                    <li><b>Do Flatten Boxes</b></li>
+                    <p>Break down cardboard boxes to save space in the bin.</p>
+                    <li><b>Do Use Designated Bags</b></li>
+                    <p>If required, use clear or specific recycling bags to store materials.</p>
+                    <li><b>Do Check Labels</b></li>
+                    <p>Follow local recycling guidelines and bin labels to avoid contamination.</p>
+                    <li><b>Do Include Dry Items</b></li>
+                    <p>Make sure recyclables are dry to prevent mold or damage.</p>
+                    <li><b>Do Recycle Electronics Responsibly</b></li>
+                    <p>Take e-waste to designated drop-off points instead of putting them in standard recycling bins.</p>
+                </ol>
+    
+                <img id=donts_image src="RecyclingImages/don'ts.png">
+                <ol class="donts_things">
+                    <li><b>Don’t Contaminate</b></li>
+                    <p> Avoid placing non-recyclable items like food waste, greasy pizza boxes, or disposable diapers in recycling bins.</p>
+                    <li><b>Don’t Bag Recyclables (Unless Required)</b></li>
+                    <p>Loose items are better for sorting, so avoid bagging unless specified by your local program.</p>
+                    <li><b>Don’t Include Hazardous Waste</b></li>
+                    <p>Batteries, chemicals, and medical waste should never go in standard recycling bins.</p>
+                    <li><b>Don’t Recycle Plastic Bags</b></li>
+                    <p>These should be taken to special collection points, not placed in curbside bins.</p>
+                    <li><b>Don’t Overfill the Bin</b></li>
+                    <p>Ensure the lid can close properly to prevent windblown litter.</p>
+                    <li><b>Don’t Include Sharp Objects</b></li>
+                    <p>Items like broken glass or needles should be disposed of through proper waste channels, not recycling bins.</p>
+                    <li><b>Don’t Assume Everything is Recyclable</b></li>
+                    <p>Always double-check local guidelines before recycling unfamiliar items.</p>
+                </ol>
+            </div>
+    
+            <div class="youtube_waste_video_class">
+                <h1 id="youtube_des">Here is a simple video about how to sort the waste:</h1>
+                <iframe id=youtube_video width="560" height="315" src="https://www.youtube.com/embed/fINNirOs3yY?si=Xcs5TA63LOS8k_p1"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                </iframe>
+            </div>
+    
+            <div class="Malaysia_RP_class">
+                <h1 id="MRP_title">Malaysia Recycle Program</h1>
+                <table id="MR_company">
+                    <tr id="company_row">
+                        <th id="company_name_th">Company Name</th>
+                        <th id="description_th">Description</th>
+                        <th id="activity_th">Activity</th>
+                        <th id="locations_th">Locations</th>
+                    </tr>
+    
+                    <tr id="company_row">
+                        <td id="company_name">SWCorp Malaysia (Solid Waste and Public Cleansing Management Corporation)</td>
+                        <td id="company_des">SWCorp oversees solid waste management and public cleansing efforts in Malaysia.</td>
+                        <td id="company_activity">- Promotes waste separation at source.<br><br>- Runs public awareness campaigns on recycling and waste reduction.
+                        </td>
+                        <td id="company_locations">Includes areas like Kuala Lumpur, Putrajaya, and parts of Selangor, Johor, Melaka, Pahang, Kedah, Perlis, and Negeri Sembilan.</td>
+                    </tr>
+    
+                    <tr id="company_row">
+                        <td id="company_name">KitaRecycle (Alam Flora)</td>
+                        <td id="company_des">Managed by Alam Flora, KitaRecycle encourages recycling through a reward-based system.</td>
+                        <td id="company_activity">- Users can register via the KitaRecycle mobile app.<br><br>- Recyclable items like plastics, paper, and metals can be deposited at designated drop-off points.<br><br>- Earn points redeemable for rewards.</td>
+                        <td id="company_locations">Operates in areas under Alam Flora's jurisdiction, such as Kuala Lumpur, Putrajaya, and Pahang.</td>
+                    </tr>
+    
+                    <tr id="company_row">
+                        <td id="company_name">E-Waste Recycling Program (DOE Malaysia)</td>
+                        <td id="company_des">A program by the Department of Environment (DOE) focusing on the proper disposal of electronic waste (e-waste).</td>
+                        <td id="company_activity">- Collects items like old phones, laptops, and batteries.<br><br>- Drop-off points at licensed facilities or during e-waste collection campaigns.</td>
+                        <td id="company_locations">Includes areas like Kuala Lumpur, Putrajaya, and parts of Selangor</td>
+                    </tr>
+    
+                    <tr id="company_row">
+                        <td id="company_name">Tetra Pak Malaysia Recycling Program</td>
+                        <td id="company_des">Focuses on recycling beverage cartons such as milk and juice boxes.</td>
+                        <td id="company_activity">- Partnerships with schools and recycling centers to collect used Tetra Pak cartons.<br><br>- Encourages proper rinsing and flattening of cartons before recycling.</td>
+                        <td id="company_locations">Available at selected recycling centers and supermarkets.</td>
+                    </tr>
+    
+                    <tr id="company_row">
+                        <td id="company_name">MYSaveFood (Food Waste Management Program)</td>
+                        <td id="company_des">A collaboration between the Malaysian government and SWCorp to address food waste.</td>
+                        <td id="company_activity">- Promotes composting organic waste at home.<br><br>- Public campaigns to reduce food wastage and recycle organic materials.</td>
+                        <td id="company_locations">-</td>
+                    </tr>
+                </table>
+            </div>
+    
+            <div class="next_button_class">
+                <a href="cs.html"><img id="next_button" src="RecyclingImages/next-page-button.png"></a>
+            </div>
+        </div>
+    
+        <script src="popup.js"></script>
+        <script src="responsive.css"></script>
+        <script src="button.js"></script>
+</body>
+
+</html>

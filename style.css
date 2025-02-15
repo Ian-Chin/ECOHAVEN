@@ -26,14 +26,15 @@ body {
 
 .content-container {
     display: flex;
-    position: fixed;
-    top: 7em;
-    left: 20em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     justify-content: space-between;
     align-items: center;
-    margin: 100px auto;
+    width: 90%;
     max-width: 1200px;
-    padding: 0 150px;
+    padding: 0 2rem;
 }
 
 .welcome-section {

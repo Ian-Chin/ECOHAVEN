@@ -358,7 +358,7 @@ body {
     padding: 6em 5%;
     height: 100vh;
     object-fit: cover;
-    background: url('pictures/1.png') no-repeat center/cover;
+    background: url('pictures/CommunityBG.png') no-repeat center/cover;
 }
 
 .banner h1 {
@@ -423,9 +423,9 @@ body {
 }
 
 .main-menu {
-    padding: 100vh;
+    padding: 50vh;
     text-align: center;
-    background-image: url("pictures/Popular\ now.jpg");
+    background-image: url("pictures/PopularBG.jpg");
     z-index: 20;
 }
 /* --------------------------------------------------------------------------------------------- */
@@ -433,10 +433,13 @@ body {
 .popular-now {
     padding: 20px;
     text-align: center;
-    background-image: url("pictures/Popular\ now.jpg");
+    background-image: url("pictures/PopularBG.jpg");
     z-index: 20;
 }
 
+.popular-now iframe {
+    padding: 50px;
+}
 .popular-now h2 {
     font-size: 20pt;
     color: #2a5d32;
@@ -446,7 +449,7 @@ body {
 .your-community {
     padding: 90px;
     text-align: center;
-    background-image: url("pictures/Your\ community.jpg");
+    background-image: url("pictures/CommunityBG2.jpg");
     z-index: 20;
     font-size: 20pt;
     color: white;
@@ -460,61 +463,7 @@ body {
     color: black;
     font-size: 18px;
 }
-/*.community-container {
-display: flex;
-align-items: center;
-height: 60em;
-margin: 4em 5em;
-border: 2px solid darkgreen;
-border-radius: 15px;
-overflow: hidden;
-background-color: #f3eed8;
-}
 
-
-
-.community-inline{
-display: inline-block;
-align-items: center;
-height: 45em;
-width: 70em;
-margin: 3em 2em -9em;
-border: 2px solid darkgreen;
-border-radius: 15px;
-overflow: hidden;
-z-index: 5;
-/* } */
-
-/* .community-container img {
-position: relative;
-bottom: 25em;
-right: 30em;
-margin-right: 1em;
-width: 220px;
-height: 220px;
-border-radius: 20px;
-object-fit: cover;
-}
-
-.community-content {
-position: relative;
-left: 10em;
-padding: 1px 20px;
-margin-bottom: 50em;
-text-align: left;
-}
-
-.community-content h3{
-font-size: 20pt;
-}
-
-.community-content p{
-font-size: 10pt;
-}
-
-.community-content span{
-font-size: 12pt;
-} */
 .container {
     max-width: 1200px;
     max-height: 20px;
@@ -786,4 +735,65 @@ footer .services p {
     padding: 0.75em;
     margin-top: 0.5em;
     border-radius: 6px;
+    color: black;
+    position: relative;
 }
+
+.comment p{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    line-height: 16px;
+    color: #282828;
+    font-weight: bold;
+}
+
+.edit-form {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+.edit-form button{
+    width: 40px;
+    height: 20px;
+    color: #282828;
+    border-color: transparent;
+    background-color: transparent;
+    opacity: 0.7;
+}
+
+.edit-form button:hover{
+    width: 40px;
+    height: 20px;
+    color: #282828;
+    border-color: transparent;
+    background-color: transparent;
+    opacity: 1;
+    cursor: pointer;
+}
+
+.delete-form {
+    position: absolute;
+    top: 0px;
+    right: 60px;
+}
+
+.delete-form button{
+    width: 40px;
+    height: 20px;
+    color: #282828;
+    border-color: transparent;
+    background-color: transparent;
+    opacity: 0.7;
+}
+
+.delete-form button:hover{
+    width: 40px;
+    height: 20px;
+    color: #282828;
+    border-color: transparent;
+    background-color: transparent;
+    opacity: 1;
+    cursor: pointer;
+}
+

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog Posts - Eco Haven</title>
+    <style>
+        /* All existing styles remain the same */
+    </style>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <script src="popup.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="header-bar">
+            <img src="White text transparent bg.png" alt="Eco Haven Logo" class="logo">
+            <img src="Green text trans bg.png" alt="Eco Haven Logo" class="logo2">
+            <div class="login"><a href="index.html">Login</a></div>
+        </div>
+        <div class="header-bar2">
+            <nav class="nav">
+                <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+                <div class="nav-links">
+                  <a href="index.html">Home</a>
+                  <a href="Blogpost.html">Blog Post</a>
+                  <a href="request_verification.html">Verification</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <div class="main-container">
+        <main class="blog-content">
+            <div class="blog-header">
+                <h1>Latest Articles</h1>
+                <div class="sort-container">
+                    <label for="sort-select">Sort by date:</label>
+                    <select id="sort-select" onchange="sortPosts(this.value)">
+                        <option value="newest">Newest First</option>
+                        <option value="oldest">Oldest First</option>
+                    </select>
+                </div>
+            </div>
+
+            <section class="blog-posts" id="blogPostsContainer">
+                <div class="blog-card" data-date="2025-02-15">
+                    <img src="Earth Hour.jpg" alt="Earth Hour" />
+                    <div class="card-content">
+                        <h3>Celebrate Earth Hour Every Year!</h3>
+                        <p>Click here to see many reasons why one should celebrate Earth Hour.</p>
+                        <div class="post-meta">
+                            <span class="author"><i class="fas fa-user"></i> EcoHaven Admin Team</span>
+                            <span class="date"><i class="fas fa-calendar"></i> 15/02/25</span>
+                        </div>
+                        <div class="card-footer">
+                            <a href="earth-hour.html" class="read-more">
+                                Read More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="blog-card" data-date="2025-02-14">
+                    <img src="Solar panel.jpg" alt="Solar Panel" />
+                    <div class="card-content">
+                        <h3>Here is why you should install solar panels on your house</h3>
+                        <p>Discover how solar panels can lower energy bills, boost home value, and promote a greener lifestyle.</p>
+                        <div class="post-meta">
+                            <span class="author"><i class="fas fa-user"></i> EcoHaven Admin Team</span>
+                            <span class="date"><i class="fas fa-calendar"></i> 14/02/25</span>
+                        </div>
+                        <div class="card-footer">
+                            <a href="solar-panels.html" class="read-more">
+                                Read More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="blog-card" data-date="2025-02-13">
+                    <img src="Electric Car.jpg" alt="Electric car" />
+                    <div class="card-content">
+                        <h3>5 reasons to own a electric in Malaysia 2025</h3>
+                        <p>Explore five compelling benefits of owning an electric vehicle in Malaysia—from cost savings to reducing your carbon footprint.</p>
+                        <div class="post-meta">
+                            <span class="author"><i class="fas fa-user"></i> EcoHaven Admin Team</span>
+                            <span class="date"><i class="fas fa-calendar"></i> 13/02/25</span>
+                        </div>
+                        <div class="card-footer">
+                            <a href="electric-cars.html" class="read-more">
+                                Read More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

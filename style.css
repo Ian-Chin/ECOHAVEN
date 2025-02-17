@@ -249,15 +249,16 @@ body {
     height: 100px;
     width: auto;
     position: absolute;
-    left: 1em;
+    left: 16px; /* Changed from 1em */
 }
+
 
 .logo2 {
     display: none;
     height: 10px;
     width: auto;
     position: absolute;
-    left: 1em;
+    left: 16px; /* Changed from 1em */
 }
 
 .header-bar.scrolled .logo2 {
@@ -275,7 +276,7 @@ body {
     font-size: 24px;
     cursor: pointer;
     position: absolute;
-    top: 2.4em;
+    top: 38px; /* Changed from 2.4em */
     left: 2%;
 }
 
@@ -308,7 +309,7 @@ body {
     color: white;
     font-weight: bold;
     position: absolute;
-    top: 1em;
+    top: 16px; /* Changed from 1em */
     right: 2%;
     z-index: 1;
 }
@@ -328,7 +329,7 @@ body {
     position: relative;
     text-align: center;
     color: white;
-    padding: 6em 5%;
+    padding: 96px 5%; /* Changed from 6em */
     height: 100vh;
     object-fit: cover;
     background: url('pictures/MainMenu.png') no-repeat center/cover;
@@ -336,7 +337,7 @@ body {
 
 .main-banner h1 {
     position: relative;
-    top: 5em;
+    top: 80px; /* Changed from 5em */
     font-size: 50px;
     margin-bottom: 20px;
     color: #2aa745;
@@ -345,25 +346,34 @@ body {
 
 .main-banner p {
     position: relative;
-    top: 14em;
+    top: 224px; /* Changed from 14em */
     font-size: 18px;
     margin-bottom: 20px;
     text-shadow: 5px 5px 4px rgba(0, 0, 0, 0.7);
 }
+
 /* COMMUNITY GARDEN PAGE */
 .banner {
     position: relative;
     text-align: center;
     color: white;
-    padding: 6em 5%;
+    padding: 96px 5%; /* Changed from 6em */
     height: 100vh;
     object-fit: cover;
-    background: url('pictures/CommunityBG.png') no-repeat center/cover;
+}
+
+.banner img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100vh;
 }
 
 .banner h1 {
     position: relative;
-    top: 5em;
+    top: 230px; /* Changed from 5em */
     font-size: 50px;
     margin-bottom: 20px;
     color: #2aa745;
@@ -372,7 +382,7 @@ body {
 
 .banner p {
     position: relative;
-    top: 14em;
+    top: 230px; /* Changed from 14em */
     font-size: 18px;
     margin-bottom: 20px;
     text-shadow: 5px 5px 4px rgba(0, 0, 0, 0.7);
@@ -380,7 +390,7 @@ body {
 
 .explore {
     position: relative;
-    top: 16em;
+    top: 256px; /* Changed from 16em */
     background: linear-gradient(to right, rgb(92, 189, 92), rgb(57, 204, 57));
     border: none;
     padding: 15px 40px;
@@ -389,7 +399,6 @@ body {
     cursor: pointer;
     box-shadow: 0 10px 10px rgba(0, 0, 0, 0.473);
     z-index: 0;
-    cursor: pointer;
 }
 
 /* EXPLORE BUTTON SHORT ANIMATION (WHEN HOVERED) */
@@ -417,7 +426,7 @@ body {
     position: relative;
     text-align: center;
     color: white;
-    padding: 6em 5%;
+    padding: 96px 5%; /* Changed from 6em */
     height: 100%;
     object-fit: cover;
 }
@@ -425,7 +434,6 @@ body {
 .main-menu {
     padding: 50vh;
     text-align: center;
-    background-image: url("pictures/PopularBG.jpg");
     z-index: 20;
 }
 /* --------------------------------------------------------------------------------------------- */
@@ -433,13 +441,14 @@ body {
 .popular-now {
     padding: 20px;
     text-align: center;
-    background-image: url("pictures/PopularBG.jpg");
     z-index: 20;
+    background-color:rgb(214, 236, 214);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
 
-.popular-now iframe {
-    padding: 50px;
-}
+
 .popular-now h2 {
     font-size: 20pt;
     color: #2a5d32;
@@ -449,7 +458,6 @@ body {
 .your-community {
     padding: 90px;
     text-align: center;
-    background-image: url("pictures/CommunityBG2.jpg");
     z-index: 20;
     font-size: 20pt;
     color: white;
@@ -459,6 +467,7 @@ body {
     color: #2a5d32;
     font-size: 18px;
 }
+
 .your-community #comments-container p{
     color: black;
     font-size: 18px;
@@ -497,99 +506,112 @@ body {
 
 .card {
     display: flex;
-    align-items: center;
-    height: 20em;
-    margin: 4em 5em;
-    border: 2px solid darkgreen;
-    border-radius: 15px;
-    overflow: hidden;
-    background-color: #f3eed8;
-}
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 30px;
+    width: 100%;
+    max-width: 2000px;
+    gap: 24px;
+    margin: 0 auto;
+  }
 
-.card img {
-    position: relative;
-    right: 1em;
-    width: 220px;
-    height: 220px;
-    border-radius: 20px;
-    object-fit: cover;
-}
-
-.card .content {
+    .content {
     flex: 1;
-    padding: 10px 20px;
-    margin-top: 1em;
+    min-width: 0; /* Prevents flex content from overflowing */
+    }
+
+    .title {
+    color: #1a1a1a;
+    margin: 0 0 16px 0;
+    font-size: clamp(20px, 4vw, 24px);
     text-align: left;
-}
+    }
 
-.card .content h3 {
-    color: #2a5d32;
-}
+    .welcome {
+    color: #666;
+    margin: 0 0 24px 0;
+    line-height: 1.5;
+    font-size: clamp(14px, 3vw, 16px);
+    text-align: left;
+    }
 
-.community-content .community-stats {
+    .owner {
     display: flex;
-    position: relative;
-    left: 0em;
-    top: 1em;
-    gap: 5em;
-    margin: 10px 0;
-}
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+    }
 
-.card .content .stats {
+    .owner-img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    }
+
+    .owner-name {
+    font-weight: 500;
+    color: #333;
+    font-size: clamp(14px, 3vw, 16px);
+    }
+
+    .bottom-section {
     display: flex;
-    position: relative;
-    left: 60em;
-    top: 3.5em;
-    gap: 5em;
-    margin: 10px 0;
-}
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    }
 
-.card button {
-    position: relative;
-    left: 95em;
-    top: 1em;
-    background-color: #2a5d32;
-    border: none;
-    padding: 15px 60px;
-    border-radius: 20px;
-    cursor: pointer;
-}
+    .stats {
+    display: flex;
+    gap: 16px;
+    }
 
-.card button a {
-    text-decoration: none;
+    .stat-item {
+    text-align: center;
+    }
+
+    .stat-value {
+    font-size: clamp(16px, 3.5vw, 18px);
+    font-weight: 600;
+    color: #1a1a1a;
+    }
+
+    .stat-label {
+    font-size: clamp(12px, 2.5vw, 14px);
+    color: #666;
+    }
+
+    .join-btn {
+    background: #18a106;
     color: white;
-}
-
-.owner {
-    display: flex;
-    position: relative;
-    left: 2em;
-    top: 7em;
-}
-
-.owner img {
-    position: relative;
-    width: 40px;
-    height: 40px;
-    bottom: 0.6em;
-    border-radius: 20px;
-}
-
-.see-more {
-    background-color: #2a5d32;
     border: none;
-    padding: 15px 70px;
-    color: white;
-    border-radius: 25px;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-weight: 500;
     cursor: pointer;
-    font-size: 15px;
-}
+    transition: background 0.2s;
+    font-size: clamp(14px, 3vw, 16px);
+    }
+
+    .join-btn:hover {
+    background: #1e7209;
+    }
+
+    .group-img {
+    width: 200px;
+    height: 240px;
+    border-radius: 8px;
+    object-fit: cover;
+    }
 
 /* Footer */
 footer {
     background-color: #2a5d32;
     color: white;
-    padding: 3em;
+    padding: 48px; /* Changed from 3em */
     z-index: -1;
 }
 
@@ -614,12 +636,13 @@ footer .socials {
     font-size: 1.1em;
 }
 
-footer .socials i {
+footer .socials img {
     text-decoration: none;
     color: black;
     text-align: center;
-    font-size: 3em;
-    padding: 1vw;
+    width: 30%;
+    padding: 10px;
+    z-index: 100;
 }
 
 footer .Copyright {
@@ -638,7 +661,7 @@ footer .services p {
 
 .community-section {
     flex: 1;
-    padding: 0em;
+    padding: 0;
     text-align: center;
     background: #e2f3df;
 }
@@ -650,24 +673,22 @@ footer .services p {
 
 .community-card img {
     max-width: 250px;
-    margin-right: 1.5em;
+    margin-right: 24px; /* Changed from 1.5em */
     border-radius: 8px;
 }
-
 
 .community-card {
     background: #fdfdf4;
     border: 3px solid #82c88e;
     border-radius: 12px;
-    margin: 1.5em auto;
-    padding: 1.5em 2em;
+    margin: 24px auto; /* Changed from 1.5em */
+    padding: 24px 32px; /* Changed from 1.5em 2em */
     width: 100%;
     max-width: 100%;
     text-align: left;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
     position: relative;
 }
-
 .community-card h3 {
     color: #2a5d32;
     font-size: 30px;
@@ -687,25 +708,25 @@ footer .services p {
 .group-owner {
     display: flex;
     align-items: center;
-    margin-top: 1em;
+    margin-top: 16px; /* Changed from 1em */
 }
 
 .group-owner img {
     width: 40px;
     height: 40px;
-    margin-right: 0.75em;
+    margin-right: 12px; /* Changed from 0.75em */
     border-radius: 60px;
 }
 
 .comment-section {
-    padding: 0em;
+    padding: 0;
     border-radius: 8px;
-    margin-top: 0.5em;
+    margin-top: 8px; /* Changed from 0.5em */
 }
 
 .comment-section textarea {
     width: 100%;
-    padding: 1em;
+    padding: 16px; /* Changed from 1em */
     border: 1px solid #2a5d32;
     background-color: rgb(242, 247, 230);
     border-radius: 6px;
@@ -714,16 +735,14 @@ footer .services p {
 }
 
 .comment-section button {
-    margin-top: 0.5em;
-    padding: 1em 2em;
+    margin-top: 8px; /* Changed from 0.5em */
+    padding: 16px 32px; /* Changed from 1em 2em */
     background-color: #1b6928;
-    color: #333;
+    color: white;
     border: none;
     border-radius: 6px;
     cursor: pointer;
-    color: white;
 }
-
 .comment-section button:hover {
     background-color: #06bb1e;
     color: black;
@@ -732,8 +751,8 @@ footer .services p {
 .comment {
     border: 1px solid #2a5d32;
     background-color: rgb(242, 247, 230);
-    padding: 0.75em;
-    margin-top: 0.5em;
+    padding: 12px; /* Changed from 0.75em */
+    margin-top: 8px; /* Changed from 0.5em */
     border-radius: 6px;
     color: black;
     position: relative;

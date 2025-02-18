@@ -1,16 +1,17 @@
 @media (max-width: 768px) {
+
     /* Header */
     .logo {
-        height: 6em; 
-        width: auto;                   
+        height: 6em;
+        width: auto;
         position: absolute;
         left: 0em;
     }
 
     .header-bar.scrolled .logo2 {
-        height: 1.9em;                 
+        height: 6em;
         position: absolute;
-        left: 1em;
+        left: 0em;
     }
 
     .login a {
@@ -19,9 +20,10 @@
         font-weight: bold;
         position: absolute;
         top: 1em;
-        right: 4%;    
+        right: 4%;
     }
-/* ----------------------------------------------------------------- */
+
+    /* ----------------------------------------------------------------- */
     .nav-links {
         display: none;
         flex-direction: column;
@@ -41,17 +43,46 @@
     }
 
     /* Phone navigation button */
-    .header-bar2.scrolled .nav .nav-toggle {
+    .header-bar2.scrolled .nav-toggle {
         display: block;
         top: 0.3em;
-        z-index: 100;
         color: black;
     }
-    
-    .nav.open .nav-links {
-        display: flex; 
+
+    .nav-toggle {
+        display: hidden;
+        flex-direction: row;
+        font-size: 24px;
+        cursor: pointer;
+        position: absolute;
+        top: 2.4em;
+        left: 2%;
+        z-index: 100;
     }
-/* --------------------------------------------------------------- */
+
+    .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .header-bar2.scrolled .nav-toggle {
+        display: flex;
+        flex-direction: row;
+        font-size: 24px;
+        cursor: pointer;
+        position: absolute;
+    }
+
+    .nav .nav-links {
+        display: none;
+    }
+
+    .header-bar2.scrolled .nav .nav-links {
+        display: hidden;
+    }
+
+    /* --------------------------------------------------------------- */
     .banner {
         padding: 4em 2%;
     }
@@ -87,74 +118,106 @@
         margin-left: 0;
     }
 
-/* Community Garden Cards */
+    /* Community Garden Cards */
+    .bottom-section {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 16px;
+    }
+
+    .stats {
+        justify-content: center;
+    }
+
+    .join-btn {
+        width: 100%;
+    }
+}
+
+/* Footer */
+footer {
+    font-size: 0.5em;
+}
+
+
+
+@media (max-width: 768px) {
     .card {
-        text-align: left;
-        display: flex;
-        height: 17em;
-        margin: 2em 0em;
+        flex-direction: column-reverse;
+        padding: 16px;
     }
 
-    .card .G-img {
-        position: relative;
-        left: 1em;
-        margin: 0;
-        width: 150px;
-        height: 350px;
-        opacity: 100%;
-        box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 2px 0 rgba(0, 0, 0, 0.19);
-    }
-    
-    .card .content h3 {
-        position: relative;
-        color: #2a5d32;
-        font-size: 1.8em;
+    .group-img {
+        width: 100%;
+        height: 200px;
     }
 
-    .card .content {
-        position: relative;
-        padding-left: 1em;
-        font-size: 0.6em;
-    }
-    
-    .card .content .stats {
-        position: relative;
-        left: 14em;
-        top: 4em;
-        gap: 2em;
-    }
+.destinations {
+    grid-template-columns: repeat(2, 1fr);
+}
 
-    .card button {
-        position: relative;
-        top: 0em;
-        left: 0em;
-        padding: 10px 40px;
-    }
+.reviews-container {
+    grid-template-columns: 1fr;
+}
 
-    .owner {
-        display: flex;
-        position: relative;
-        left: 14em;
-        top: 4em;
-    }
-    
-    .owner img{
-        position: relative;
-        width: 30px;
-        height: 30px;
-        bottom: 0.8em;
-        border-radius: 20px;
-        opacity: 100%;
-    }
-    
-    .see-more {
-        max-width: 100%;
-    }
+.nav-toggle {
+    display: hidden; /* Changed from hidden */
+    font-size: 24px;
+    cursor: pointer;
+    position: fixed;
+    top: 38px;
+    left: 2%;
+    z-index: 1002;
+    background: none;
+    border: none;
+}
 
- /* Footer */
-    footer {
-        font-size: 0.5em;
-    }
-    
-}  
+.header-bar2.scrolled .nav-toggle { 
+    display: block;
+    top: 12px;
+    color: black;
+}
 
+.nav-links {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    top: 100px;
+    left: 0;
+    background-color: rgb(110, 209, 110);
+    width: 50%;
+    padding: 20px 0;
+    z-index: 1003;
+    gap: 20px;
+}
+
+/* This is the crucial class for showing/hiding the menu */
+.nav-links.open {
+    display: flex !important; /* Added !important to override other display properties */
+}
+
+/* Remove these conflicting styles */
+.nav .nav-links {
+    display: none;
+}
+
+.header-bar2.scrolled .nav .nav-links {
+    display: none; /* Changed from hidden */
+}
+
+iframe {
+    width: 100% !important;
+    height: 300px !important;
+    margin: 20px 0;
+}
+
+/* Adjusted responsive styles for other elements */
+.destinations {
+    grid-template-columns: repeat(1, 1fr);
+}
+
+.banner h1, .banner p {
+    transform: translateY(0);
+    opacity: 1;
+}
+}

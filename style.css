@@ -213,7 +213,7 @@ body {
     transition: background-color 0.1s ease-in-out, box-shadow 0.1s ease;
     align-items: center;
     position: fixed;
-    z-index: 10;
+    z-index: 1000;
 }
 
 .header-bar.scrolled {
@@ -222,7 +222,6 @@ body {
 }
 
 .header-bar2 {
-    pointer-events: none;
     transform: translateY();
     left: 0;
     width: 100%;
@@ -234,7 +233,7 @@ body {
     align-items: center;
     justify-content: center;
     position: fixed;
-    z-index: 10;
+    z-index: 1001;
 }
 
 .header-bar2.scrolled {
@@ -278,11 +277,13 @@ body {
     position: absolute;
     top: 38px; /* Changed from 2.4em */
     left: 2%;
+    z-index: 11;
 }
 
 .nav-links {
     display: flex;
     gap: 70px;
+    z-index: 1002;
 }
 
 .nav-links a,
@@ -325,32 +326,6 @@ body {
     color: black;
 }
 
-.main-banner {
-    position: relative;
-    text-align: center;
-    color: white;
-    padding: 96px 5%; /* Changed from 6em */
-    height: 100vh;
-    object-fit: cover;
-    background: url('pictures/MainMenu.png') no-repeat center/cover;
-}
-
-.main-banner h1 {
-    position: relative;
-    top: 80px; /* Changed from 5em */
-    font-size: 50px;
-    margin-bottom: 20px;
-    color: #2aa745;
-    text-shadow: 1px 6px 4px rgba(0, 0, 0, 0.7);
-}
-
-.main-banner p {
-    position: relative;
-    top: 224px; /* Changed from 14em */
-    font-size: 18px;
-    margin-bottom: 20px;
-    text-shadow: 5px 5px 4px rgba(0, 0, 0, 0.7);
-}
 
 /* COMMUNITY GARDEN PAGE */
 .banner {
@@ -376,8 +351,8 @@ body {
     top: 230px; /* Changed from 5em */
     font-size: 50px;
     margin-bottom: 20px;
-    color: #2aa745;
-    text-shadow: 1px 4px 4px rgba(0, 0, 0, 0.7);
+    color: #ffffff;
+    text-shadow: 1px 5px 5px rgba(0, 0, 0, 0.7);
 }
 
 .banner p {
@@ -385,7 +360,7 @@ body {
     top: 230px; /* Changed from 14em */
     font-size: 18px;
     margin-bottom: 20px;
-    text-shadow: 5px 5px 4px rgba(0, 0, 0, 0.7);
+    text-shadow: 1px 5px 5px rgba(0, 0, 0, 0.7);
 }
 
 .explore {
@@ -626,14 +601,14 @@ footer .links a {
     text-decoration: none;
     color: white;
     text-align: left;
-    font-size: 1.1em;
+    font-size: 15px;
 }
 
 footer .socials {
     text-decoration: none;
     color: white;
     text-align: center;
-    font-size: 1.1em;
+    font-size: 15px;
 }
 
 footer .socials img {
@@ -656,7 +631,7 @@ footer .services p {
     text-decoration: none;
     color: white;
     text-align: center;
-    font-size: 1.1em;
+    font-size: 15px;
 }
 
 .community-section {
@@ -814,5 +789,226 @@ footer .services p {
     background-color: transparent;
     opacity: 1;
     cursor: pointer;
+}
+
+.main-content{
+    padding: 20px;
+    text-align: center;
+    z-index: 20;
+    background-color:rgb(214, 236, 214);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.main-container h1{
+    font-size: 40px;
+    color: #1b6928;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+
+.destinations {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 60px;
+}
+
+.destination-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.destination-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.destination-content {
+    padding: 15px;
+}
+
+.destination-content h3 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.destination-content p {
+    color: #666;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.go-now-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background: #2a963c;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background 0.3s;
+}
+
+.go-now-btn:hover {
+    background: #1b6928;
+}
+
+.about-us {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 60px;
+    padding: 20px;
+}
+
+.about-us h2 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 2.5em;
+}
+
+.about-us p {
+    color: #666;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.reviews-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+.reviews-container:hover {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+.review-card {
+    position: relative;
+    background: white;
+    border-radius: 8px;
+    padding: 40px 25px 30px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-top: 40px;
+    min-height: 300px; /* Increased height */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.review-image {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.review-card h4 {
+    color: #333;
+    margin-bottom: 15px;
+    text-align: center;
+    margin-top: 25px;
+    font-size: 1.2em;
+}
+
+.review-card p {
+    color: #666;
+    font-size: 15px;
+    text-align: center;
+    line-height: 1.6;
+    flex-grow: 1;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Hide elements initially */
+.scroll-animate {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease-out;
+}
+
+/* Class to add when element comes into view */
+.scroll-animate.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animated elements with scroll triggers */
+.banner h1, .banner p, .explore {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease-out;
+}
+
+.destination-card {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease-out;
+}
+
+.review-card {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease-out;
+}
+
+/* Hover animations (these remain instant) */
+.destination-card:hover, .review-card:hover {
+    transform: translateY(-5px);
 }
 

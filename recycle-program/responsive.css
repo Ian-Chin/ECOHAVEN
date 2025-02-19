@@ -1,0 +1,130 @@
+@media (max-width: 600px) {
+    /* Header */
+    .logo {
+        height: 2em; 
+        width: auto;                    
+        position: absolute;
+        left: 1em;
+    }
+
+    .login a {
+        text-decoration: none;
+        color: black;
+        font-weight: bold;
+        position: absolute;
+        top: 1em;
+        right: 4%;    
+    }
+/* ----------------------------------------------------------------- */
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background-color: rgb(110, 209, 110);
+        width: 50%;
+        padding: 20px 0;
+        z-index: 98;
+    }
+
+    .nav-links a {
+        padding: 0px 20px;
+        text-align: left;
+        font-size: 13px;
+    }
+
+    /* Phone navigation button */
+    .nav-toggle {
+        display: block; 
+    }
+
+    .nav.open .nav-links {
+        display: flex; 
+    }
+/* --------------------------------------------------------------- */
+    .banner {
+        padding: 4em 2%;
+    }
+
+    .banner h1 {
+        font-size: 1.8em;
+        padding: 0.4em 0.6em;
+    }
+
+    .banner p {
+        font-size: 0.9em;
+        padding: 0.4em;
+    }
+
+    .banner button {
+        font-size: 0.9em;
+        padding: 0.6em 1.2em;
+    }
+
+    .popular-now .group {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .popular-now .group img {
+        margin-bottom: 1em;
+        max-width: 100%;
+    }
+
+    .popular-now .group .details {
+        margin-left: 0;
+    }
+
+/* Community Garden Cards */
+    .card {
+        text-align: left;
+        display: flex;
+        height: 17em;
+        margin: 2em 0em;
+    }
+
+    .card img {
+        margin: 0;
+        width: 150px;
+        height: 250px;
+    }
+
+    .card .content h3 {
+        color: #2a5d32;
+        margin-bottom: 10px;
+        font-size: 1.8em;
+    }
+
+    .card .content {
+        padding-left: 1em;
+        font-size: 0.6em;
+        margin: 1px auto;
+    }
+    
+    .card .content .stats {
+        display: flex;
+        position: relative;
+        left: 18em;
+        top: 6em;
+        gap: 5em;
+    }
+
+    .card button {
+        margin: -20px 20px;
+        margin-left: 0em;
+        margin-top: 2em;
+        padding: 10px 40px;
+    }
+
+    .see-more {
+        max-width: 100%;
+    }
+
+ /* Footer */
+    footer {
+        font-size: 0.5em;
+    }
+    
+}  
+

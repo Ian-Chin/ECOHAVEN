@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Form</title>
+    <link rel="stylesheet" href="join.css">
+    <link rel="stylesheet" href="responsive.css">
+</head>
+<body>
+    
+    <header>
+        <div class="header-bar">
+            <img src="Whiteicon.ico" alt="Eco Haven Logo" class="logo">
+            <img src="Blackicon.ico" alt="Eco Haven Logo" class="logo2">
+            <div class="login"><a href="index.html">Login</a></div>
+
+        </div>
+        <div class="header-bar2">
+            <nav class="nav">
+                <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+                <div class="nav-links">
+                    <a href="#home">Home</a>
+                    <a href="#product-swap">Product Swap</a>
+                    <a href="#recycling-programs">Recycling Programs</a>
+                    <a href="#energy-tips">Energy Tips</a>
+                    <a href="Community Garden.html">Community</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="banner">
+            <h1>Recycle</h1>
+            <p>Let's make our planet green!</p>
+        </section>
+
+    <div class="main_background">
+        <h1 id="join_title">Join Recycle Event</h1>
+
+        <div class="join_form">
+            <form id=join_event_form action="join.php" method="POST">
+                <table id="join_table">
+                    <tr>
+                        <th>Full Name:</th>
+                        <td><input type="text" name="fname" required></td>
+                    </tr>
+
+                    <tr>
+                        <th>Email Address:</th>
+                        <td><input type="email" name="email" required></td>
+                    </tr>
+
+                    <tr>
+                        <th>Phone Number:</th>
+                        <td><input type="number" name="phone"  required></td>
+                    </tr>
+
+                    <tr>
+                        <th>Age:</th>
+                        <td><input type="number" name="age"  required></td>
+                    </tr>
+
+                    <tr>
+                        <th>Address:</th>
+                        <td><textarea rows="3" name="address" required></textarea></td>
+                    </tr>
+
+                    <tr>
+                        <th id="join_reset_th"><button type="reset" id="join_reset">Reset</button></th>
+                        <th id="join_submit_th"><button type="submit" id="join_submit">Submit</button></th>
+                    </tr>
+
+                </table>
+
+            </form>
+        </div>
+
+    </div>
+
+    <script src="button.js"></script>
+
+</body>
+</html>

@@ -1,3 +1,6 @@
+//---------------------------------------------------------------------------------- 
+// NAVIGATION TOGGLE BUTTON FOR MOBILE MENU
+//---------------------------------------------------------------------------------- 
 document.addEventListener('DOMContentLoaded', function() {
     const navToggle = document.querySelector('.nav-toggle');
     const navLinks = document.querySelector('.nav-links');
@@ -9,7 +12,9 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-
+//---------------------------------------------------------------------------------- 
+// HEADER 1 N 2 SCROLL ANIMATION
+//---------------------------------------------------------------------------------- 
 window.addEventListener("scroll", function () {
     const headerBar = document.querySelector(".header-bar");
     if (window.scrollY > 50) {
@@ -28,9 +33,11 @@ window.addEventListener("scroll", function () {
     }
 });
 
+//---------------------------------------------------------------------------------- 
 // Existing scroll event listeners...
 
 // Intersection Observer for animations
+//---------------------------------------------------------------------------------- 
 const observerOptions = {
     threshold: 0.2,
     rootMargin: '0px'
@@ -48,7 +55,6 @@ const observer = new IntersectionObserver((entries) => {
 
 document.addEventListener('DOMContentLoaded', function() {
     // Existing navigation code remains...
-
     // Intersection Observer for scroll animations
     const observerOptions = {
         threshold: 0.15,
@@ -75,6 +81,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }, observerOptions);
 // Observe elements
 const elementsToAnimate = [
+    '.main-banner h1',
+    '.main-banner p',
     '.banner h1',
     '.banner p',
     '.explore',
@@ -89,7 +97,9 @@ document.querySelectorAll(elementsToAnimate).forEach(element => {
     observer.observe(element);
 });
 
-// Smooth scroll for explore button
+//----------------------------------------------------------------------------------
+//SCROLL CLICK EXPLORE BUTTON
+//----------------------------------------------------------------------------------    
 const exploreBtn = document.querySelector('.explore');
 if (exploreBtn) {
     exploreBtn.addEventListener('click', function(e) {
@@ -99,3 +109,88 @@ if (exploreBtn) {
     });
 }
 });
+
+const exploreBtn = document.querySelector('.explore');
+if (exploreBtn) {
+    exploreBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        const popularNow = document.querySelector('.popular-now');
+        popularNow.scrollIntoView({ behavior: 'smooth' });
+    });
+}
+
+
+//----------------------------------------------------------------------------------    
+// OUR IMPACT NUMBER COUNTING FROM 0 TO TARGET
+//---------------------------------------------------------------------------------- 
+function animateCounter(element, target, duration) {
+    const startTime = performance.now();
+    const startValue = 0;
+    
+    function updateCounter(currentTime) {
+      const elapsedTime = currentTime - startTime;
+      
+      if (elapsedTime > duration) {
+        // Animation complete, set final value
+        element.textContent = target.includes('+') 
+          ? Math.floor(parseInt(target)) + '+' 
+          : target.includes('%')
+            ? Math.floor(parseInt(target)) + '%'
+            : Math.floor(parseInt(target)).toLocaleString();
+        return;
+      }
+      
+      // Calculate current value based on easing
+      const progress = elapsedTime / duration;
+      // Use easeOutQuad for smoother finish: t*(2-t)
+      const easedProgress = progress * (2 - progress);
+      
+      const currentValue = Math.floor(startValue + (parseInt(target) * easedProgress));
+      
+      // Format the number according to its type
+      element.textContent = target.includes('+') 
+        ? currentValue + '+' 
+        : target.includes('%')
+          ? currentValue + '%'
+          : currentValue.toLocaleString();
+      
+      requestAnimationFrame(updateCounter);
+    }
+    
+    requestAnimationFrame(updateCounter);
+  }
+  
+  // Observer specifically for achievement cards
+  document.addEventListener('DOMContentLoaded', function() {
+    const achievementObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const valueElements = entry.target.querySelectorAll('.achievement-card h3');
+          
+          valueElements.forEach(element => {
+            // Get the target value from the HTML
+            const targetValue = element.textContent;
+            
+            // Reset to zero first
+            element.textContent = '0';
+            
+            // Start animation
+            animateCounter(element, targetValue, 1500); // 1.5 seconds duration
+          });
+          
+          // Unobserve after triggering animation
+          achievementObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.3,
+      rootMargin: '0px'
+    });
+    
+    // Observe the achievements section
+    const achievementsSection = document.querySelector('.achievements-section');
+    if (achievementsSection) {
+      achievementObserver.observe(achievementsSection);
+    }
+  });
+//---------------------------------------------------------------------------------- 

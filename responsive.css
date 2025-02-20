@@ -104,7 +104,7 @@
     }
 
     /* --------------------------------------------------------------- */
-    .banner {
+    .banner, .main-banner{
         padding: 4em 2%;
     }
 
@@ -114,13 +114,19 @@
         top: 9em;
     }
 
-    .banner p {
+    .main-banner h1 {
+        font-size: 45pt;
+        padding: 5pt;
+        top: 4.5em;
+    }
+
+    .banner p, .main-banner p {
         font-size: 11pt;
         padding: 5pt 60pt;
         top: 18em;
     }
 
-    .banner button {
+    .banner button, .main-banner button {
         font-size: 0.9em;
         top: 18em;
     }

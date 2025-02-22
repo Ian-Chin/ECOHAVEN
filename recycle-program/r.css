@@ -1,0 +1,1153 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f5f5f5;
+}
+
+/* ----------------------------------------------------------- */
+/* login/signup/admin section */
+#myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.content-container {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    max-width: 1200px;
+    padding: 0 2rem;
+}
+
+.welcome-section {
+    flex: 2;
+    color: white;
+    padding: 0px;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+    text-align: left;
+    margin-right: 80px;
+}
+
+.welcome-section h1 {
+    font-size: 46px;
+    margin-bottom: 10px;
+    color: #32CD32;
+}
+
+.welcome-section h1:hover {
+    font-size: 46px;
+    margin-bottom: 10px;
+    color: darkgreen;
+}
+
+.welcome-section p {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.divider {
+    width: 2px;
+    height: 500px;
+    background-color: rgba(255, 255, 255, 0.3);
+    margin: 0 110px;
+}
+
+/* login/signup box */
+.wrapper {
+    width: 320px;
+    gap: 100px;
+    /* Adds space between flex items */
+    align-items: center;
+    justify-content: center;
+    color: white;
+    margin-left: 20px;
+}
+
+.FP-wrapper {
+    margin: auto;
+    margin-top: 7em;
+    color: white;
+    padding: 30px 40px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.wrapper h1, .FP-wrapper h1 {
+    font-size: 36px;
+    text-align: center;
+}
+
+.wrapper .input-box, .FP-wrapper .input-box{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+}
+
+.input-box input, .FP-wrapper input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid rgba(255, 255, 255, .2);
+    backdrop-filter: blur(50px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.582);
+    border-radius: 10px;
+    font-size: 16px;
+    color: white;
+    padding: 20px 45px 20px 20px;
+}
+
+.input-box input::placeholder, .FP-wrapper input::placeholder {
+    color: white;
+}
+
+
+.input-box img, .FP-wrapper img {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+}
+
+.wrapper .remember-forgot {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14.5px;
+    margin: -15px 0 15px;
+}
+
+.remember-forgot label input {
+    accent-color: white;
+    margin-right: 3px;
+}
+
+.remember-forgot a {
+    color: white;
+    text-decoration: none;
+}
+
+.remember.forgot a:hover {
+    text-decoration: underline;
+}
+
+.wrapper .btn, .FP-wrapper .btn{
+    width: 100%;
+    height: 45px;
+    background: rgb(110, 209, 110);
+    backdrop-filter: blur(100px);
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.473);
+    cursor: pointer;
+    font-size: 16px;
+    color: black;
+    font-weight: 600;
+}
+
+.wrapper .btn:hover, .FP-wrapper .btn:hover {
+    background: darkgreen;
+    color: white;
+    transition: .5s ease;
+
+}
+
+.wrapper .register-link, .FP-wrapper .register-link {
+    font-size: 14.5px;
+    text-align: center;
+    margin-top: 20px;
+    margin: 20px 0 15px;
+}
+
+.register-link p a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.register-link p a:hover {
+    text-decoration: underline;
+    color: rgb(110, 209, 110);
+}
+
+/* OFFICIAL HEADER */
+.header-image {
+    height: 50px;
+    width: auto;
+    cursor: pointer;
+    align-content: left;
+    margin-right: 20px;
+}
+
+.header-bar {
+    top: 0;
+    width: 100%;
+    height: 50px;
+    opacity: 100%;
+    display: flex;
+    background-color: transparent;
+    /* Initially transparent */
+    transition: background-color 0.1s ease-in-out, box-shadow 0.1s ease;
+    align-items: center;
+    position: fixed;
+    z-index: 1000;
+}
+
+.header-bar.scrolled {
+    background-color: white;
+    /* Change this color if needed */
+}
+
+.header-bar2 {
+    transform: translateY();
+    left: 0;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    background-color: transparent;
+    /* Initially transparent */
+    transition: background-color 0.1s ease-in-out, box-shadow 0.s ease;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    z-index: 1001;
+}
+
+.header-bar2.scrolled {
+    top: 50px;
+    left: 0;
+    width: 100%;
+    background-color: rgb(110, 209, 110);
+    /* Change this color if needed */
+}
+
+.logo {
+    height: 100px;
+    width: auto;
+    position: absolute;
+    left: 16px; /* Changed from 1em */
+}
+
+
+.logo2 {
+    display: none;
+    height: 10px;
+    width: auto;
+    position: absolute;
+    left: 16px; /* Changed from 1em */
+}
+
+.header-bar.scrolled .logo2 {
+    display: flex;
+    height: 100px;
+    width: auto;
+    position: absolute;
+    left: 1em;
+}
+
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    position: absolute;
+    top: 38px; /* Changed from 2.4em */
+    left: 2%;
+    z-index: 11;
+}
+
+.nav-links {
+    display: flex;
+    gap: 70px;
+    z-index: 1002;
+}
+
+.nav-links a,
+.header-bar2.scrolled .nav-links a:hover {
+    pointer-events: auto;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    transition: color 0.1s;
+}
+
+.header-bar2.scrolled .nav-links a {
+    color: black;
+}
+
+.nav-links a:hover {
+    color: #47d347;
+}
+
+.login a {
+    display: none;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    position: absolute;
+    top: 16px; /* Changed from 1em */
+    right: 2%;
+    z-index: 1;
+}
+
+.login a:hover,
+.header-bar.scrolled .login a:hover {
+    text-decoration: none;
+    color: #47d347;
+    font-weight: bold;
+}
+
+.header-bar.scrolled .login a {
+    color: rgb(0, 0, 0);
+    display: flex;
+}
+
+
+/* COMMUNITY GARDEN PAGE */
+.banner, .main-banner {
+    position: relative;
+    text-align: center;
+    color: white;
+    padding: 96px 5%; /* Changed from 6em */
+    height: 100vh;
+    object-fit: cover;
+}
+
+.banner img, .main-banner img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    transform-origin: center center;
+    transition: transform 0.3s ease-out;
+    will-change: transform; 
+}
+
+
+/* Add a subtle overlay to improve text readability */
+.banner::after, .main-banner::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.3),
+        rgba(0, 0, 0, 0.4)
+    );
+    z-index: -1;
+}
+
+.main-banner h1{
+    position: relative;
+    top: 230px; /* Changed from 5em */
+    font-size: 100px;
+    margin-bottom: 20px;
+    color: #ffffff;
+    text-shadow: 1px 5px 5px rgba(0, 0, 0, 0.7);
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.banner h1{
+    position: relative;
+    top: 230px; /* Changed from 5em */
+    font-size: 50px;
+    margin-bottom: 20px;
+    color: #ffffff;
+    text-shadow: 1px 5px 5px rgba(0, 0, 0, 0.7);
+}
+
+.banner p, .main-banner p {
+    position: relative;
+    top: 230px; /* Changed from 14em */
+    font-size: 18px;
+    margin-bottom: 20px;
+    text-shadow: 1px 5px 5px rgba(0, 0, 0, 0.7);
+}
+
+
+.background {
+    position: relative;
+    text-align: center;
+    color: white;
+    padding: 96px 5%; /* Changed from 6em */
+    height: 100%;
+    object-fit: cover;
+}
+
+.main-menu {
+    padding: 50vh;
+    text-align: center;
+    z-index: 20;
+}
+
+/* --------------------------------------------------------------------------------------------- */
+/* Recycle Program Contain Start */
+.main_background{
+    background-image: url(RecyclingImages/recycle-background-2.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    width: 100%;
+    height: auto;
+    background-size: cover; /*the background will resize dynamicly = move with the size of the window*/
+}
+
+/*Button*/
+
+.menu{
+    padding: 3%;
+    display: flex;
+    justify-content: center;
+}
+
+.menu-button{
+    cursor: pointer;
+    padding: 1%;
+    width: auto;
+    height: auto;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    border: 2pt solid black;
+    background-color: white;
+    color: black;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: transform 0.3s ease /* Smooth transition on hover */
+}
+
+.menu-button:hover {
+    background-color: #ddd;
+    transform: scale(1.1); /* Slightly enlarge the image */
+}
+
+/*Global Intro*/
+
+.global_class{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+#global_title{
+    font-size: 2rem;
+    margin-bottom: 15pt;
+    text-align: center;
+}
+
+.global_and_content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25pt;
+}
+
+#global_warming_image{
+    width: 50%;
+    height: auto;
+}
+
+.global_buttons{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.global_buttons button{
+    width: 90pt;
+    height: auto;
+    padding: 2%;
+    margin: 7% auto;
+    font-size: 15pt;
+    font-weight: bold;
+    border-width: 1.5pt;
+    color: black;
+    cursor: pointer;
+    transition: transform 0.3s ease; /* Smooth transition on hover */
+}
+
+#global_why_button{
+    background-color: lightblue;
+}
+
+#global_why_button:hover{
+    background-color: #66B2FF;
+}
+
+#global_cause_button{
+    background-color: lightcoral;
+}
+
+#global_cause_button:hover{
+    background-color: lightsalmon;
+}
+
+#global_effect_button{
+    background-color: gold;
+}
+
+#global_effect_button:hover{
+    background-color: yellow;
+}
+
+#global_solution_button{
+    background-color: plum;
+}
+
+#global_solution_button:hover{
+    background-color: pink;
+}
+
+#global_why_button:hover, #global_cause_button:hover, #global_effect_button:hover, #global_solution_button:hover{
+    transform: scale(1.1); /* Slightly enlarge the image */
+}
+
+.global_content {
+    display: none;
+    list-style-position: inside; /* moves bullets inside the content flow */
+    font-size: 15pt;
+    line-height: 17pt;
+}
+
+#why_content, #cause_content, #effect_content, #solution_content {
+    text-align: center;
+}
+
+/*3R image*/
+
+.three_R_class{
+    padding: 4% 15% 0%;
+    align-items: center;
+}
+
+#three_R_title{
+    font-size: 2rem;
+    margin-bottom: 10pt;
+    text-align: center;
+}
+
+#three_R{
+    width: 60%;
+    height: auto;
+    background-color: #f6fdff;
+    border-radius: 10%;
+    display: flex;
+    margin: auto; /* Center the image horizontally */
+}
+
+/*3R icons & description*/
+
+.rrr{
+    padding: 4%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25pt; /* Adds spacing between sections */
+}
+
+.reduce_class, .reuse_class, .recycle_class{
+    display: flex;
+    flex-direction: row;
+    align-items: center; /* Aligns text and icons vertically */
+    gap: 15px; /* Adds space between image and text */
+    width: 70%; /* Adjusts width for better alignment */
+}
+
+
+#reduce_icon_image, #reuse_icon_image, #recycle_icon_image{
+    width: 70pt;
+    height: auto;
+    padding-right: 3%;
+}
+
+.reduce_class ul, .reuse_class ul, .recycle_class ul{
+    font-size: 15pt;
+    line-height: 18pt; /* Add line spacing */
+    text-align: left;
+}
+
+.reduce_class ul li span, .reuse_class ul li span, .recycle_class ul li span{
+    font-weight: bold;
+    font-style: italic;
+    font-size: 16pt;
+    text-decoration: underline;
+}
+
+
+/*Local Recycling Program*/
+
+.LRP_class{
+    padding: 2% 15% 0%;
+    display: flex;
+}
+
+#LRP_title{
+    font-size: 2.5rem;
+}
+
+#recycle_bin_image{
+    width: 4.8%;
+    height: auto;
+}
+
+.types_class{
+    padding: 3% 15% 0%;
+}
+
+#types_title{
+    font-size: 2rem;
+    padding-bottom: 2%;
+}
+
+/*Slider*/
+
+.slider {
+    background-color: #f5ffeb52;
+    border-radius: 10pt;
+    padding: 30pt;
+    text-align: center;
+    display: flex;
+    position: relative; /* Ensures button placement is relative to this container */
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    width: 80%;
+    height: auto;
+}
+
+.three_recycle_bin, .recycle_bin_item{
+    text-align: center;
+}
+
+#blue_recycle_bin_image, #brown_recycle_bin_image, #orange_recycle_bin_image{
+    display: flex;
+    width: 25%;
+    height: auto;
+    margin: 0 auto;
+}
+
+#paper_des, #glass_des, #metal_des{
+    text-align: justify;
+    padding: 3%;
+    font-size: 15pt;
+    line-height: 17pt; /* Add line spacing */
+}
+
+.slider_buttons {
+    display: flex;
+    position: absolute;
+    padding: 2%;
+    justify-content: space-between;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-50%); /* Centers the buttons vertically */
+}
+
+#back_button, #forward_button{
+    width: 10%;
+    height: auto;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease; /* Smooth transition on hover */
+}
+
+
+#back_button:hover, #forward_button:hover {
+    transform: scale(1.2); /* Slightly enlarge the image */
+}
+
+.dots{
+    display: flex;
+    justify-content: center;
+}
+
+.dots ul{
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 20pt; /* Adjust spacing between dots */
+}
+
+
+.dot {
+    width: 10pt;
+    height: 10pt;
+    background-color: gray;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.dot_active {
+    background-color: black;
+}
+
+/*Do & Don'ts*/
+
+.dd_class{
+    padding: 3% 15% 0%;
+    text-align: justify;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center-align content horizontally */
+}
+
+#dd_title{
+    font-size: 2rem;
+    margin-bottom: 10pt;
+}
+
+/* On & Off Button
+
+.on_off_class{
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.on_off_button{
+    background-color: #d2d2d2;
+    width: 130px;
+    height: 50px;
+    border-radius: 200px;
+    cursor: pointer;
+    position: relative;  
+    transition: 0.2s;
+}
+
+.on_off_button::before{
+    position: absolute;
+    content: "";
+    background-color: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 200px;
+    margin: 5px;
+    transition: 0.2s;
+}
+
+input:checked + .on_off_button{
+    background-color: #78ed64;
+}
+
+input:checked + .on_off_button::before{
+    transform: translateX(80px);
+}
+
+input{
+    display: none;
+} */
+
+/*Do & Don'ts Content*/
+
+.do_and_donts{
+    padding: 1%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+}
+
+#do_image, #donts_image{
+    width: 15%;
+    height: auto;
+    cursor: pointer;
+    margin-bottom: 15pt; /* Add some space between images and content */
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth transition on hover */
+}
+
+#do_image:hover, #donts_image:hover {
+    transform: scale(1.1); /* Slightly enlarge the image */
+    opacity: 0.8; /* Make the image a bit transparent when hovered */
+}
+
+.do_things, .donts_things{
+    display: none; /*Initially hide the content */
+    padding: 1%;
+    width: 60%;
+}
+
+#do_head, #donts_head{
+    font-size: 15pt;
+    font-weight: bold;
+    padding-top: 1%;
+}
+
+#do_des, #donts_des{
+    font-size: 14pt;
+    list-style-type: "- "; /* This sets the marker to a dash */
+}
+
+/*Malaysia Local Recycle Program*/
+
+.Malaysia_RP_class{
+    padding: 3% 15% 0%;
+    overflow-x: auto; /* Enables horizontal scrolling */ /**/
+}
+
+#MRP_title{
+    font-size: 2rem;
+    margin-bottom: 10pt;
+}
+
+#MR_company{
+    border-collapse: collapse; /* Ensures borders are not doubled */
+    /* table-layout: fixed; Ensures columns adjust to available space */
+    /* word-wrap: break-word; Prevents content overflow */
+    /* table-layout: fixed; prevents cells from stretching unevenly. */
+}
+
+#company_name_th, #company_name{
+    background-color: #FFFFCC;
+    font-weight: bold;
+}
+
+#description_th, #company_des{
+    background-color: #E5FFCC;
+}
+
+#activity_th, #company_activity{
+    background-color: #CCE5FF;
+}
+
+#locations_th, #company_locations{
+    background-color: #FFCCCC;
+}
+
+#company_row, #company_name_th, #description_th, #activity_th, #locations_th, #company_name, #company_des, #company_activity, #company_locations{
+    border: 2pt solid black;   /* Adds border to each cell */
+    padding: 3%;
+}
+
+#company_name_th, #description_th, #activity_th, #locations_th{
+    font-size: 15pt;
+    font-weight: bold;
+}
+
+#company_name, #company_des, #company_activity, #company_locations{
+    font-size: 14pt;
+    line-height: 17pt; /* Add line spacing */
+}
+
+/*Next Page Button*/
+
+.next_button_class{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+#next_button{
+    width: 20%;
+    height: auto;
+    margin-top: 30pt;
+    margin-bottom: 30pt;
+    cursor: pointer;
+    transition: transform 0.3s ease; /* Smooth transition on hover */
+}
+
+#next_button:hover{
+    transform: scale(1.2);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px){    
+    .banner h1 {
+        top: 5em;
+        font-size: 40px;
+    }
+    
+    .banner p {
+        top: 15em;
+        font-size: 15px;
+    }
+
+    /*Button*/
+
+    .menu-button{
+        font-size: 1.5rem;
+    }
+
+    /*Global Intro*/
+
+    #global_title{
+        font-size: 1.5rem;
+    }
+
+    .global_and_content{
+        gap: 12pt;
+        flex-direction: column; /* Stack image and text vertically */
+    }
+
+    .global_content {
+        font-size: 14pt;
+    }
+    
+    .global_buttons button{
+        padding: 3%;
+        margin: 4%;
+    }
+
+    /*3R*/
+
+    #three_R_title{
+        font-size: 1.5rem;
+    }
+
+    /*3R icons & description*/ 
+    
+    .reduce_class ul, .reuse_class ul, .recycle_class ul{
+        font-size: 14pt;
+        line-height: 17pt; /* Add line spacing */
+    }
+    
+    .reduce_class ul li span, .reuse_class ul li span, .recycle_class ul li span{
+        font-size: 15pt;
+    }
+
+    /*Local Recycling Program*/
+    
+    #LRP_title{
+        font-size: 1.7rem;
+    }
+
+    #types_title{
+        font-size: 1.5rem;
+    }
+
+    /*Slider*/
+    
+    #paper_des, #glass_des, #metal_des{
+        font-size: 14pt;
+    }
+
+    /*Do & Don'ts*/
+    
+    #dd_title{
+        font-size: 1.5rem;
+    }
+    
+    /*Malaysia Local Recycle Program*/
+
+    .Malaysia_RP_class{
+        padding: 3% 10% 0%;
+    }
+
+    #MRP_title{
+        font-size: 1.5rem;
+    }
+
+    #MR_company{
+    width: 100%;
+    overflow-x: auto; /* Allow horizontal scroll for large content */
+    }
+
+    #company_name_th, #description_th, #activity_th, #locations_th{
+        font-size: 12pt;
+    }
+    
+    #company_name, #company_des, #company_activity, #company_locations{
+        font-size: 12pt;
+    }
+}
+
+@media screen and (max-width: 767px){
+    .banner h1 {
+        top: 8em;
+        font-size: 30px;
+    }
+    
+    .banner p {
+        top: 16em;
+        font-size: 10px;
+    }
+
+    /*Button*/
+
+    .menu-button{
+        font-size: 1rem;
+    }
+
+    /*Global Intro*/
+
+    #global_title{
+        font-size: 1.2rem;
+    }
+
+    .global_and_content{
+        gap: 10pt;
+        flex-direction: column;
+    }
+    
+    .global_buttons button{
+        font-size: 8pt;
+    }
+    
+    .global_content {
+        font-size: 7pt;
+        line-height: 12pt;
+    }
+
+    /*3R*/
+
+    #three_R_title{
+        font-size: 1.2rem;
+    }
+
+    /*3R icons & description*/
+
+    .reduce_class, .reuse_class, .recycle_class{
+        flex-direction: column;
+    }
+
+    #reduce_icon_image, #reuse_icon_image, #recycle_icon_image{
+        width: 30pt;
+        padding-right: 0%;
+    }
+
+    .reduce_class ul, .reuse_class ul, .recycle_class ul{
+        font-size: 7pt;
+        line-height: 12pt; /* Add line spacing */
+    }
+    
+    .reduce_class ul li span, .reuse_class ul li span, .recycle_class ul li span{
+        font-size: 8pt;
+    }
+
+    /*Local Recycling Program*/
+
+    #LRP_title{
+        font-size: 1.2rem;
+    }
+
+    #types_title{
+        font-size: 1rem;
+    }
+
+    /*Slider*/
+
+    #paper_des, #glass_des, #metal_des{
+        font-size: 7pt;
+        line-height: 12pt; /* Add line spacing */
+    }
+
+    .dot {
+        width: 5pt;
+        height: 5pt;
+    }
+
+    /*Do & Don'ts*/
+
+    #dd_title{
+        font-size: 1rem;
+        margin-bottom: 10pt;
+    }
+
+    /*Do & Don'ts Content*/
+
+    #do_image, #donts_image{
+        margin-bottom: 5pt; /* Add some space between images and content */
+    }
+
+    #do_head, #donts_head{
+        font-size: 8pt;
+    }
+    
+    #do_des, #donts_des{
+        font-size: 7pt;
+    }
+
+    /*Malaysia Local Recycle Program*/
+
+    #MRP_title{
+        font-size: 1rem;
+    }
+
+    .Malaysia_RP_class {
+        width: 100%;
+    }
+
+    #MR_company {
+        width: 100%;
+        display: block;
+        overflow-x: auto; /* Prevents overflow */
+        table-layout: auto; /* Allows columns to resize */
+        white-space: normal; /* Ensures text wraps */
+    }
+
+    #company_name_th, #description_th, #activity_th, #locations_th {
+        font-size: 8pt; /* Slightly larger for readability */
+        padding: 5px;
+        word-wrap: break-word; /*stops text from breaking outside its cell.*/
+    }
+
+    #company_name, #company_des, #company_activity, #company_locations {
+        font-size: 7pt; /* Adjusted for readability */
+        line-height: 12pt;
+        padding: 5px;
+        word-wrap: break-word; /*stops text from breaking outside its cell.*/
+    }
+
+    #company_row {
+        display: table-row; /* Ensures proper table structure */
+    }
+
+    #company_name_th, #description_th, #activity_th, #locations_th{
+        display: table-cell; /* Keeps table layout intact */
+        text-align: center;
+        vertical-align: top;
+    }
+
+    #company_name, #company_des, #company_activity, #company_locations {
+        display: table-cell; /* Keeps table layout intact */
+        text-align: left;
+        vertical-align: top;
+    }
+}

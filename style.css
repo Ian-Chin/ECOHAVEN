@@ -330,16 +330,16 @@ body {
 
 
 /* COMMUNITY GARDEN PAGE */
-.banner, .main-banner {
+.with-banner, .main-banner {
     position: relative;
     text-align: center;
     color: white;
-    padding: 96px 5%; /* Changed from 6em */
+    padding: 96px 5%;
     height: 100vh;
     object-fit: cover;
 }
 
-.banner img, .main-banner img{
+.banner img.bg, .main-banner img.bg {
     position: absolute;
     top: 0;
     left: 0;
@@ -352,8 +352,32 @@ body {
     will-change: transform; 
 }
 
+/* Added mascot css */
+.main-banner img.mascot {
+    position: absolute;
+    top: 200px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    height: 150px;
+    z-index: 1;
+    transition: transform 0.3s ease-out;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+}
 
-/* Add a subtle overlay to improve text readability */
+/* Add CSS for hover effect */
+.main-banner img.mascot:hover {
+    content: url('pictures/Ecohaven_mascot2.png');
+    position: absolute;
+    top: 175px;
+    left: 52%;
+    width: auto;
+    height: 190px;
+}
+
 .banner::after, .main-banner::after {
     content: '';
     position: absolute;
@@ -365,17 +389,17 @@ body {
         rgba(0, 0, 0, 0.3),
         rgba(0, 0, 0, 0.4)
     );
-    z-index: -1;
+    z-index: -2;
 }
 
-.main-banner h1{
+.main-banner h1 {
     position: relative;
-    top: 230px; /* Changed from 5em */
+    top: 230px;
     font-size: 100px;
     margin-bottom: 20px;
     color: #ffffff;
     text-shadow: 1px 5px 5px rgba(0, 0, 0, 0.7);
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .banner h1{
@@ -1129,4 +1153,11 @@ footer .services p {
     color: white;
     text-align: center;
     font-size: 15px;
+}
+
+.mascot-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 }

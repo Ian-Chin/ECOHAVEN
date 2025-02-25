@@ -330,7 +330,7 @@ body {
 
 
 /* COMMUNITY GARDEN PAGE */
-.with-banner, .main-banner {
+.banner, .main-banner {
     position: relative;
     text-align: center;
     color: white;
@@ -355,7 +355,7 @@ body {
 /* Added mascot css */
 .main-banner img.mascot {
     position: absolute;
-    top: 200px;
+    top: 100px;
     left: 50%;
     transform: translateX(-50%);
     width: auto;
@@ -394,7 +394,7 @@ body {
 
 .main-banner h1 {
     position: relative;
-    top: 230px;
+    top: 150px;
     font-size: 100px;
     margin-bottom: 20px;
     color: #ffffff;
@@ -404,7 +404,7 @@ body {
 
 .banner h1{
     position: relative;
-    top: 230px; /* Changed from 5em */
+    top: 150px;
     font-size: 50px;
     margin-bottom: 20px;
     color: #ffffff;
@@ -413,7 +413,7 @@ body {
 
 .banner p, .main-banner p {
     position: relative;
-    top: 230px; /* Changed from 14em */
+    top: 150px; /* Changed from 14em */
     font-size: 18px;
     margin-bottom: 20px;
     text-shadow: 1px 5px 5px rgba(0, 0, 0, 0.7);
@@ -421,7 +421,7 @@ body {
 
 .explore {
     position: relative;
-    top: 256px; /* Changed from 16em */
+    top: 165px; /* Changed from 16em */
     background: linear-gradient(to right, rgb(92, 189, 92), rgb(57, 204, 57));
     border: none;
     padding: 15px 40px;

@@ -166,7 +166,7 @@ $result2 = $conn->query($sql2);
                                     <img id="edit_icon" src="RecyclingImages/edit-icon.svg" alt="Edit">
                                 </a>
 
-                                <a href="delete_event.php?id=<?php echo htmlspecialchars($row['event_id']); ?>" onclick="return confirm('Are you sure you want to delete this event?');">
+                                <a href="delete.php?type=event&id=<?php echo htmlspecialchars($row['event_id']); ?>" onclick="return confirm('Are you sure you want to delete this event?');">
                                     <img id="delete_icon" src="RecyclingImages/delete-icon.svg" alt="Delete">
                                 </a>
                             </td>
@@ -202,7 +202,7 @@ $result2 = $conn->query($sql2);
                                 <img id="edit_icon" src="RecyclingImages/edit-icon.svg" alt="Edit">
                             </a>
 
-                            <a href="delete_join.php?id=<?php echo htmlspecialchars($row['join_id']); ?>">
+                            <a href="delete.php?type=join&id=<?php echo htmlspecialchars($row['join_id']); ?>">
                                 <img id="delete_icon" src="RecyclingImages/delete-icon.svg" alt="Delete">
                             </a>
                             </td>
@@ -211,6 +211,20 @@ $result2 = $conn->query($sql2);
                 </table>
             </div>
         </div>
+
+        <!--
+            <a href="delete.php?type=comment&id=<?php echo htmlspecialchars($row['cid']); ?>">
+                <img id="delete_icon" src="RecyclingImages/delete-icon.svg" alt="Delete">
+            </a>
+
+            <a href="delete.php?type=product&id=<?php echo htmlspecialchars($row['id']); ?>">
+                <img id="delete_icon" src="RecyclingImages/delete-icon.svg" alt="Delete">
+            </a>
+
+            <a href="delete.php?type=user&id=<?php echo htmlspecialchars($row['user_id']); ?>">
+                <img id="delete_icon" src="RecyclingImages/delete-icon.svg" alt="Delete">
+            </a>
+        -->
         
     </div>
 

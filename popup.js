@@ -193,3 +193,39 @@ function animateCounter(element, target, duration) {
     }
   });
 //---------------------------------------------------------------------------------- 
+
+// Function to switch between tabs
+function showTab(tabId) {
+    // Hide all tab containers
+    const tabContainers = document.querySelectorAll('.tab-container');
+    tabContainers.forEach(container => {
+        container.classList.remove('active');
+    });
+
+    // Show the selected tab
+    document.getElementById(tabId).classList.add('active');
+
+    // Update active menu item
+    const menuItems = document.querySelectorAll('.menu-items a');
+    menuItems.forEach(item => {
+        item.classList.remove('active');
+        if (item.getAttribute('onclick').includes(tabId)) {
+            item.classList.add('active');
+        }
+    });
+}
+
+// Search functionality
+document.querySelector('.search-container input').addEventListener('keyup', function () {
+    const searchText = this.value.toLowerCase();
+    const menuItems = document.querySelectorAll('.menu-items a');
+
+    menuItems.forEach(item => {
+        const itemText = item.textContent.toLowerCase();
+        if (itemText.includes(searchText)) {
+            item.parentElement.style.display = 'block';
+        } else {
+            item.parentElement.style.display = 'none';
+        }
+    });
+});

@@ -71,8 +71,9 @@ $conn->close();
 
         <div class="edit_form">
             <!-- The form posts to edit_recycle_event.php for processing the update -->
-            <form id="edit_event_form" action="edit_event.php" method="POST" enctype="multipart/form-data">
+            <form id="edit_event_form" action="edit.php" method="POST" enctype="multipart/form-data">
                 <!-- Single hidden field for the event ID -->
+                <input type="hidden" name="type" value="recycle_event">
                 <input type="hidden" name="id" value="<?php echo htmlspecialchars($row['event_id']); ?>">    
                 <table id="edit_table">
                     <tr>

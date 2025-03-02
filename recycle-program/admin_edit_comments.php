@@ -71,8 +71,9 @@ $conn->close();
 
         <div class="edit_comments_form">
             <!-- The form posts to edit_recycle_event.php for processing the update -->
-            <form id="edit_comments_form" action="edit_comments.php" method="POST" enctype="multipart/form-data">
+            <form id="edit_comments_form" action="edit.php" method="POST" enctype="multipart/form-data">
                 <!-- Single hidden field for the event ID -->
+                <input type="hidden" name="type" value="comment">
                 <input type="hidden" name="id" value="<?php echo htmlspecialchars($row['cid']); ?>">    
                 <table id="edit_comments_table">
                     <tr>

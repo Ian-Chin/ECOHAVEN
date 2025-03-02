@@ -70,8 +70,9 @@ $conn->close();
         <h1 id="edit_join_title">Edit Join Recycle Event</h1>
 
         <div class="edit_join_form">
-            <form id="edit_join_event_form" action="edit_join.php" method="POST">
+            <form id="edit_join_event_form" action="edit.php" method="POST">
             <!-- Single hidden field for the event ID -->
+            <input type="hidden" name="type" value="join_event">
             <input type="hidden" name="id" value="<?php echo htmlspecialchars($row['join_id']); ?>">
                 <table id="edit_join_table">
                     <tr>

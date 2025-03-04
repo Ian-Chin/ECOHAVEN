@@ -1,3 +1,10 @@
+<?php
+    date_default_timezone_set('Asia/Kuala_Lumpur');
+    include 'dbh.inc.php';
+    include 'commentsection.php';
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,6 +22,7 @@
             <img src="pictures/Whiteicon.ico" alt="Eco Haven Logo" class="logo">
             <img src="pictures/Blackicon.ico" alt="Eco Haven Logo" class="logo2">
             <div class="login"><a href="login.html">Login</a></div>
+
         </div>
         <div class="header-bar2">
             <nav class="nav">
@@ -29,54 +37,58 @@
             </nav>
         </div>
     </header>
-    
     <main>
         <section class="community-section">
             <div class="your-community">
                 <h2>YOUR COMMUNITY</h2>
+
                 <div class="community-cards-container">
                     <div class="community-card">
                         <div class="card-header">
-                            <img src="pictures/group2pic.jpg" class="G-img" alt="Garden Image 2">
+                            <img src="pictures/group2pic.jpg" alt="Community Image">
                             <div class="card-content">
-                                <h3>Welcome to the Family!!</h3>
-                                <p>Looking to connect, share ideas, and grow alongside like-minded individuals? 
-                                    Our group offers a space for collaboration, learning, and creativity. Whether 
-                                    you're here to network, exchange knowledge, or simply meet new friends, this is 
-                                    the perfect place to thrive together. Come be part of something meaningful! 🌟
-                                </p>
+                                <h3>Welcome to GreenRoots Community!</h3>
+                                <p>We’re excited to have you here! GreenRoots is a space for eco-conscious individuals to connect, share sustainable tips, and support local green initiatives. Together, we can make a positive impact—one small change at a time! 🌱♻️</p>
                                 <div class="group-owner">
-                                    <img src="pictures/person2.jpg" alt="userImage 2">
-                                    <p>James Carter</p>
+                                    <p>Group Owner:- James Carter</p>
                                 </div>
                             </div>
                         </div>
+                        
+                        <?php
+                        echo "<form method='POST' action='".setComments2($conn)."' class='comment-section'>
+                            <input type='hidden' name='uid' value='Anonymous'>
+                            <input type='hidden' name='date' value='".date('Y-m-d H:i:s')."'>
+                            <textarea name='message' id='comment-input' placeholder='Write your comment here...'></textarea>
+                            <button type='submit' name='commentSubmit' id='post-comment'>Post Comment</button>
+                        </form>";
 
-                        <!-- Comments Section (Handled by PHP) -->
-                        <div class="comment-section">
-                            <?php include 'comments2.php'; ?>
-                        </div>
+                        getComments2($conn);
+                        ?>
                     </div>
                 </div>
             </div>
+
+            </div>
+
         </section>
     </main>
-
     <footer>
         <div class="footer-content">
             <div class="links">
-                <a href="#">Home</a>
+                <a href="Mainmenu.html">Home</a>
                 <br><br><br>
                 <a href="#">Terms & Conditions</a>
             </div>
             <div class="socials">
-                <p>Social Media</p>
-                <i class='bx bxl-facebook-circle'></i>
-                <i class='bx bxl-instagram-alt'></i>
-                <i class='bx bxs-envelope'></i>
+                <p>Social Medias</p>
+                <img src="pictures/facebookicon.ico" alt="facebook pic">
+                <img src="pictures/instaicon.ico" alt="insta pic">
+                <img src="pictures/mail.ico" alt="email pic">
                 <br><br>
-                <p class="Copyright">Copyright 2025</p>
+                <p class="Copyright">2025 Eco Haven. All Rights Reserved.</p>
             </div>
+
             <div class="services">
                 <p>Services</p>
                 <br>
@@ -85,7 +97,6 @@
             </div>
         </div>
     </footer>
-
     <script src="js/popup.js"></script>
 </body>
 

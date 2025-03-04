@@ -334,12 +334,12 @@ body {
     position: relative;
     text-align: center;
     color: white;
-    padding: 96px 5%;
+    padding: 96px 5%; /* Changed from 6em */
     height: 100vh;
     object-fit: cover;
 }
 
-.banner img.bg, .main-banner img.bg {
+.banner img, .main-banner img{
     position: absolute;
     top: 0;
     left: 0;
@@ -352,32 +352,8 @@ body {
     will-change: transform; 
 }
 
-/* Added mascot css */
-.main-banner img.mascot {
-    position: absolute;
-    top: 100px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: auto;
-    height: 150px;
-    z-index: 1;
-    transition: transform 0.3s ease-out;
-    -webkit-transform: translateX(-50%);
-    -moz-transform: translateX(-50%);
-    -ms-transform: translateX(-50%);
-    -o-transform: translateX(-50%);
-}
 
-/* Add CSS for hover effect */
-.main-banner img.mascot:hover {
-    content: url('pictures/Ecohaven_mascot2.png');
-    position: absolute;
-    top: 175px;
-    left: 52%;
-    width: auto;
-    height: 190px;
-}
-
+/* Add a subtle overlay to improve text readability */
 .banner::after, .main-banner::after {
     content: '';
     position: absolute;
@@ -389,22 +365,22 @@ body {
         rgba(0, 0, 0, 0.3),
         rgba(0, 0, 0, 0.4)
     );
-    z-index: -2;
+    z-index: -1;
 }
 
-.main-banner h1 {
+.main-banner h1{
     position: relative;
-    top: 150px;
+    top: 230px; /* Changed from 5em */
     font-size: 100px;
     margin-bottom: 20px;
     color: #ffffff;
     text-shadow: 1px 5px 5px rgba(0, 0, 0, 0.7);
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .banner h1{
     position: relative;
-    top: 150px;
+    top: 230px; /* Changed from 5em */
     font-size: 50px;
     margin-bottom: 20px;
     color: #ffffff;
@@ -413,7 +389,7 @@ body {
 
 .banner p, .main-banner p {
     position: relative;
-    top: 150px; /* Changed from 14em */
+    top: 230px; /* Changed from 14em */
     font-size: 18px;
     margin-bottom: 20px;
     text-shadow: 1px 5px 5px rgba(0, 0, 0, 0.7);
@@ -421,7 +397,7 @@ body {
 
 .explore {
     position: relative;
-    top: 165px; /* Changed from 16em */
+    top: 256px; /* Changed from 16em */
     background: linear-gradient(to right, rgb(92, 189, 92), rgb(57, 204, 57));
     border: none;
     padding: 15px 40px;
@@ -486,23 +462,6 @@ body {
     margin-top: 30px;
 }
 
-.your-community {
-    padding: 90px;
-    text-align: center;
-    z-index: 20;
-    font-size: 20pt;
-    color: white;
-}
-
-.your-community h4{
-    color: #2a5d32;
-    font-size: 18px;
-}
-
-.your-community #comments-container p{
-    color: black;
-    font-size: 18px;
-}
 
 .container {
     max-width: 1200px;
@@ -639,161 +598,181 @@ body {
 }
 
 .community-section {
-    flex: 1;
-    padding: 0;
+    background-color:rgb(99, 160, 99);
+    padding: 60px 0;
+}
+
+.your-community {
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.your-community h2 {
+    color: #2a5d32;
+    font-size: 36px;
     text-align: center;
-    background: #e2f3df;
-}
-
-.card-header {
-    display: flex;
-    align-items: flex-start;
-}
-
-.community-card img {
-    max-width: 250px;
-    margin-right: 24px; /* Changed from 1.5em */
-    border-radius: 8px;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 .community-card {
-    background: #fdfdf4;
-    border: 3px solid #82c88e;
-    border-radius: 12px;
-    margin: 24px auto; /* Changed from 1.5em */
-    padding: 24px 32px; /* Changed from 1.5em 2em */
-    width: 100%;
-    max-width: 100%;
-    text-align: left;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-    position: relative;
-}
-.community-card h3 {
-    color: #2a5d32;
-    font-size: 30px;
-    flex: 1;
+    background: linear-gradient(to right, #ffffff, #f0f8f0);
+    border: 2px solid #82c88e;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: all 0.3s ease;
 }
 
-.community-card p {
-    color: black;
-    font-size: 15px;
-    flex: 1;
+
+.card-header {
+    display: flex;
+    align-items: stretch;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.card-header img {
+    width: 300px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
 }
 
 .card-content {
+    padding: 30px;
     flex: 1;
+}
+
+.card-content h3 {
+    color: #2a5d32;
+    font-size: 28px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #82c88e;
+    padding-bottom: 10px;
+}
+
+.card-content p {
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 20px;
 }
 
 .group-owner {
     display: flex;
     align-items: center;
-    margin-top: 16px; /* Changed from 1em */
+    background-color: #f0f8f0;
+    padding: 10px;
+    border-radius: 8px;
 }
 
-.group-owner img {
-    width: 40px;
-    height: 40px;
-    margin-right: 12px; /* Changed from 0.75em */
-    border-radius: 60px;
+.group-owner p {
+    color: #2a5d32;
+    font-weight: bold;
 }
 
 .comment-section {
-    padding: 0;
-    border-radius: 8px;
-    margin-top: 8px; /* Changed from 0.5em */
+    background-color: #f9fdf9;
+    padding: 20px;
+    border-top: 1px solid #e0e0e0;
 }
 
 .comment-section textarea {
     width: 100%;
-    padding: 16px; /* Changed from 1em */
-    border: 1px solid #2a5d32;
-    background-color: rgb(242, 247, 230);
-    border-radius: 6px;
+    min-height: 120px;
+    padding: 15px;
+    border: 2px solid #82c88e;
+    border-radius: 10px;
     resize: vertical;
-    min-height: 60pt;
+    transition: border-color 0.3s ease;
+}
+
+.comment-section textarea:focus {
+    outline: none;
+    border-color: #2a5d32;
 }
 
 .comment-section button {
-    margin-top: 8px; /* Changed from 0.5em */
-    padding: 16px 32px; /* Changed from 1em 2em */
-    background-color: #1b6928;
+    background-color: #2a5d32;
     color: white;
     border: none;
-    border-radius: 6px;
+    padding: 12px 25px;
+    border-radius: 8px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 15px;
 }
+
 .comment-section button:hover {
-    background-color: #06bb1e;
-    color: black;
+    background-color: #47d347;
 }
 
 .comment {
-    border: 1px solid #2a5d32;
-    background-color: rgb(242, 247, 230);
-    padding: 12px; /* Changed from 0.75em */
-    margin-top: 8px; /* Changed from 0.5em */
-    border-radius: 6px;
-    color: black;
+    background-color: #f0f8f0;
+    border: 1px solid #82c88e;
+    margin-top: 15px;
+    border-radius: 8px;
+    padding: 15px;
     position: relative;
 }
 
-.comment p{
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 14px;
-    line-height: 16px;
-    color: #282828;
-    font-weight: bold;
+.comment p {
+    color: #333;
+    line-height: 1.5;
 }
 
-.edit-form {
+.edit-form, .delete-form {
     position: absolute;
-    top: 0px;
-    right: 0px;
+    top: 10px;
+    right: 10px;
 }
 
-.edit-form button{
-    width: 40px;
-    height: 20px;
-    color: #282828;
-    border-color: transparent;
-    background-color: transparent;
-    opacity: 0.7;
-}
-
-.edit-form button:hover{
-    width: 40px;
-    height: 20px;
-    color: #282828;
-    border-color: transparent;
-    background-color: transparent;
-    opacity: 1;
+.edit-form button, .delete-form button {
+    background: none;
+    border: none;
+    color: #2a5d32;
     cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.edit-form button:hover, .delete-form button:hover {
+    opacity: 1;
 }
 
 .delete-form {
     position: absolute;
-    top: 0px;
+    top: 11px;
     right: 60px;
 }
 
-.delete-form button{
+.delete-form button {
     width: 40px;
     height: 20px;
-    color: #282828;
+    color: #d32f2f;  /* Red color to indicate deletion */
     border-color: transparent;
     background-color: transparent;
     opacity: 0.7;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.delete-form button:hover{
+.delete-form button:hover {
     width: 40px;
     height: 20px;
-    color: #282828;
+    color: black;  /* Red color to indicate deletion */
     border-color: transparent;
     background-color: transparent;
-    opacity: 1;
-    cursor: pointer;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
 }
+
 
 .main-content{
     padding: 20px;

@@ -1,3 +1,10 @@
+<?php
+    date_default_timezone_set('Asia/Kuala_Lumpur');
+    include 'dbh.inc.php';
+    include 'commentsection.php';
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,6 +22,7 @@
             <img src="pictures/Whiteicon.ico" alt="Eco Haven Logo" class="logo">
             <img src="pictures/Blackicon.ico" alt="Eco Haven Logo" class="logo2">
             <div class="login"><a href="login.html">Login</a></div>
+
         </div>
         <div class="header-bar2">
             <nav class="nav">
@@ -29,7 +37,6 @@
             </nav>
         </div>
     </header>
-
     <main>
         <section class="community-section">
             <div class="your-community">
@@ -38,44 +45,54 @@
                 <div class="community-cards-container">
                     <div class="community-card">
                         <div class="card-header">
-                            <img src="https://media.istockphoto.com/id/157482648/photo/colorful-garden-landscape-and-grassy-lawn.jpg?s=612x612&w=0&k=20&c=aIGBhJzc6uNZw_0dukq8lZcwhfAvN5nT8WjWJwe0TJY="
-                                alt="Community Image">
+                            <img src="pictures/group1pic.jpg" alt="Community Image">
                             <div class="card-content">
                                 <h3>Welcome to the Family!!</h3>
                                 <p>Looking to connect, share ideas, and grow alongside like-minded individuals? Our
-                                    group offers a space for collaboration,<br> learning, and creativity. Whether you're here to network, exchange
-                                    knowledge, or simply meet new friends, this is the perfect<br> place to thrive together. Come be
+                                    group offers a
+                                    space for collaboration,<br> learning, and creativity. Whether you're here to
+                                    network, exchange
+                                    knowledge, or simply meet new friends, this is the perfect<br> place to thrive
+                                    together. Come be
                                     part of something meaningful! 🌟</p>
                                 <div class="group-owner">
-                                    <img src="pictures/person1.jpg" alt="userImage 1">
-                                    <p>Sophia Miller</p>
+                                    <p>Group Owner: Sophia Miller</p>
                                 </div>
                             </div>
                         </div>
+                        
+                        <?php
+                        echo "<form method='POST' action='".setComments($conn)."' class='comment-section'>
+                            <input type='hidden' name='uid' value='Anonymous'>
+                            <input type='hidden' name='date' value='".date('Y-m-d H:i:s')."'>
+                            <textarea name='message' id='comment-input' placeholder='Write your comment here...'></textarea>
+                            <button type='submit' name='commentSubmit' id='post-comment'>Post Comment</button>
+                        </form>";
 
-                        <!-- Include the PHP file -->
-                        <iframe src="comments.php" style="width:100%; height:300px; border:none;"></iframe>
-
+                        getComments($conn);
+                        ?>
                     </div>
                 </div>
             </div>
+
+            </div>
+
         </section>
     </main>
-
     <footer>
         <div class="footer-content">
             <div class="links">
-                <a href="#">Home</a>
+                <a href="Mainmenu.html">Home</a>
                 <br><br><br>
                 <a href="#">Terms & Conditions</a>
             </div>
             <div class="socials">
                 <p>Social Medias</p>
-                <i class='bx bxl-facebook-circle'></i>
-                <i class='bx bxl-instagram-alt'></i>
-                <i class='bx bxs-envelope'></i>
+                <img src="pictures/facebookicon.ico" alt="facebook pic">
+                <img src="pictures/instaicon.ico" alt="insta pic">
+                <img src="pictures/mail.ico" alt="email pic">
                 <br><br>
-                <p class="Copyright">Copyright 2025</p>
+                <p class="Copyright">2025 Eco Haven. All Rights Reserved.</p>
             </div>
 
             <div class="services">
@@ -86,7 +103,6 @@
             </div>
         </div>
     </footer>
-
     <script src="js/popup.js"></script>
 </body>
 

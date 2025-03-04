@@ -27,23 +27,24 @@
         flex-direction: column;
         width: 95%;
         padding: 0 1rem;
-      }
-      
-      .welcome-section {
+    }
+
+    .welcome-section {
         margin-right: 0;
         margin-bottom: 40px;
         text-align: center;
-      }
-      
-      .divider {
+    }
+
+    .divider {
         width: 80%;
         height: 2px;
         margin: 20px auto;
-      }
-      
-      .wrapper {
+    }
+
+    .wrapper {
         margin: 0 auto;
-      }
+    }
+
     /* ----------------------------------------------------------------- */
     .nav-links {
         display: none;
@@ -104,7 +105,8 @@
     }
 
     /* --------------------------------------------------------------- */
-    .banner, .main-banner{
+    .banner,
+    .main-banner {
         padding: 4em 2%;
     }
 
@@ -120,13 +122,15 @@
         top: 4.5em;
     }
 
-    .banner p, .main-banner p {
+    .banner p,
+    .main-banner p {
         font-size: 11pt;
         padding: 5pt 60pt;
         top: 18em;
     }
 
-    .banner button, .main-banner button {
+    .banner button,
+    .main-banner button {
         font-size: 0.9em;
         top: 18em;
     }
@@ -159,16 +163,38 @@
     .join-btn {
         width: 100%;
     }
-}
 
-/* Footer */
-footer {
-    font-size: 0.5em;
-}
+    .your-community h2 {
+        font-size: 24px;
+    }
+
+    .community-card h3 {
+        font-size: 22px;
+    }
+
+    .community-card p {
+        font-size: 14px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-content div {
+        margin-bottom: 20px;
+    }
+
+    .comment-section textarea {
+        font-size: 14px;
+    }
 
 
+    /* Footer */
+    footer {
+        font-size: 0.5em;
+    }
 
-@media (max-width: 768px) {
     .card {
         flex-direction: column-reverse;
         padding: 16px;
@@ -180,84 +206,157 @@ footer {
     }
 
 
-.reviews-container {
-    grid-template-columns: 1fr;
-}
+    .reviews-container {
+        grid-template-columns: 1fr;
+    }
 
-.nav-toggle {
-    display: hidden; /* Changed from hidden */
-    font-size: 24px;
-    cursor: pointer;
-    position: fixed;
-    top: 38px;
-    left: 2%;
-    z-index: 1002;
-    background: none;
-    border: none;
-}
+    .nav-toggle {
+        display: hidden;
+        /* Changed from hidden */
+        font-size: 24px;
+        cursor: pointer;
+        position: fixed;
+        top: 38px;
+        left: 2%;
+        z-index: 1002;
+        background: none;
+        border: none;
+    }
 
-.header-bar2.scrolled .nav-toggle { 
-    display: block;
-    top: 12px;
-    color: black;
-}
+    .header-bar2.scrolled .nav-toggle {
+        display: block;
+        top: 12px;
+        color: black;
+    }
 
-.nav-links {
-    display: none;
-    flex-direction: column;
-    position: fixed;
-    top: 100px;
-    left: 0;
-    background-color: rgb(110, 209, 110);
-    width: 50%;
-    padding: 20px 0;
-    z-index: 1003;
-    gap: 20px;
-}
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        top: 100px;
+        left: 0;
+        background-color: rgb(110, 209, 110);
+        width: 50%;
+        padding: 20px 0;
+        z-index: 1003;
+        gap: 20px;
+    }
 
-/* This is the crucial class for showing/hiding the menu */
-.nav-links.open {
-    display: flex !important; /* Added !important to override other display properties */
-}
+    /* This is the crucial class for showing/hiding the menu */
+    .nav-links.open {
+        display: flex !important;
+        /* Added !important to override other display properties */
+    }
 
-/* Remove these conflicting styles */
-.nav .nav-links {
-    display: none;
-}
+    /* Remove these conflicting styles */
+    .nav .nav-links {
+        display: none;
+    }
 
-.header-bar2.scrolled .nav .nav-links {
-    display: none; /* Changed from hidden */
-}
+    .header-bar2.scrolled .nav .nav-links {
+        display: none;
+        /* Changed from hidden */
+    }
 
-iframe {
-    width: 100% !important;
-    height: 300px !important;
-    margin: 20px 0;
-}
+    iframe {
+        width: 100% !important;
+        height: 300px !important;
+        margin: 20px 0;
+    }
 
-/* Adjusted responsive styles for other elements */
-.destinations {
-    grid-template-columns: repeat(1, 1fr);
-}
+    /* Adjusted responsive styles for other elements */
+    .destinations {
+        grid-template-columns: repeat(1, 1fr);
+    }
 
-.banner h1, .banner p {
-    transform: translateY(0);
-    opacity: 1;
-}
+    .banner h1,
+    .banner p {
+        transform: translateY(0);
+        opacity: 1;
+    }
 
-.achievements-grid {
-    grid-template-columns: repeat(2, 1fr);
-}
+    .achievements-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 
-.newsletter-form {
-    flex-direction: column;
-    align-items: center;
-}
+    .newsletter-form {
+        flex-direction: column;
+        align-items: center;
+    }
 
-.newsletter-form input,
-.newsletter-form button {
-    width: 100%;
-    max-width: 300px;
-}
-}
+    .newsletter-form input,
+    .newsletter-form button {
+        width: 100%;
+        max-width: 300px;
+    }
 
+    .community-card {
+        flex-direction: column;
+        margin: 20px 10px;
+    }
+
+    .card-header {
+        flex-direction: column;
+    }
+
+    .card-header img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+    }
+
+    .card-content {
+        padding: 20px;
+    }
+
+    .card-content h3 {
+        font-size: 24px;
+    }
+
+    .card-content p {
+        font-size: 16px;
+    }
+
+    .group-owner {
+        flex-direction: column;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .group-owner img {
+        margin-right: 0;
+        margin-bottom: 10px;
+        width: 80px;
+        height: 80px;
+    }
+
+    .comment-section textarea {
+        min-height: 100px;
+    }
+
+    .delete-form {
+        position: relative;
+        right: 0;
+        top: 0;
+        text-align: right;
+        margin-top: 10px;
+    }
+
+    .your-community h2 {
+        font-size: 28px;
+        letter-spacing: 1px;
+    }
+
+    .comment-section button {
+        width: 100%;
+        padding: 10px;
+    }
+
+    /* Ensure text doesn't overflow */
+    .card-content h3,
+    .card-content p,
+    .comment p {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+}

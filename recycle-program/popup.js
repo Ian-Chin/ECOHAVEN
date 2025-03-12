@@ -264,3 +264,54 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+// Collection Schedules
+// Scroll animations for EcoHaven website
+document.addEventListener('DOMContentLoaded', function() {
+    // Get all elements we want to animate
+    const animatedElements = [
+        document.querySelector('.CS_class'),
+        document.querySelector('.all_EH_table_class'),
+        document.querySelector('.shortcut'),
+        document.querySelector('.notice_class'),
+        document.querySelector('.imp_recycle'),
+        document.querySelector('.greenhouse_class'),
+        document.querySelector('.community_class'),
+        document.querySelector('.economy_class'),
+        document.querySelector('.join_community'),
+        ...document.querySelectorAll('.join_recycle_card')
+    ];
+
+    // Add initial hidden class to all elements
+    animatedElements.forEach(element => {
+        if (element) {
+            element.classList.add('hidden-element');
+        }
+    });
+
+    // Function to check if element is in viewport
+    function isInViewport(element) {
+        if (!element) return false;
+        const rect = element.getBoundingClientRect();
+        return (
+            rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.8 &&
+            rect.bottom >= 0
+        );
+    }
+
+    // Function to handle scroll
+    function handleScroll() {
+        animatedElements.forEach(element => {
+            if (element && isInViewport(element) && element.classList.contains('hidden-element')) {
+                element.classList.remove('hidden-element');
+                element.classList.add('fade-in-element');
+            }
+        });
+    }
+
+    // Listen for scroll events
+    window.addEventListener('scroll', handleScroll);
+    
+    // Check on initial load too
+    handleScroll();
+});

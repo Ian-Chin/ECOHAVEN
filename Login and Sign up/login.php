@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    include 'functions.php';
+    include 'dbh.inc.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,7 +24,7 @@
         <nav class="nav">
             <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
             <div class="nav-links">
-                <a href="#home">Home</a>
+                <a href="Mainmenu.php">Home</a>
                 <a href="#product-swap">Product Swap</a>
                 <a href="#recycling-programs">Recycling Programs</a>
                 <a href="#energy-tips">Energy Tips</a>
@@ -26,48 +32,46 @@
             </div>
         </nav>
     </div>
-    </div>
     <div class="background">
         <video autoplay muted loop id="myVideo">
             <source src="pictures/green-leaves.1920x1080.mp4" type="video/mp4">
         </video>
     </div>
 
-
     <div class="content-container">
         <div class="welcome-section">
-            <h1><span>Welcome Back to EcoHaven</span></h1>
+            <h1><span>Welcome to EcoHaven</span></h1>
             <p>Your trusted platform for sustainable living and eco-friendly solutions.</p>
         </div>
         <div class="divider"></div>
         <div class="wrapper">
-            <form>
+        <?php
+            echo "<form method='POST' action='".getLogin($conn)."'>
                 <h1>LOGIN</h1>
-                <div class="input-box">
-                    <input type="text" placeholder="Username" required>
-                    <img src="pictures/user.ico">
+                <div class='input-box'>
+                    <input type='text' name='uid' placeholder='Username or Email' required>
+                    <img src='pictures/user.ico'>
                 </div>
-                <div class="input-box">
-                    <input type="password" placeholder="Password" required>
-                    <img src="pictures/lock.ico">
+                <div class='input-box'>
+                    <input type='password' name='pwd' placeholder='Password' required>
+                    <img src='pictures/lock.ico'>
                 </div>
-                <div class="remember-forgot">
+                <div class='remember-forgot'>
                     <label>
-                        <input type="checkbox"> Remember me
+                        <input type='checkbox'> Remember me
                     </label>
-                    <a href="FP.html">Forgot Password</a>
+                    <a href='#'>Forgot Password?</a>
                 </div>
-
-                <button type="submit" class="btn">Login</button>
-
-                <div class="register-link">
-                    <p>Don't have an account? <a href="SignUp.html">Register</a></p>
+                
+                <button type='submit' name='loginSubmit' class='btn'>Login</button>";
+        ?>
+                <div class='register-link'>
+                    <p>Dont have an account? <a href='signup.php'>Register</a></p>
                 </div>
-
             </form>
         </div>
-        <script src="js/popup.js"></script>
-
+    </div>
+    <script src='js/popup.js'></script>
 </body>
 
 </html>

@@ -1,7 +1,9 @@
 <?php
+    session_start();
     date_default_timezone_set('Asia/Kuala_Lumpur');
     include 'dbh.inc.php';
     include 'commentsection.php';
+    include 'functions.php';
 ?>
 
 
@@ -21,14 +23,14 @@
         <div class="header-bar">
             <img src="pictures/Whiteicon.ico" alt="Eco Haven Logo" class="logo">
             <img src="pictures/Blackicon.ico" alt="Eco Haven Logo" class="logo2">
-            <div class="login"><a href="login.html">Login</a></div>
+            
 
         </div>
         <div class="header-bar2">
             <nav class="nav">
                 <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
                 <div class="nav-links">
-                    <a href="#home">Home</a>
+                    <a href="MainMenu.php">Home</a>
                     <a href="#product-swap">Product Swap</a>
                     <a href="#recycling-programs">Recycling Programs</a>
                     <a href="#energy-tips">Energy Tips</a>
@@ -60,15 +62,20 @@
                                 </div>
                             </div>
                         </div>
-                        
+                        <br><br>
                         <?php
-                        echo "<form method='POST' action='".setComments($conn)."' class='comment-section'>
+                        if (isset($_SESSION['userID'])) {
+                            echo "<form method='POST' action='".setComments($conn)."' class='comment-section'>
                             <input type='hidden' name='uid' value='Anonymous'>
-                            <input type='hidden' name='date' value='".date('Y-m-d H:i:s')."'>
+                            <input type='hidden' name='date' value='".date('Y-m-d H:i:s ')."'>
                             <textarea name='message' id='comment-input' placeholder='Write your comment here...'></textarea>
                             <button type='submit' name='commentSubmit' id='post-comment'>Post Comment</button>
-                        </form>";
-
+                            </form>";
+                        } else {
+                            echo "You need to be logged in to post a comment.
+                            <br><br>";
+                        }
+                        
                         getComments($conn);
                         ?>
                     </div>

@@ -213,7 +213,37 @@
             color: #2c3e50;
             text-decoration: none;
         }
+        
+        .actions {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
 
+        .action-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .edit-btn {
+            color: #036423; /* Green color matching your theme */
+        }
+
+        .delete-btn {
+            color: #d32f2f; /* Red color for delete */
+        }
+
+        .action-btn:hover {
+            background-color: #f0f0f0;
+        }
+
+        .fa-edit, .fa-trash {
+            font-size: 16px;
+        }
         /* Additional sections styling */
         .tips-list,
         .swap-list,
@@ -708,7 +738,7 @@
             margin: 0;
         }
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 
 <body>
@@ -768,7 +798,7 @@
             <div class="dashboard-stats-boxes">
                 <div class="stat-box">
                     <div class="stat-icon">
-                        <i class="fas fa-users"></i>
+                        <img src="pictures/userdetails.ico" alt="User Icon">
                     </div>
                     <div class="stat-content">
                         <h3>Total Users</h3>
@@ -779,7 +809,7 @@
 
                 <div class="stat-box">
                     <div class="stat-icon">
-                        <i class="fas fa-recycle"></i>
+                        <img src="pictures/recycle.ico" alt="User Icon">
                     </div>
                     <div class="stat-content">
                         <h3>Recycle Events</h3>
@@ -790,7 +820,7 @@
 
                 <div class="stat-box">
                     <div class="stat-icon">
-                        <i class="fas fa-seedling"></i>
+                        <img src="pictures/leaf.ico" alt="User Icon">
                     </div>
                     <div class="stat-content">
                         <h3>Garden Groups</h3>
@@ -801,7 +831,7 @@
 
                 <div class="stat-box">
                     <div class="stat-icon">
-                        <i class="fas fa-exchange-alt"></i>
+                        <img src="pictures/transfer.ico" alt="User Icon">
                     </div>
                     <div class="stat-content">
                         <h3>Product Swaps</h3>
@@ -866,7 +896,6 @@
             <div class="admin-card">
                 <div class="admin-card-header">
                     <h2>User Management</h2>
-                    <button class="btn"><i class="fas fa-plus"></i> Add New User</button>
                 </div>
                 <table class="user-table">
                     <thead>
@@ -876,16 +905,53 @@
                             <th>Password</th>
                             <th>Role</th>
                             <th>Status</th>
+                            <th style='text-align: center;'>Tools</th>
                         </tr>
                     </thead>
                     <tbody>
-
+                    <?php
+                        // Include database connection
+                        require_once 'dbh.inc.php';
+                        
+                        // Query to select all users
+                        $sql = "SELECT * FROM users";
+                        $result = mysqli_query($conn, $sql);
+                        
+                        if (mysqli_num_rows($result) > 0) {
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                echo "<tr>";
+                                echo "<td>" . htmlspecialchars($row['uid']) . "</td>";
+                                echo "<td>" . htmlspecialchars($row['email']) . "</td>";
+                                echo "<td>" . htmlspecialchars($row['pwd']) ."</td>"; 
+                                
+                                // Check if role column exists, otherwise use a default
+                                $role = isset($row['role']) ? htmlspecialchars($row['role']) : "User";
+                                echo "<td>" . $role . "</td>";
+                                
+                                // Check if status column exists, otherwise use a default
+                                $status = isset($row['status']) ? htmlspecialchars($row['status']) : "Active";
+                                echo "<td><span class='status-badge status-active'>" . $status . "</span></td>";
+                                
+                                // Updated tools column with center alignment and styled icons
+                                echo "<td style='text-align: center;'>
+                                        <a href='#' class='tool-icon edit' data-id='" . $row['userID'] . "'><img src='pictures/pencil.ico'></a>
+                                        <a href='#' class='tool-icon delete' data-id='" . $row['userID'] . "'><img src='pictures/trash.ico'></a>
+                                    </td>";
+                                echo "</tr>";
+                            }
+                        } else {
+                            echo "<tr><td colspan='6' class='no-data'>No users found</td></tr>";
+                        }
+                        
+                        // Close connection
+                        mysqli_close($conn);
+                    ?>
                     </tbody>
                 </table>
             </div>
         </div>
 
-        <!-- Product Swap Tab -->
+        <!-- Product Swap Tab -->   
         <div id="product-swap" class="tab-container">
             <div class="admin-card">
                 <div class="admin-card-header">
@@ -1353,7 +1419,7 @@
         </div>
     </main>
 
-    <script src="popup.js"></script>
+    <script src="js/popup.js"></script>
 
 </body>
 

@@ -771,7 +771,7 @@
         <div class="menu-section">
             <h3>Settings</h3>
             <ul class="menu-items">
-                <li><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                <li><a href="login.php"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
             </ul>
         </div>
     </aside>
@@ -925,7 +925,7 @@
                                 echo "<td>" . htmlspecialchars($row['pwd']) ."</td>"; 
                                 
                                 // Check if role column exists, otherwise use a default
-                                $role = isset($row['role']) ? htmlspecialchars($row['role']) : "User";
+                                $role = ($row['uid'] === 'admin') ? 'Admin' : (isset($row['role']) ? htmlspecialchars($row['role']) : 'User');
                                 echo "<td>" . $role . "</td>";
                                 
                                 // Check if status column exists, otherwise use a default
@@ -1279,7 +1279,7 @@
                         <div>
                             <h3>Be Part of Our Gardening Community!</h3>
                             <p>Group Owner:- Lila Hernandez</p><br>
-                            <span class="program-status status-pending">Pending</span>
+                            <span class="program-status status-active">Active</span>
                         </div>
                         <div class="action-icons">
                             <a href="#"><i class="fas fa-edit"></i></a>

@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    include "commentsection.php";
+    include "functions.php";
+    include "dbh.inc.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,24 +36,24 @@
             overflow-y: auto;
         }
 
-        .logo {
+        .admin-logo {
             padding: 20px;
             text-align: center;
             border-bottom: 1px solid #035013;
         }
 
-        .logo h2 {
+        .admin-logo h2 {
             font-weight: 600;
             color: #035013;
         }
 
-        .search-container {
+        .admin-search-container {
             padding: 15px;
             position: relative;
             border-bottom: 1px solid #035013;
         }
 
-        .search-container input {
+        .admin-search-container input {
             width: 100%;
             padding: 10px 10px 10px 35px;
             border: none;
@@ -55,22 +62,22 @@
             color: #000000;
         }
 
-        .search-container input::placeholder {
+        .admin-search-container input::placeholder {
             color: #95a5a6;
         }
 
-        .search-container i {
+        .admin-search-container i {
             position: absolute;
             left: 25px;
             top: 24px;
             color: #000000;
         }
 
-        .menu-section {
+        .admin-menu-section {
             padding: 15px 0;
         }
 
-        .menu-section h3 {
+        .admin-menu-section h3 {
             padding: 0 20px 10px;
             font-size: 12px;
             text-transform: uppercase;
@@ -78,15 +85,15 @@
             color: #035013;
         }
 
-        .menu-items {
+        .admin-menu-items {
             list-style: none;
         }
 
-        .menu-items li {
+        .admin-menu-items li {
             margin-bottom: 5px;
         }
 
-        .menu-items a {
+        .admin-menu-items a {
             display: flex;
             align-items: center;
             padding: 12px 20px;
@@ -95,13 +102,13 @@
             transition: all 0.3s;
         }
 
-        .menu-items a:hover,
-        .menu-items a.active {
+        .admin-menu-items a:hover,
+        .admin-menu-items a.active {
             background-color: #1eb65df5;
             border-left: 4px solid #015e09;
         }
 
-        .menu-items a i {
+        .admin-menu-items a i {
             margin-right: 10px;
             width: 20px;
             text-align: center;
@@ -213,7 +220,7 @@
             color: #2c3e50;
             text-decoration: none;
         }
-        
+
         .actions {
             display: flex;
             gap: 10px;
@@ -737,23 +744,26 @@
             color: #036423;
             margin: 0;
         }
+        
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="js/popup.js"></script>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
     <!-- Sidebar Menu -->
     <aside class="sidebar">
-        <div class="logo">
+        <div class="admin-logo">
             <h2>EcoAdmin</h2>
         </div>
-        <div class="search-container">
+        <div class="admin-search-container">
             <i class="fas fa-search"></i>
             <input type="text" placeholder="Search...">
         </div>
-        <div class="menu-section">
+        <div class="admin-menu-section">
             <h3>Main Menu</h3>
-            <ul class="menu-items">
+            <ul class="admin-menu-items">
                 <li><a href="#" class="active" onclick="showTab('dashboard')"><img src="pictures/dashboard.ico">&nbsp
                         Dashboard</a></li>
                 <li><a href="#" onclick="showTab('user-management')"><img src="pictures/userdetails.ico">&nbsp User
@@ -768,9 +778,9 @@
                         Program</a></li>
             </ul>
         </div>
-        <div class="menu-section">
+        <div class="admin-menu-section">
             <h3>Settings</h3>
-            <ul class="menu-items">
+            <ul class="admin-menu-items">
                 <li><a href="login.php"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
             </ul>
         </div>
@@ -910,8 +920,6 @@
                     </thead>
                     <tbody>
                     <?php
-                        // Include database connection
-                        require_once 'dbh.inc.php';
                         
                         // Query to select all users
                         $sql = "SELECT * FROM users";
@@ -943,8 +951,6 @@
                             echo "<tr><td colspan='6' class='no-data'>No users found</td></tr>";
                         }
                         
-                        // Close connection
-                        mysqli_close($conn);
                     ?>
                     </tbody>
                 </table>
@@ -1295,132 +1301,28 @@
                     <h2>Community Garden Comments</h2>
                     <button class="btn"><i class="fas fa-sync"></i> Refresh Comments</button>
                 </div>
+                <div class="admin-comments-container">
+                <?php
+                echo "<div class='admin-comment'>";
+                echo "<h3>Group Owner:- Sarah Parker</h3>";
+                echo getComments($conn);
+                echo "</div>";
 
-                <!-- Sarah Parker's Garden Comments -->
-                <div class="admin-comment-section">
-                    <h3>Comments for "Join Our Community Garden Group!"</h3>
-                    <div class="admin-comments-container">
-                        <div class="admin-comment">
-                            <div class="admin-comment-header">
-                                <img src="/api/placeholder/30/30" alt="User Avatar" class="admin-comment-avatar">
-                                <div class="admin-comment-user-info">
-                                    <h4>Jessica Miller</h4>
-                                    <span class="admin-comment-date">Feb 24, 2025</span>
-                                </div>
-                            </div>
-                            <p class="admin-comment-text">I'm really enjoying this community garden! The tomatoes
-                                are coming along nicely.</p>
-                            <div class="admin-comment-actions">
-                                <a href="#"><i class="fas fa-reply"></i> Reply</a>
-                                <a href="#"><i class="fas fa-flag"></i> Flag</a>
-                                <a href="#"><i class="fas fa-trash"></i> Delete</a>
-                            </div>
-                        </div>
+                echo "<div class='admin-comment'>";
+                echo "<h3>Group Owner:- James Carter</h3>";
+                echo getComments2($conn);
+                echo "</div>";
 
-                        <div class="admin-comment">
-                            <div class="admin-comment-header">
-                                <img src="/api/placeholder/30/30" alt="User Avatar" class="admin-comment-avatar">
-                                <div class="admin-comment-user-info">
-                                    <h4>Michael Johnson</h4>
-                                    <span class="admin-comment-date">Feb 22, 2025</span>
-                                </div>
-                            </div>
-                            <p class="admin-comment-text">When is the next community meetup? I'd like to bring some
-                                seedlings to share.</p>
-                            <div class="admin-comment-actions">
-                                <a href="#"><i class="fas fa-reply"></i> Reply</a>
-                                <a href="#"><i class="fas fa-flag"></i> Flag</a>
-                                <a href="#"><i class="fas fa-trash"></i> Delete</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- James Carter's Garden Comments -->
-                <div class="admin-comment-section">
-                    <h3>Comments for "Grow Together with Our Community Garden"</h3>
-                    <div class="admin-comments-container">
-                        <div class="admin-comment">
-                            <div class="admin-comment-header">
-                                <img src="/api/placeholder/30/30" alt="User Avatar" class="admin-comment-avatar">
-                                <div class="admin-comment-user-info">
-                                    <h4>Emily Chen</h4>
-                                    <span class="admin-comment-date">Feb 25, 2025</span>
-                                </div>
-                            </div>
-                            <p class="admin-comment-text">Thanks for organizing the composting workshop last
-                                weekend! I learned so much.</p>
-                            <div class="admin-comment-actions">
-                                <a href="#"><i class="fas fa-reply"></i> Reply</a>
-                                <a href="#"><i class="fas fa-flag"></i> Flag</a>
-                                <a href="#"><i class="fas fa-trash"></i> Delete</a>
-                            </div>
-                        </div>
-
-                        <div class="admin-comment">
-                            <div class="admin-comment-header">
-                                <img src="/api/placeholder/30/30" alt="User Avatar" class="admin-comment-avatar">
-                                <div class="admin-comment-user-info">
-                                    <h4>David Wilson</h4>
-                                    <span class="admin-comment-date">Feb 21, 2025</span>
-                                </div>
-                            </div>
-                            <p class="admin-comment-text">Is there any way we can get more water access points in
-                                the southern section? It's quite a walk from there to the current spigot.</p>
-                            <div class="admin-comment-actions">
-                                <a href="#"><i class="fas fa-reply"></i> Reply</a>
-                                <a href="#"><i class="fas fa-flag"></i> Flag</a>
-                                <a href="#"><i class="fas fa-trash"></i> Delete</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Lila Hernandez's Garden Comments -->
-                <div class="admin-comment-section">
-                    <h3>Comments for "Be Part of Our Gardening Community!"</h3>
-                    <div class="admin-comments-container">
-                        <div class="admin-comment">
-                            <div class="admin-comment-header">
-                                <img src="/api/placeholder/30/30" alt="User Avatar" class="admin-comment-avatar">
-                                <div class="admin-comment-user-info">
-                                    <h4>Alex Thompson</h4>
-                                    <span class="admin-comment-date">Feb 23, 2025</span>
-                                </div>
-                            </div>
-                            <p class="admin-comment-text">I'm interested in joining this group! When will
-                                registration open?</p>
-                            <div class="admin-comment-actions">
-                                <a href="#"><i class="fas fa-reply"></i> Reply</a>
-                                <a href="#"><i class="fas fa-flag"></i> Flag</a>
-                                <a href="#"><i class="fas fa-trash"></i> Delete</a>
-                            </div>
-                        </div>
-
-                        <div class="admin-comment">
-                            <div class="admin-comment-header">
-                                <img src="/api/placeholder/30/30" alt="User Avatar" class="admin-comment-avatar">
-                                <div class="admin-comment-user-info">
-                                    <h4>Sophia Rodriguez</h4>
-                                    <span class="admin-comment-date">Feb 20, 2025</span>
-                                </div>
-                            </div>
-                            <p class="admin-comment-text">Looking forward to this new garden space! Will there be
-                                plots for individual families?</p>
-                            <div class="admin-comment-actions">
-                                <a href="#"><i class="fas fa-reply"></i> Reply</a>
-                                <a href="#"><i class="fas fa-flag"></i> Flag</a>
-                                <a href="#"><i class="fas fa-trash"></i> Delete</a>
-                            </div>
-                        </div>
-                    </div>
+                echo "<div class='admin-comment'>";
+                echo "<h3>Group Owner:- Lila Hernandez</h3>";
+                echo getComments3($conn);
+                echo "</div>";
+                ?>
                 </div>
             </div>
         </div>
     </main>
-
-    <script src="js/popup.js"></script>
-
+                
 </body>
 
 </html>

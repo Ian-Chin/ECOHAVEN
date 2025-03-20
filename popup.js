@@ -205,8 +205,8 @@ function showTab(tabId) {
     // Show the selected tab
     document.getElementById(tabId).classList.add('active');
 
-    // Update active menu item
-    const menuItems = document.querySelectorAll('.menu-items a');
+    // Update active menu item styling
+    const menuItems = document.querySelectorAll('.admin-menu-items a');
     menuItems.forEach(item => {
         item.classList.remove('active');
         if (item.getAttribute('onclick').includes(tabId)) {
@@ -216,16 +216,19 @@ function showTab(tabId) {
 }
 
 // Search functionality
-document.querySelector('.search-container input').addEventListener('keyup', function () {
-    const searchText = this.value.toLowerCase();
-    const menuItems = document.querySelectorAll('.menu-items a');
+document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.querySelector('.admin-search-container input');
+    searchInput.addEventListener('keyup', function () {
+        const searchText = this.value.toLowerCase();
+        const menuItems = document.querySelectorAll('.admin-menu-items li');
 
-    menuItems.forEach(item => {
-        const itemText = item.textContent.toLowerCase();
-        if (itemText.includes(searchText)) {
-            item.parentElement.style.display = 'block';
-        } else {
-            item.parentElement.style.display = 'none';
-        }
+        menuItems.forEach(item => {
+            const itemText = item.textContent.toLowerCase();
+            if (itemText.includes(searchText)) {
+                item.style.display = 'block';
+            } else {
+                item.style.display = 'none';
+            }
+        });
     });
 });

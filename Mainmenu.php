@@ -1,3 +1,9 @@
+<?php
+session_start();
+include 'functions.php';
+include 'dbh.inc.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,8 +11,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🌱 ECOHAVEN</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
 </head>
 
 <body>
@@ -14,16 +20,20 @@
         <div class="header-bar">
             <img src="pictures/Whiteicon.ico" alt="Eco Haven Logo" class="logo">
             <img src="pictures/Blackicon.ico" alt="Eco Haven Logo" class="logo2">
-            <div class="login"><a href="login.html">Login</a></div>
+            <div class="login">
+            <?php
+               displayLogin();
+            ?>
+            </div>
 
         </div>
         <div class="header-bar2">
             <nav class="nav">
                 <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
-                <div class="nav-links">
-                    <a href="Mainmenu.html">Home</a>
+                <div class="nav-links"> 
+                    <a href="Mainmenu.php">Home</a>
                     <a href="product-swap.html">Product Swap</a>
-                    <a href="#recycling-programs">Recycling Programs</a>
+                    <a href="recycle.html">Recycling Programs</a>
                     <a href="#energy-tips">Energy Tips</a>
                     <a href="Community Garden.html">Community</a>
                 </div>
@@ -33,10 +43,9 @@
     <main>
         <section class="main-banner">
             <h1>ECOHAVEN</h1>
-            <p>💚🌱Nurturing Nature, Sustaining Tomorrow.🌱💚</p>
+            <p>💚🌱Building a Greener Future, One Sustainable Choice at a Time!"🌱💚</p>
             <button class="explore">EXPLORE</button>
             <img src="pictures/mainmenu.gif" alt="Community Garden Background" class="bg">
-            <img src="pictures/Ecohaven_mascot_final.gif" alt="Eco Haven Mascot" class="mascot" id="mascot">
         </section>
         <section class="main-content">
             <br><br><br><br><br><br>
@@ -149,9 +158,10 @@
                     <div class="review-card">
                         <img src="pictures/Ritchie.png" alt="Reviewer 3" class="review-image">
                         <h4>Ritchie Boon Win Yew<br>TP076487</h4>
-                        <p>"ECOHAVEN is the perfect place to start living more sustainably! From recycling info to
-                            product swaps, it offers so many helpful tools. I’ve met like-minded people and found easy
-                            ways to reduce waste. Highly recommend!"</p>
+                        <p>"ECOHAVEN is an incredible platform for anyone wanting to live more sustainably. The
+                            recycling guides are super helpful, and the product swap feature has helped me reduce waste
+                            while finding great eco-friendly items. It’s a great way to connect with like-minded people
+                            and make a real impact!"</p>
                     </div>
                 </div>
             </div>
@@ -193,6 +203,7 @@
             </div>
         </div>
     </footer>
-    <script src="popup.js"></script>
+    <script src="js/popup.js"></script>
 </body>
+
 </html>

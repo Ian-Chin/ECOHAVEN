@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Energy Conservation Tips - Eco Haven</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="responsive.css" />
+</head>
+
+<body>
+  <header>
+    <div class="header-bar">
+      <img src="Whiteicon.ico" alt="Eco Haven Logo" class="logo">
+      <img src="Blackicon.ico" alt="Eco Haven Logo" class="logo2">
+      <div class="login"><a href="login.html">Login</a></div>
+    </div>
+    <div class="header-bar2">
+      <nav class="nav">
+        <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+        <div class="nav-links">
+          <a href="Mainmenu.html">Home</a>
+          <a href="product-swap.html">Product Swap</a>
+          <a href="#recycling-programs">Recycling Programs</a>
+          <div class="dropdown">
+            <a href="index.html" class="dropbtn">Energy Tips</a>
+            <div class="dropdown-content">
+              <a href="Blogpost.html">Articles</a>
+            </div>
+          </div>
+          <a href="Community Garden.html">Community</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <section class="banner">
+    <h1>Energy Conservation Tips</h1>
+    <p>Simple and effective ways to save energy and protect our planet.</p>
+    <img src="natureclover.jpg" alt="Four leaf clovers" class="bg">
+  </section>
+
+  <section class="auto-scrolling-banner">
+    <div class="carousel-container">
+      <div class="carousel-track">
+        <!-- Earth Hour -->
+        <div class="carousel-slide">
+          <a href="earth-hour.html">
+            <img src="Earth Hour.jpg" alt="Earth Hour">
+            <div class="slide-caption">
+              <h3>Celebrate Earth Hour</h3>
+            </div>
+          </a>
+        </div>
+        <!-- Solar Panel -->
+        <div class="carousel-slide">
+          <a href="solar-panels.html">
+            <img src="Solar panel.jpg" alt="Solar Panels">
+            <div class="slide-caption">
+              <h3>Solar Panel Benefits</h3>
+            </div>
+          </a>
+        </div>
+        <!-- Electric Car -->
+        <div class="carousel-slide">
+          <a href="electric-cars.html">
+            <img src="Electric Car.jpg" alt="Electric Cars">
+            <div class="slide-caption">
+              <h3>Electric Cars in Malaysia</h3>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="carousel-dots">
+        <span class="dot active" data-slide="0"></span>
+        <span class="dot" data-slide="1"></span>
+        <span class="dot" data-slide="2"></span>
+      </div>
+    </div>
+    
+    <!-- Inline script to ensure the carousel works -->
+    <script>
+      // This self-contained script ensures the carousel works even if other scripts fail
+      document.addEventListener('DOMContentLoaded', function() {
+        // Initialize after a short delay to ensure DOM is fully loaded
+        setTimeout(function() {
+          const track = document.querySelector('.auto-scrolling-banner .carousel-track');
+          const slides = document.querySelectorAll('.auto-scrolling-banner .carousel-slide');
+          const dots = document.querySelectorAll('.auto-scrolling-banner .dot');
+          
+          let currentSlide = 0;
+          const slideCount = slides.length;
+          let slideInterval;
+          
+          // Function to move to a specific slide
+          function moveToSlide(slideIndex) {
+            if (slideIndex >= slideCount) slideIndex = 0;
+            if (slideIndex < 0) slideIndex = slideCount - 1;
+            
+            track.style.transform = `translateX(-${slideIndex * (100 / slideCount)}%)`;
+            
+            // Update active dot
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[slideIndex].classList.add('active');
+            
+            currentSlide = slideIndex;
+          }
+          
+          // Auto-scroll function
+          function startAutoScroll() {
+            if (slideInterval) clearInterval(slideInterval);
+            
+            slideInterval = setInterval(function() {
+              moveToSlide(currentSlide + 1);
+            }, 3000);
+          }
+          
+          // Initialize carousel
+          moveToSlide(0);
+          startAutoScroll();
+          
+          // Pause on hover
+          track.addEventListener('mouseenter', function() {
+            clearInterval(slideInterval);
+          });
+          
+          track.addEventListener('mouseleave', function() {
+            startAutoScroll();
+          });
+          
+          // Click navigation
+          dots.forEach(function(dot, index) {
+            dot.addEventListener('click', function() {
+              moveToSlide(index);
+              clearInterval(slideInterval);
+              startAutoScroll();
+            });
+          });
+        }, 500);
+      });
+    </script>
+  </section>
+
+  <div class="blog-container">
+    <!-- Blog 1 -->
+    <div class="blog">
+      <div class="blog-img">
+        <img src="Earth Hour.jpg" alt="Earth Hour">
+      </div>
+      <div class="blog-content">
+        <h2 class="blog-title">Celebrate Earth Hour Every Year!</h2>
+        <p class="blog-description">Join millions around the globe in turning off the lights for one hour as a powerful
+          statement in support of sustainable energy and environmental conservation.</p>
+      </div>
+    </div>
+    <br><br>
+    <!-- Blog 2 -->
+    <div class="blog">
+      <div class="blog-img">
+        <img src="Solar panel.jpg" alt="solar panel">
+      </div>
+      <div class="blog-content">
+        <h2 class="blog-title">Here is why you should install solar panels on your house</h2>
+        <p class="blog-description">Discover how installing solar panels can reduce your energy bills, increase your
+          home's value, and contribute to a greener, more sustainable future.</p>
+      </div>
+    </div>
+    <br><br>
+    <!-- Blog 3 -->
+    <div class="blog">
+      <div class="blog-img">
+        <img src="Electric Car.jpg" alt="electric-cars">
+      </div>
+      <div class="blog-content">
+        <h2 class="blog-title">5 reasons to own a electric in Malaysia 2025</h2>
+        <p class="blog-description">Explore five compelling benefits of owning an electric vehicle in Malaysia—from
+          cutting-edge technology and lower running costs to significant environmental impact reductions.</p>
+      </div>
+    </div>
+  </div>
+  <br><br><br><br>
+
+
+  <main section class="see-more-section">
+    <div class="see-more-container">
+      <h2>Want to explore more eco-friendly tips?</h2>
+      <p>Discover our complete collection of articles, guides, and sustainable living advice.</p>
+      <button class="see-more-button" onclick="location.href='blogpost.html'">See More Articles</button>
+    </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="links">
+        <a href="#">Home</a>
+        <br><br><br>
+        <a href="#">Terms & Conditions</a>
+      </div>
+      <div class="socials">
+        <p>Social Medias</p>
+        <img src="facebookicon.ico" alt="facebook pic">
+        <img src="instaicon.ico" alt="insta pic">
+        <img src="mail.ico" alt="email pic">
+        <br><br>
+        <p class="Copyright">2025 Eco Haven. All Rights Reserved.</p>
+      </div>
+
+      <div class="services">
+        <p>Services</p>
+        <br>
+        <p>+000-00000-000</p>
+        <p>+03-33333-333</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="Popup.js"></script>
+</body>
+
+</html>

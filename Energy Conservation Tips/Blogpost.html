@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Posts - Eco Haven</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="responsive.css" />
+</head>
+<body>
+    <header>
+        <div class="header-bar">
+          <img src="Whiteicon.ico" alt="Eco Haven Logo" class="logo">
+          <img src="Blackicon.ico" alt="Eco Haven Logo" class="logo2">
+          <div class="login"><a href="login.html">Login</a></div>
+        </div>
+        <div class="header-bar2">
+          <nav class="nav">
+            <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+            <div class="nav-links">
+              <a href="Mainmenu.html">Home</a>
+              <a href="product-swap.html">Product Swap</a>
+              <a href="#recycling-programs">Recycling Programs</a>
+              <div class="dropdown">
+                <a href="index.html" class="dropbtn">Energy Tips</a>
+                <div class="dropdown-content">
+                  <a href="Blogpost.html">Articles</a>
+                  <a href="request_post.html">Submit a Post</a>
+                </div>
+              </div>
+              <a href="Community Garden.html">Community</a>
+            </div>
+          </nav>
+        </div>
+      </header>
+
+    <main class="blog-content main-content-area">
+        <div class="blog-header">
+            <h1>Latest Articles</h1>
+            <div class="sort-container">
+                <label for="sort-select">Sort by date:</label>
+                <select id="sort-select">
+                    <option value="newest">Newest First</option>
+                    <option value="oldest">Oldest First</option>
+                </select>
+            </div>
+        </div>
+
+        <section class="blog-posts">
+            <article class="blog-card">
+                <img src="Earth Hour.jpg" alt="Earth Hour">
+                <div class="card-content">
+                    <h2>Celebrate Earth Hour Every Year!</h2>
+                    <p>Click here to see many reasons why one should celebrate Earth Hour.</p>
+                    <div class="post-meta">
+                        <span class="author">
+                            <i class="fas fa-user"></i> EcoHaven Admin Team
+                        </span>
+                        <span class="date">15/02/25</span>
+                    </div>
+                    <a href="earth-hour.html?id=1" class="read-more">Read More</a>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <img src="Solar panel.jpg" alt="Solar Panel Installation">
+                <div class="card-content">
+                    <h2>Why You Should Install Solar Panels</h2>
+                    <p>Discover how solar panels can lower energy bills, boost home value, and promote a greener lifestyle.</p>
+                    <div class="post-meta">
+                        <span class="author">
+                            <i class="fas fa-user"></i> EcoHaven Admin Team
+                        </span>
+                        <span class="date">10/02/25</span>
+                    </div>
+                    <a href="solar-panels.html?id=2" class="read-more">Read More</a>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <img src="Electric Car.jpg" alt="Electric Car">
+                <div class="card-content">
+                    <h2>5 Reasons to Own an Electric Car in Malaysia 2025</h2>
+                    <p>Explore five compelling benefits of owning an electric vehicle in Malaysia—from cost savings to reducing your carbon footprint.</p>
+                    <div class="post-meta">
+                        <span class="author">
+                            <i class="fas fa-user"></i> EcoHaven Admin Team
+                        </span>
+                        <span class="date">05/02/25</span>
+                    </div>
+                    <a href="electric-cars.html?id=2" class="read-more">Read More</a>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="links">
+                <a href="#">Home</a>
+                <br><br><br>
+                <a href="#">Terms & Conditions</a>
+            </div>
+            <div class="socials">
+                <p>Social Medias</p>
+                <img src="facebookicon.ico" alt="facebook pic">
+                <img src="instaicon.ico" alt="insta pic">
+                <img src="mail.ico" alt="email pic">
+                <br><br>
+                <p class="Copyright">2025 Eco Haven. All Rights Reserved.</p>
+            </div>
+
+            <div class="services">
+                <p>Services</p>
+                <br>
+                <p>+000-00000-000</p>
+                <p>+03-33333-333</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="Popup.js" defer></script>
+    
+</body>
+</html>

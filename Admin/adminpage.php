@@ -1050,9 +1050,45 @@
                     <h2>Conservation Tips</h2>
                     <button class="btn">+ Add New Tip</button>
                 </div>
-                <ul class="tips-list">
-                    
-                </ul>
+                <table class="user-table">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Description</th>
+                            <th>Date Created</th>
+                            <th>Likes</th>
+                            <th style='text-align: center;'>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        // Query to select all tips
+                        $sql = "SELECT * FROM blogpost_tips ORDER BY date_created DESC";
+                        $result = mysqli_query($conn, $sql);
+
+                        if (mysqli_num_rows($result) > 0) {
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                echo "<tr>";
+                                echo "<td>" . htmlspecialchars($row['title']) . "</td>";
+                                echo "<td>" . htmlspecialchars(substr($row['short_description'], 0, 100)) . "...</td>";
+                                echo "<td>" . htmlspecialchars($row['date_created']) . "</td>";
+                                echo "<td>" . htmlspecialchars($row['like_count']) . "</td>";
+                                echo "<td style='text-align: center;'>
+                                        <a href='admin_edit_tips.php?id=" . htmlspecialchars($row['post_id']) . "' class='tool-icon edit'>
+                                            <img src='pictures/pencil.ico' style='width: 24px; height: 24px; margin: 0 5px; cursor: pointer;'>
+                                        </a>
+                                        <a href='delete.php?type=tip&id=" . htmlspecialchars($row['post_id']) . "' class='tool-icon delete'>
+                                            <img src='pictures/trash.ico' style='width: 24px; height: 24px; margin: 0 5px; cursor: pointer;'>
+                                        </a>
+                                    </td>";
+                                echo "</tr>";
+                            }
+                        } else {
+                            echo "<tr><td colspan='5' class='no-data'>No tips found</td></tr>";
+                        }
+                        ?>
+                    </tbody>
+                </table>
             </div>
         </div>
 

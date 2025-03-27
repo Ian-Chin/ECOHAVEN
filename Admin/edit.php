@@ -1,5 +1,5 @@
 <?php
-include 'conn.php';
+include 'dbh.inc.php';
 
 // Ensure the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

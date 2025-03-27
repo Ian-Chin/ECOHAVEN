@@ -1,7 +1,7 @@
 <?php
 
 // Database connection
-include 'conn.php';
+include 'dbh.inc.php';
 
 // Check if type and id are provided in the URL
 if (isset($_GET['type']) && isset($_GET['id'])) {

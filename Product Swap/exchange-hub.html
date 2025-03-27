@@ -1,0 +1,118 @@
+<?php
+session_start(); // Start the session
+include 'functions.php';
+include 'dbh.inc.php';
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exchange Hub</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bowiestyle.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/bowieresponsive.css">
+
+</head>
+
+<!-- Confirmation notification -->
+<div id="confirmationModal" class="modal">
+    <div class="modal-content">
+        <p>Are you sure you want to swap this product?</p>
+        <button id="confirmSwap">Yes</button>
+        <button id="cancelSwap">No</button>
+    </div>
+</div>
+
+<!-- Success Notification -->
+<div id="successModal" class="modal">
+    <div class="modal-content">
+        <p>Product swap successful!</p>
+        <button id="closeSuccess">OK</button>
+    </div>
+</div>
+
+<body>
+    <header>
+    <div class="header-bar">
+        <img src="PW-images/Whiteicon.ico" alt="Eco Haven Logo" class="logo">
+        <img src="PW-images/Blackicon.ico" alt="Eco Haven Logo" class="logo2">
+        <div class="login">
+            <?php
+                displayLogin();
+            ?>
+        </div>
+
+    </div>
+    <div class="header-bar2">
+        <nav class="nav">
+            <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+            <div class="nav-links">
+                <a href="Mainmenu.html">Home</a>
+                <a href="product-swap.html">Product Swap</a>
+                <a href="recycle.html">Recycling Programs</a>
+                <a href="#energy-tips">Energy Tips</a>
+                <a href="Community Garden.html">Community</a>
+            </div>
+        </nav>
+    </div>
+</header>
+
+    <section class="banner" id="PSbanner">
+        <h1>Product Swap</h1>
+        <p>This platform connects community members to exchange eco friendly items.<br>Exchange your eco-friendly products here!
+        </p>
+    </section>
+
+    <nav class="secondary-navbar">
+        <ul class="nav-options">
+            <li><a href="product-swap.html">Product Swap</a></li>
+            <li><a href="list-item.html">List an Item</a></li>
+            <li><a href="exchange-hub.html">Exchange Hub</a></li>
+        </ul>
+    </nav>
+
+    <header class="exchange-header">
+        <h1>Exchange Hub</h1>
+    </header>
+
+    <main>
+        <section class="lowerbg">
+            <section class="product-container">
+                <div class="product-grid" id="productGrid">
+                    <!-- Products will be inserted here by JavaScript -->
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="links">
+                <a href="#">Home</a>
+                <br><br><br>
+                <a href="#">Terms & Conditions</a>
+            </div>
+            <div class="socials">
+                <p>Social Medias</p>
+                <i class='bx bxl-facebook-circle'></i>
+                <i class='bx bxl-instagram-alt'></i>
+                <i class='bx bxs-envelope'></i>
+                <br><br>
+                <p class="Copyright">Copyright 2025</p>
+            </div>
+
+            <div class="services">
+                <p>Services</p>
+                <br>
+                <p>+000-00000-000</p>
+                <p>+03-33333-333</p>
+            </div>
+        </div>
+    </footer>
+    <script src="js/popup.js"></script>
+    <script src="js/product_swap.js"></script>
+</body>
+</html>

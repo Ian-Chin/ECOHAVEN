@@ -213,12 +213,19 @@
 
         .action-icons {
             display: flex;
+            align-items: center;
             gap: 10px;
         }
 
+        .action-icons img {
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+        }
+
         .action-icons a {
-            color: #2c3e50;
-            text-decoration: none;
+            display: flex;
+            align-items: center;
         }
 
         .actions {
@@ -745,6 +752,12 @@
             margin: 0;
         }
         
+        input[readonly] {
+            background-color: #e9ecef;
+            color: #495057;
+            cursor: not-allowed;
+        }
+        
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script src="js/popup.js"></script>
@@ -781,7 +794,13 @@
         <div class="admin-menu-section">
             <h3>Settings</h3>
             <ul class="admin-menu-items">
-                <li><a href="login.php"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                <li>
+                    <form method="POST" action="login.php">
+                        <button type="submit" name="logoutSubmit">
+                            <a><img src="pictures/logout.ico">&nbsp Logout</a>
+                        </button>
+                    </form>
+                </li>
             </ul>
         </div>
     </aside>
@@ -920,6 +939,8 @@
                     </thead>
                     <tbody>
                     <?php
+                        // Include database connection
+                        include 'dbh.inc.php';
                         
                         // Query to select all users
                         $sql = "SELECT * FROM users";
@@ -942,8 +963,12 @@
                                 
                                 // Updated tools column with center alignment and styled icons
                                 echo "<td style='text-align: center;'>
-                                        <a href='#' class='tool-icon edit' data-id='" . $row['userID'] . "'><img src='pictures/pencil.ico'></a>
-                                        <a href='#' class='tool-icon delete' data-id='" . $row['userID'] . "'><img src='pictures/trash.ico'></a>
+                                        <a href='admin_edit_username.php?id=" . htmlspecialchars($row['userID']) . "' class='tool-icon edit' data-id='" . htmlspecialchars($row['userID']) . "'>
+                                            <img src='pictures/pencil.ico'>
+                                        </a>
+                                        <a href='delete.php?type=user&id=" . htmlspecialchars($row['userID']) . "' class='tool-icon delete' data-id='" . htmlspecialchars($row['userID']) . "'>
+                                            <img src='pictures/trash.ico'>
+                                        </a>
                                     </td>";
                                 echo "</tr>";
                             }
@@ -965,45 +990,55 @@
                     <button class="btn"><i class="fas fa-plus"></i> Add New Swap</button>
                 </div>
                 <ul class="swap-list">
-                    <!-- <li>
-                        <div class="swap-item">
-                            <img src="/api/placeholder/50/50" alt="Plastic Bottle">
-                            <div>
-                                <h3>Plastic Bottles → Reusable Water Bottles</h3>
-                                <p>Encourage users to switch to reusable bottles.</p>
-                            </div>
-                        </div>
-                        <div class="action-icons">
-                            <a href="#"><i class="fas fa-edit"></i></a>
-                            <a href="#"><i class="fas fa-trash"></i></a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="swap-item">
-                            <img src="/api/placeholder/50/50" alt="Paper Towels">
-                            <div>
-                                <h3>Paper Towels → Cloth Towels</h3>
-                                <p>Benefits of switching to reusable cloth towels.</p>
-                            </div>
-                        </div>
-                        <div class="action-icons">
-                            <a href="#"><i class="fas fa-edit"></i></a>
-                            <a href="#"><i class="fas fa-trash"></i></a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="swap-item">
-                            <img src="/api/placeholder/50/50" alt="Plastic Bags">
-                            <div>
-                                <h3>Plastic Bags → Reusable Bags</h3>
-                                <p>Information on reusable shopping bags.</p>
-                            </div>
-                        </div>
-                        <div class="action-icons">
-                            <a href="#"><i class="fas fa-edit"></i></a>
-                            <a href="#"><i class="fas fa-trash"></i></a>
-                        </div>
-                    </li> -->
+                <table class="user-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Product Name</th>
+                            <th>Category</th>
+                            <th>Product Condition</th>
+                            <th>Location</th>
+                            <th>Image</th>
+                            <th style='text-align: center;'>Tools</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <?php
+                        // Include database connection
+                        include 'dbh.inc.php';
+                        
+                        // Query to select all products
+                        $sql = "SELECT * FROM products";
+                        $result = mysqli_query($conn, $sql);
+
+                        if (mysqli_num_rows($result) > 0) {
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                echo "<tr>";
+                                echo "<td>" . htmlspecialchars($row['full_name']) . "</td>";
+                                echo "<td>" . htmlspecialchars($row['product_name']) . "</td>";
+                                echo "<td>" . htmlspecialchars($row['category']) ."</td>";
+                                echo "<td>" . htmlspecialchars($row['product_condition']) ."</td>"; 
+                                echo "<td>" . htmlspecialchars($row['location']) ."</td>"; 
+                                echo "<td>" . htmlspecialchars($row['image']) ."</td>";
+                                
+                                // Updated tools column with center alignment and styled icons
+                                echo "<td style='text-align: center;'>
+                                        <a href='admin_edit_products.php?id=" . htmlspecialchars($row['id']) . "' class='tool-icon edit' data-id='" . htmlspecialchars($row['id']) . "'>
+                                            <img src='pictures/pencil.ico'>
+                                        </a>
+                                        <a href='delete.php?type=product&id=" . htmlspecialchars($row['id']) . "' class='tool-icon delete' data-id='" . htmlspecialchars($row['id']) . "'>
+                                            <img src='pictures/trash.ico'>
+                                        </a>
+                                    </td>";
+                                echo "</tr>";
+                            }
+                        } else {
+                            echo "<tr><td colspan='7' class='no-data'>No users found</td></tr>";
+                        }
+                        
+                    ?>
+                    </tbody>
+                </table>
                 </ul>
             </div>
         </div>
@@ -1016,46 +1051,7 @@
                     <button class="btn">+ Add New Tip</button>
                 </div>
                 <ul class="tips-list">
-                    <!-- <li>
-                        <div>
-                            <h3>Reducing Water Usage</h3>
-                            <p>Tips for conserving water in daily activities.</p>
-                        </div>
-                        <div class="action-icons">
-                            <a href="#"><i class="fas fa-edit"></i></a>
-                            <a href="#"><i class="fas fa-trash"></i></a>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <h3>Energy Conservation at Home</h3>
-                            <p>Ways to reduce electricity consumption.</p>
-                        </div>
-                        <div class="action-icons">
-                            <a href="#"><i class="fas fa-edit"></i></a>
-                            <a href="#"><i class="fas fa-trash"></i></a>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <h3>Sustainable Transportation</h3>
-                            <p>Eco-friendly alternatives to daily commuting.</p>
-                        </div>
-                        <div class="action-icons">
-                            <a href="#"><i class="fas fa-edit"></i></a>
-                            <a href="#"><i class="fas fa-trash"></i></a>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <h3>Reducing Plastic Waste</h3>
-                            <p>How to minimize plastic consumption in everyday life.</p>
-                        </div>
-                        <div class="action-icons">
-                            <a href="#"><i class="fas fa-edit"></i></a>
-                            <a href="#"><i class="fas fa-trash"></i></a>
-                        </div>
-                    </li> -->
+                    
                 </ul>
             </div>
         </div>
@@ -1065,185 +1061,132 @@
             <div class="admin-card">
                 <div class="admin-card-header">
                     <h2>Recycling Program Management</h2>
+                    <button class="btn" onclick="showCreateEventForm()">+ Add New Event</button>
                 </div>
 
-                <!-- Content from first document -->
-                <div class="main_background">
-                    <div class="create_title_and_calendar">
-                        <h1 id="create_event_title">Create Recycle Event</h1>
+                <!-- Create Event Form -->
+                <div id="createEventForm" style="display:none;" class="create_form">
+                    <form action="recycle_admin.php" method="POST" enctype="multipart/form-data">
+                        <table id="create_table">
+                            <tr>
+                                <th>Date:</th>
+                                <td><input type="date" name="date" required></td>
+                            </tr>
+                            <tr>
+                            <th>Organizer Name:</th>
+                                <td>
+                                    <input type="text" name="name" value="admin" readonly style="background-color: #e9ecef; color: #495057;">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Event Title:</th>
+                                <td><input type="text" name="title" required></td>
+                            </tr>
+                            <tr>
+                                <th>Description:</th>
+                                <td><textarea name="description" rows="4" required></textarea></td>
+                            </tr>
+                            <tr>
+                                <th>Event Image:</th>
+                                <td><input type="file" name="image" accept="image/*" required></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" class="buttons_td_class">
+                                    <button type="reset" id="create_reset">Reset</button>
+                                    <button type="submit" id="create_submit">Create Event</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
 
-                        <div class="calendar_container">
-                            <div class="header">
-                                <button id="prevBtn">
-                                    <i class="fa-solid fa-chevron-left"></i>
-                                </button>
-                                <div class="monthYear" id="monthYear"></div>
-                                <button id="nextBtn">
-                                    <i class="fa-solid fa-chevron-right"></i>
-                                </button>
-                            </div>
+                <!-- Events List -->
+                <table class="user-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Title</th>
+                            <th>Organizer</th>
+                            <th>Description</th>
+                            <th>Image</th>
+                            <th>&nbsp &nbsp &nbsp Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $sql = "SELECT * FROM recycle_event ORDER BY date DESC";
+                        $result = mysqli_query($conn, $sql);
 
-                            <div class="days">
-                                <div class="day">Sun</div>
-                                <div class="day">Mon</div>
-                                <div class="day">Tue</div>
-                                <div class="day">Wed</div>
-                                <div class="day">Thu</div>
-                                <div class="day">Fri</div>
-                                <div class="day">Sat</div>
-                            </div>
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            echo "<tr>";
+                            echo "<td>" . htmlspecialchars($row['date']) . "</td>";
+                            echo "<td>" . htmlspecialchars($row['title']) . "</td>";
+                            echo "<td>" . htmlspecialchars($row['name']) . "</td>";
+                            echo "<td>" . htmlspecialchars(substr($row['description'], 0, 50)) . "...</td>";
+                            echo "<td><img src='uploadImage/" . htmlspecialchars($row['image']) . "' alt='Event Image' style='width: 100px; height: 100px; object-fit: cover;'></td>";
+                            echo "<td class='actions'>
+                                    <a href='#' onclick='editEvent(" . $row['event_id'] . ")'>
+                                        <img src='pictures/pencil.ico' alt='Edit' style='width: 24px; height: 24px; margin: 0 5px; cursor: pointer;'>
+                                    </a>
+                                    <a href='#' onclick='deleteEvent(" . $row['event_id'] . ")'>
+                                        <img src='pictures/trash.ico' alt='Delete' style='width: 24px; height: 24px; margin: 0 5px; cursor: pointer;'>
+                                    </a>
+                                </td>";
+                            echo "</tr>";
+                        }
+                        ?>
+                    </tbody>
+                </table>
+            </div>
+    
 
-                            <div class="dates" id="dates"></div>
-                        </div>
-                    </div>
+            <div class="user_database_class">
+                <h1 id="database_title">User Database</h1>
+                    <div>
+                        <table id="user_database_table">
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Phone Number</th>
+                                <th>Age</th>
+                                <th>Address</th>
+                                <th>Modify</th>
+                            </tr>
+                    
 
-                    <div class="create_class">
-                        <button type="button" id="create_button" onclick="toggleForm('create_form')">Create</button>
-                    </div>
-
-                    <div class="create_form">
-                        <form id="create_event_form" action="recycle_admin.php" method="POST"
-                            enctype="multipart/form-data">
-                            <table id="create_table">
-                                <tr>
-                                    <th>Date of Event:</th>
-                                    <td><input type="date" name="date" required></td>
-                                </tr>
-
-                                <tr>
-                                    <th>Name:</th>
-                                    <td><input type="text" name="name" placeholder="Sophia Elizabeth" required></td>
-                                </tr>
-
-                                <tr>
-                                    <th>Title:</th>
-                                    <td><input type="text" name="title" placeholder="Recycle Program" required></td>
-                                </tr>
-
-                                <tr>
-                                    <th>Description:</th>
-                                    <td><textarea rows="7" name="description" required></textarea></td>
-                                </tr>
-
-                                <tr>
-                                    <th>Upload an Image:</th>
-                                    <td><input type="file" name="image" accept="image/*" onchange="previewImage(event)"
-                                            required></td>
-                                </tr>
-
-                                <tr>
-                                    <td colspan="2" id="buttons_td">
-                                        <div class="buttons_td_class">
-                                            <button type="reset" id="create_reset">Reset</button>
-                                            <button type="submit" id="create_submit">Submit</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </table>
-                        </form>
-                    </div>
-
-                    <!--Admin Database-->
-                    <div class="admin_database_class">
-                        <h1 id="database_title">Admin Database</h1>
-
-                        <div>
-                            <table id="admin_database_table">
-                                <tr>
-                                    <th>Date</th>
-                                    <th>Name</th>
-                                    <th>Title</th>
-                                    <th>Description</th>
-                                    <th>Image</th>
-                                    <th>Modify</th>
-                                </tr>
-
-                                <!-- Example data rows (would be populated by PHP in production) -->
-                                <tr>
-                                    <td id="create_date">2025-02-10</td>
-                                    <td id="create_name">Emma Johnson</td>
-                                    <td id="create_title">Community Cleanup</td>
-                                    <td id="create_description">Join us for a community cleanup day at Central Park.
-                                        Bring gloves and comfortable shoes!</td>
-                                    <td id="create_image"><img src="pictures/recycle-event-1.png" alt="Event Image"></td>
-                                    <td id="modify_recycle_event">
-                                        <a href="#">
-                                            <img id="edit_icon" src="pictures/pencil.ico" alt="Edit">
-                                        </a>
-                                        <a href="#"
-                                            onclick="return confirm('Are you sure you want to delete this event?');">
-                                            <img id="delete_icon" src="pictures/trash.ico" alt="Delete">
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td id="create_date">2025-02-22</td>
-                                    <td id="create_name">Michael Smith</td>
-                                    <td id="create_title">Electronics Recycling</td>
-                                    <td id="create_description">Bring your old electronics for proper recycling. We
-                                        accept computers, phones, and small appliances.</td>
-                                    <td id="create_image"><img src="pictures/recycle-event-2.png" alt="Event Image"></td>
-                                    <td id="modify_recycle_event">
-                                        <a href="#">
-                                            <img id="edit_icon" src="pictures/pencil.ico" alt="Edit">
-                                        </a>
-                                        <a href="#"
-                                            onclick="return confirm('Are you sure you want to delete this event?');">
-                                            <img id="delete_icon" src="pictures/trash.ico" alt="Delete">
-                                        </a>
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-
-                    <!--User Database-->
-                    <div class="user_database_class">
-                        <h1 id="database_title">User Database</h1>
-                        <div>
-                            <table id="user_database_table">
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Email</th>
-                                    <th>Phone Number</th>
-                                    <th>Age</th>
-                                    <th>Address</th>
-                                    <th>Modify</th>
-                                </tr>
-
-                                <!-- Example data rows (would be populated by PHP in production) -->
-                                <tr>
-                                    <td id="join_name">Sarah Parker</td>
-                                    <td id="join_email">sarah.parker@example.com</td>
-                                    <td id="join_phone">555-123-4567</td>
-                                    <td id="join_age">32</td>
-                                    <td id="join_address">123 Main St, Anytown</td>
-                                    <td id="modify_recycle_event">
-                                        <a href="#">
-                                            <img id="edit_icon" src="pictures/pencil.ico" alt="Edit">
-                                        </a>
-                                        <a href="#"
-                                            onclick="return confirm('Are you sure you want to delete this event?');">
-                                            <img id="delete_icon" src="pictures/trash.ico" alt="Delete">
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td id="join_name">David Wilson</td>
-                                    <td id="join_email">david.wilson@example.com</td>
-                                    <td id="join_phone">555-987-6543</td>
-                                    <td id="join_age">45</td>
-                                    <td id="join_address">456 Oak Ave, Somewhere</td>
-                                    <td id="modify_recycle_event">
-                                        <a href="#">
-                                            <img id="edit_icon" src="pictures/pencil.ico" alt="Edit">
-                                        </a>
-                                        <a href="#"
-                                            onclick="return confirm('Are you sure you want to delete this event?');">
-                                            <img id="delete_icon" src="pictures/trash.ico" alt="Delete">
-                                        </a>
-                                    </td>
-                                </tr>
+                                <?php
+                                    // Include database connection
+                                     include 'dbh.inc.php';
+                                    
+                                     // Query to select all recycle events
+                                     $sql = "SELECT * FROM join_event";
+                                     $result = mysqli_query($conn, $sql);
+                                    
+                                     if (mysqli_num_rows($result) > 0) {
+                                         while ($row = mysqli_fetch_assoc($result)) {
+                                             echo "<tr>";
+                                             echo "<td>" . htmlspecialchars($row['name']) . "</td>";
+                                             echo "<td>" . htmlspecialchars($row['email']) . "</td>";
+                                             echo "<td>" . htmlspecialchars($row['phone']) ."</td>";
+                                             echo "<td>" . htmlspecialchars($row['age']) ."</td>"; 
+                                             echo "<td>" . htmlspecialchars($row['address']) ."</td>";
+                                            
+                                             // Updated tools column with center alignment and styled icons
+                                             echo "<td style='text-align: center;'>
+                                                     <a href='admin_edit_join.php?id=" . htmlspecialchars($row['join_id']) . "' class='tool-icon edit' data-id='" . htmlspecialchars($row['join_id']) . "'>
+                                                         <img src='pictures/pencil.ico'>
+                                                     </a>
+                                                     <a href='delete.php?type=join&id=" . htmlspecialchars($row['join_id']) . "' class='tool-icon delete' data-id='" . htmlspecialchars($row['join_id']) . "'>
+                                                         <img src='pictures/trash.ico'>
+                                                     </a>
+                                                 </td>";
+                                             echo "</tr>";
+                                         }
+                                     } else {
+                                         echo "<tr><td colspan='5' class='no-data'>No users found</td></tr>";
+                                     }
+                                    
+                               ?>
                             </table>
                         </div>
                     </div>
@@ -1259,40 +1202,37 @@
                     <button class="btn"><i class="fas fa-plus"></i> Add New Program</button>
                 </div>
                 <ul class="program-list">
-                    <li>
-                        <div>
-                            <h3>Join Our Community Garden Group!</h3>
-                            <p>Group Owner:- Sarah Parker</p><br>
-                            <span class="program-status status-active">Active</span>
-                        </div>
-                        <div class="action-icons">
-                            <a href="#"><i class="fas fa-edit"></i></a>
-                            <a href="#"><i class="fas fa-trash"></i></a>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <h3>Grow Together with Our Community Garden</h3>
-                            <p>Group Owner:- James Carter</p><br>
-                            <span class="program-status status-active">Active</span>
-                        </div>
-                        <div class="action-icons">
-                            <a href="#"><i class="fas fa-edit"></i></a>
-                            <a href="#"><i class="fas fa-trash"></i></a>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <h3>Be Part of Our Gardening Community!</h3>
-                            <p>Group Owner:- Lila Hernandez</p><br>
-                            <span class="program-status status-active">Active</span>
-                        </div>
-                        <div class="action-icons">
-                            <a href="#"><i class="fas fa-edit"></i></a>
-                            <a href="#"><i class="fas fa-trash"></i></a>
-                        </div>
-                    </li>
+                    <?php
+                        // Include database connection
+                        include "dbh.inc.php";
 
+                        // Fetch data from the database
+                        $sql = "SELECT * FROM community_group";
+                        $result = $conn->query($sql);
+
+                        // Check if there are results
+                        if ($result->num_rows > 0) {
+                            while ($row = $result->fetch_assoc()) {
+                                echo '<li>
+                                        <div>
+                                            <h3>' . htmlspecialchars($row["title"]) . '</h3>
+                                            <p>Group Owner:- ' . htmlspecialchars($row["name"]) . '</p><br>
+                                            <span class="program-status status-active">' . htmlspecialchars($row["status"]) . '</span>
+                                        </div>
+                                        <div class="action-icons">
+                                            <a href="admin_edit_comments.php?id=' . htmlspecialchars($row['id']) . '">
+                                                <img src="pictures/pencil.ico" alt="Edit" style="width: 24px; height: 24px; margin: 0 5px;">
+                                            </a>
+                                            <a href="delete.php?type=comment&id=' . htmlspecialchars($row['id']) . '">
+                                                <img src="pictures/trash.ico" alt="Delete" style="width: 24px; height: 24px; margin: 0 5px;">
+                                            </a>
+                                        </div>
+                                    </li>';
+                            }
+                        } else {
+                            echo "<li>No groups found.</li>";
+                        }
+                        ?>
                 </ul>
 
             </div>
@@ -1322,7 +1262,7 @@
             </div>
         </div>
     </main>
-                
+
 </body>
 
 </html>

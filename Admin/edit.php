@@ -25,6 +25,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         case 'user':
             updateUser($conn);
             break;
+        case 'tip':
+            updateTip($conn);
+            break;
         default:
             die("Error: Invalid type.");
     }
@@ -46,6 +49,7 @@ function updateComment($conn) {
     header("Location: adminpage.php");
     exit();
 }
+
 
 function updateRecycleEvent($conn) {
     $id = intval($_POST['id']);
@@ -122,6 +126,40 @@ function updateUser($conn) {
     exit();
 }
 
+function updateTip($conn) {
+    $id = intval($_POST['id']);
+    $title = $_POST['title'];
+    $short_description = $_POST['short_description'];
+    $content = $_POST['content'];
+    
+    if (empty($id) || empty($title) || empty($short_description) || empty($content)) {
+        die("Error: Required fields are missing.");
+    }
+
+    // Handle thumbnail upload if provided
+    $thumbnail_url = null;
+    if (isset($_FILES['thumbnail']) && $_FILES['thumbnail']['error'] === 0) {
+        $target_dir = "uploadImage/";
+        $target_file = $target_dir . basename($_FILES['thumbnail']['name']);
+        if (move_uploaded_file($_FILES['thumbnail']['tmp_name'], $target_file)) {
+            $thumbnail_url = basename($_FILES['thumbnail']['name']);
+        }
+    }
+
+    // Update query with or without thumbnail
+    if ($thumbnail_url) {
+        $stmt = $conn->prepare("UPDATE blogpost_tips SET title = ?, short_description = ?, content = ?, thumbnail_url = ? WHERE post_id = ?");
+        $stmt->bind_param("ssssi", $title, $short_description, $content, $thumbnail_url, $id);
+    } else {
+        $stmt = $conn->prepare("UPDATE blogpost_tips SET title = ?, short_description = ?, content = ? WHERE post_id = ?");
+        $stmt->bind_param("sssi", $title, $short_description, $content, $id);
+    }
+
+    $stmt->execute();
+    
+    header("Location: adminpage.php");
+    exit();
+}
 // function handleImageUpload($fieldName, $table, $primaryKey, $id, $conn) {
 //     $target_dir = "uploadImage/";
 //     if (!is_dir($target_dir)) mkdir($target_dir, 0777, true);

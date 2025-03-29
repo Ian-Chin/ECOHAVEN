@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List An Item</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bowiestyle.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/bowieresponsive.css">
+    <link rel="icon" href="pictures/document_iconPW.ico">
+</head>
+
+<body>
+    <header>
+        <div class="header-bar">
+            <img src="pictures/Whiteicon.ico" alt="Eco Haven Logo" class="logo">
+            <img src="pictures/Blackicon.ico" alt="Eco Haven Logo" class="logo2">
+            <div class="login"><a href="login.php">Login</a></div>
+
+        </div>
+        <div class="header-bar2">
+            <nav class="nav">
+                <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+                <div class="nav-links">
+                    <a href="Mainmenu.html">Home</a>
+                    <a href="product-swap.html">Product Swap</a>
+                    <a href="recycle.html">Recycling Programs</a>
+                    <a href="#energy-tips">Energy Tips</a>
+                    <a href="Community Garden.html">Community</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="banner" id="PSbanner">
+        <img src="pictures/pemainbg.jpg" alt="Banner Background" class="banner-image">
+        <h1>Product Swap</h1>
+        <p>This platform connects community members to exchange eco-friendly items.<br>Exchange your eco-friendly products here!</p>
+    </section>
+
+    <nav class="secondary-navbar">
+        <ul class="nav-options">
+            <li><a href="product-swap.html">Product Swap</a></li>
+            <li><a href="list-item.html">List an Item</a></li>
+            <li><a href="exchange-hub.html">Exchange Hub</a></li>
+        </ul>
+    </nav>
+
+    <header class="exchange-header">
+        <h1>List An Item</h1>
+    </header>
+
+    <main class="flowerbg" id="flowerbg">
+        <section class="inventory-section">
+            <h2>Inventory</h2>
+            <div class="inventory-container" id="inventory-container">
+                <!-- Js will insert products here -->
+            </div>
+            <div id="empty-inventory">
+            </div>
+        </section>
+    </section>
+        
+        <section>
+            <div class="form-container">
+                <h2>Item Form</h2>
+                <form id="listItemForm" action="item_form.php" method="POST" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="product">Product Name</label>
+                        <input type="text" id="product" name="product" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="category">Category</label>
+                        <select id="category" name="category">
+                            <option value="Home & Decor">Home & Decor</option>
+                            <option value="Stationery">Stationery</option>
+                            <option value="Toys & Kids Items">Toys & Kids Items</option>
+                            <option value="Clothing & Accessories">Clothing & Accessories</option>
+                            <option value="Gardening & Outdoor">Gardening & Outdoor</option>
+                            <option value="Handmade Crafts">Handmade Crafts</option>
+                            <option value="Others">Others</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="condition">Product Condition</label>
+                        <select id="condition" name="product_condition">
+                            <option value="New">New</option>
+                            <option value="Used">Used</option>
+                            <option value="Like New">Like New</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="location">Location</label>
+                        <input type="text" id="location" name="location" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="image">Upload Image</label>
+                        <input type="file" id="image" name="image" accept="image/*" required>
+                    </div>
+                    <div class="button-group">
+                        <button type="reset" class="reset-button">Reset</button>
+                        <button type="submit" class="submit-button" name="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="links">
+                <a href="#">Home</a>
+                <br><br><br>
+                <a href="#">Terms & Conditions</a>
+            </div>
+            <div class="socials">
+                <p>Social Medias</p>
+                <img src="pictures/facebookicon.ico" alt="facebook pic">
+                <img src="pictures/instaicon.ico" alt="insta pic">
+                <img src="pictures/mail.ico" alt="email pic">
+                <br><br>
+                <p class="Copyright">2025 Eco Haven. All Rights Reserved.</p>
+            </div>
+
+            <div class="services">
+                <p>Services</p>
+                <br>
+                <p>+000-00000-000</p>
+                <p>+03-33333-333</p>
+            </div>
+        </div>
+    </footer>
+    <script src="js/popup.js"></script>
+    <script src="js/product_swap.js"></script>
+</body>
+</html>
